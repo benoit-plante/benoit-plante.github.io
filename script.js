@@ -106,16 +106,66 @@
   }
 
   /* ----------------------------------------------------------------------
-     Formulaire de contact (placeholder — à remplacer par Formspree/Web3Forms)
+     Formulaire de contact — Web3Forms (soumission AJAX)
      ---------------------------------------------------------------------- */
   document.querySelectorAll('form[data-form-type="contact"]').forEach(form => {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
+
+      const button = form.querySelector('button[type="submit"]');
       const confirm = form.querySelector('.form-confirm');
-      if (confirm) confirm.classList.add('show');
-      form.reset();
-      // TODO: Remplacer par appel Formspree / Web3Forms
-      // ex: fetch('https://formspree.io/f/XXXXX', { method: 'POST', body: new FormData(form) })
+      const originalText = button ? button.textContent : '';
+
+      // Honeypot : si le bot a coché la case cachée, on simule un succès et on stoppe
+      const honeypot = form.querySelector('input[name="botcheck"]');
+      if (honeypot && honeypot.checked) {
+        if (confirm) {
+          confirm.textContent = '✓ Merci !';
+          confirm.classList.add('show');
+        }
+        form.reset();
+        return;
+      }
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Envoi en cours…';
+      }
+      if (confirm) {
+        confirm.classList.remove('show');
+        confirm.classList.remove('error');
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+        const data = await response.json();
+
+        if (data.success) {
+          if (confirm) {
+            confirm.textContent = '✓ Merci ! Votre message a bien été envoyé. Je vous répondrai dans les meilleurs délais.';
+            confirm.classList.add('show');
+          }
+          form.reset();
+        } else {
+          throw new Error(data.message || 'Erreur lors de l\'envoi');
+        }
+      } catch (err) {
+        if (confirm) {
+          confirm.textContent = '⚠ Une erreur est survenue. Réessayez ou contactez-moi via LinkedIn.';
+          confirm.classList.add('show', 'error');
+        }
+        console.error('Erreur Web3Forms:', err);
+      } finally {
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalText;
+        }
+      }
     });
   });
 

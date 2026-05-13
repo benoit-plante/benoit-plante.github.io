@@ -714,8 +714,13 @@ section { padding: 6rem var(--pad-x); }
   color: var(--gratuit);
   border-radius: 6px;
   font-size: 0.88rem;
+  line-height: 1.5;
 }
 .form-confirm.show { display: block; }
+.form-confirm.error {
+  background: rgba(220, 38, 38, 0.08);
+  color: #dc2626;
+}
 
 /* ==========================================================================
    FOOTER

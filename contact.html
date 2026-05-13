@@ -72,18 +72,17 @@
           </div>
         </div>
 
-        <!-- ============================================================
-             PLACEHOLDER FORMULAIRE
-             Pour rendre ce formulaire fonctionnel, utiliser Formspree ou Web3Forms :
-             1. Créer un compte gratuit
-             2. Récupérer l'URL d'action (ex: https://formspree.io/f/XXXXXX)
-             3. Modifier l'attribut action du <form> ci-dessous
-             4. Retirer l'attribut data-form-type pour désactiver le JS placeholder
-             ============================================================ -->
-        <form class="form-card reveal" style="transition-delay: 0.15s;" data-form-type="contact" method="POST" action="#">
-          <div style="background: rgba(184, 151, 90, 0.08); border: 1px dashed var(--or); border-radius: 6px; padding: 0.7rem 1rem; font-size: 0.8rem; color: var(--or);">
-            ⚠ Formulaire en placeholder — brancher à Formspree ou Web3Forms (voir commentaire dans le HTML).
-          </div>
+        <!-- Formulaire de contact — Web3Forms (https://web3forms.com) -->
+        <form class="form-card reveal" style="transition-delay: 0.15s;" data-form-type="contact" method="POST" action="https://api.web3forms.com/submit">
+
+          <!-- Web3Forms : champs cachés -->
+          <input type="hidden" name="access_key" value="611b3f1a-6503-483a-918d-75c53d391b8a" />
+          <input type="hidden" name="subject" value="Nouveau message via benoitplante.com" />
+          <input type="hidden" name="from_name" value="benoitplante.com — Formulaire de contact" />
+          <input type="hidden" name="redirect" value="false" />
+
+          <!-- Honeypot anti-spam : doit rester vide (caché à l'utilisateur) -->
+          <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off" />
 
           <div class="form-row">
             <div class="form-group">
@@ -126,7 +125,7 @@
           </div>
 
           <button type="submit" class="btn-primary" style="align-self: flex-start;">Envoyer le message →</button>
-          <p class="form-confirm">✓ Merci! Je vous répondrai dans les meilleurs délais.</p>
+          <p class="form-confirm" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
