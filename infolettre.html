@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infolettre — Benoit Plante</title>
+  <meta name="description" content="Une infolettre mensuelle dédiée à la pratique de la recherche sociale : templates exclusifs, notes de recherche, lectures commentées." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Infolettre — Benoit Plante" />
+  <meta property="og:description" content="Une fois par mois : une ressource exclusive et des notes de pratique de recherche sociale." />
+  <meta property="og:locale" content="fr_CA" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">Benoit Plante</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="contact.html" class="nav-cta">Me contacter</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO + FORMULAIRE -->
+  <section class="hero">
+    <div class="hero-content" style="max-width: 1100px; width: 100%; display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center;" id="infolettre-hero-grid">
+      <div>
+        <div class="hero-eyebrow">Infolettre mensuelle</div>
+        <h1 class="hero-h1" style="font-size: clamp(2.2rem, 4.5vw, 3.4rem);">Des notes de <em>recherche</em>, chaque mois dans votre boîte courriel.</h1>
+        <p class="hero-sub">Une infolettre dédiée à la pratique de la recherche sociale : ressources exclusives, lectures commentées, réflexions méthodologiques. Pensée pour les chercheurs, les étudiants aux cycles supérieurs et les coordonnateurs de projets.</p>
+        <ul class="bullet-list">
+          <li><strong>Une ressource exclusive par mois</strong> — template, mini-guide ou outil réservé aux abonnés.</li>
+          <li><strong>Lectures commentées</strong> — un article récent passé au crible, sans le jargon.</li>
+          <li><strong>Notes de pratique</strong> — leçons tirées de mes mandats de coordination scientifique.</li>
+          <li><strong>Nouvelles ressources</strong> — accès en avant-première aux nouveaux templates et formations.</li>
+        </ul>
+      </div>
+
+      <div class="newsletter-block" style="padding: 2.2rem 2rem;">
+        <div style="position: relative; z-index: 1;">
+          <span class="section-tag" style="color: rgba(255,255,255,0.85);">Inscription gratuite</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: white; margin-bottom: 0.8rem; line-height: 1.2;">Rejoindre l'infolettre</h2>
+          <p style="font-size: 0.92rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 1.4rem;">Une fois par mois. Aucun spam. Désinscription en un clic.</p>
+
+          <!-- ============================================================
+               PLACEHOLDER MAILERLITE
+               Remplacer ce bloc par le code Embedded Form de MailerLite
+               ============================================================ -->
+          <div class="mailerlite-placeholder">⚠ Placeholder MailerLite</div>
+          <form class="newsletter-form" data-form-type="newsletter">
+            <input type="text" placeholder="Prénom" required aria-label="Prénom" />
+            <input type="email" placeholder="Votre courriel" required aria-label="Courriel" />
+            <button type="submit">M'inscrire</button>
+            <p class="newsletter-fineprint">En vous inscrivant, vous acceptez de recevoir l'infolettre. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+            <p class="form-confirm"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- À QUOI S'ATTENDRE -->
+  <section style="background: var(--gris-50);">
+    <div class="inner">
+      <div class="reveal" style="text-align: center; margin-bottom: 3rem;">
+        <span class="section-tag" style="margin-left: auto; margin-right: auto;">Ce qui vous attend</span>
+        <h2 class="section-h2">Un format pensé pour les gens occupés</h2>
+        <p class="section-lead" style="margin: 0 auto;">Pas de fil d'actualités sans fin, pas de buzz méthodologique. Du contenu condensé, applicable, et pertinent pour votre travail.</p>
+      </div>
+
+      <div class="info-grid reveal">
+        <div class="info-card">
+          <div class="info-num">📅</div>
+          <h3>Mensuelle</h3>
+          <p>Un envoi par mois, le premier mardi. Lecture en 5-8 minutes. Aucun bruit entre les envois.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">📄</div>
+          <h3>Une ressource exclusive</h3>
+          <p>Chaque infolettre contient un template, un outil ou un mini-guide qu'on ne retrouve pas ailleurs sur le site.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">🔬</div>
+          <h3>Centrée sur la pratique</h3>
+          <p>Pas de théorie pour la théorie. Du contenu directement applicable à vos projets de recherche.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">🔒</div>
+          <h3>Respectueuse</h3>
+          <p>Aucun partage de votre courriel. Désinscription en un clic dans chaque envoi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="inner" style="max-width: 780px;">
+      <div class="reveal" style="margin-bottom: 2.5rem;">
+        <span class="section-tag">Questions fréquentes</span>
+        <h2 class="section-h2">Avant de vous inscrire</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>Quelle est la fréquence d'envoi ?</summary>
+          <p>Une fois par mois, le premier mardi. C'est tout. Aucun envoi promotionnel entre les éditions.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Est-ce que c'est gratuit ?</summary>
+          <p>Oui, totalement gratuit. Vous recevez chaque mois une ressource exclusive accessible uniquement aux abonnés. Les ressources premium du site demeurent payantes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>À qui s'adresse cette infolettre ?</summary>
+          <p>Aux chercheurs (toutes étapes de carrière), aux étudiants aux cycles supérieurs, aux coordonnateurs de projets de recherche et aux professionnels qui mènent ou commandent des études en sciences sociales.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Comment gérez-vous mes données ?</summary>
+          <p>Votre courriel est stocké chez MailerLite (notre fournisseur d'infolettre) et utilisé uniquement pour vous envoyer l'infolettre. Il n'est jamais partagé ni vendu. Voir la <a href="confidentialite.html">politique de confidentialité</a> pour les détails.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Comment me désinscrire ?</summary>
+          <p>Chaque courriel contient un lien de désinscription. Un clic, et c'est fait. Aucune question posée.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Benoit Plante</div>
+        <p>Consultant en recherche sociale. Coordonnateur scientifique au GRIN et au CEIDEF. Ressources et outils pour la communauté de recherche.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Offre</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="outils.html">Outils</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="a-propos.html">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="infolettre.html">Infolettre</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal &amp; liens</h4>
+        <ul>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Benoit Plante. Tous droits réservés.</p>
+      <span class="footer-mark">Recherche &amp; impact social</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Styles spécifiques infolettre -->
+  <style>
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.6rem;
+      font-size: 0.94rem;
+      color: var(--ardoise);
+      line-height: 1.6;
+    }
+    .bullet-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .bullet-list strong { color: var(--bleu); font-weight: 600; }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
+    }
+    .info-card {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.8rem 1.6rem;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+    .info-num {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+    .info-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--bleu);
+      margin-bottom: 0.5rem;
+    }
+    .info-card p {
+      font-size: 0.88rem;
+      color: var(--gris-500);
+      line-height: 1.65;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .faq-item {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 10px;
+      padding: 1rem 1.4rem;
+      transition: border-color 0.2s;
+    }
+    .faq-item[open] { border-color: var(--accent); }
+    .faq-item summary {
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--bleu);
+      font-size: 0.95rem;
+      list-style: none;
+      position: relative;
+      padding-right: 1.5rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 0; top: 0;
+      font-size: 1.3rem;
+      color: var(--accent);
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item p {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--gris-700);
+      line-height: 1.7;
+    }
+    .faq-item a { color: var(--accent); }
+
+    @media (max-width: 960px) {
+      #infolettre-hero-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    }
+  </style>
+</body>
+</html>
