@@ -342,15 +342,19 @@
             <h2>Soyez le premier <em>au courant</em> des nouvelles ressources.</h2>
             <p>De nouvelles ressources sont ajoutées chaque mois. Inscrivez-vous pour les recevoir directement et accéder à une ressource exclusive réservée aux abonnés.</p>
           </div>
-          <div>
-            <div class="mailerlite-placeholder">⚠ Placeholder MailerLite</div>
-            <form class="newsletter-form" data-form-type="newsletter">
-              <input type="text" placeholder="Prénom" required aria-label="Prénom" />
-              <input type="email" placeholder="Votre courriel" required aria-label="Courriel" />
+          <div id="mlb2-41268111" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41268111">
+            <form class="newsletter-form ml-block-form row-form" action="https://assets.mailerlite.com/jsonp/2346008/forms/187388314435716606/subscribe" method="post" target="_blank">
+              <input type="text" name="fields[name]" placeholder="Prénom" required aria-label="Prénom" autocomplete="given-name" />
+              <input type="email" name="fields[email]" placeholder="Votre courriel" required aria-label="Courriel" autocomplete="email" />
+              <input type="hidden" name="ml-submit" value="1" />
+              <input type="hidden" name="anticsrf" value="true" />
               <button type="submit">S'abonner gratuitement</button>
               <p class="newsletter-fineprint">Désinscription en un clic. <a href="confidentialite.html">Politique de confidentialité</a>.</p>
-              <p class="form-confirm"></p>
             </form>
+            <div class="row-success" style="display: none;">
+              <strong>✓ Merci !</strong>
+              <p>Un courriel de confirmation vient d'être envoyé. Cliquez sur le lien à l'intérieur pour finaliser votre inscription.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -397,5 +401,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
 </body>
 </html>

@@ -624,16 +624,34 @@ section { padding: 6rem var(--pad-x); }
 
 .newsletter-fineprint a { color: rgba(255, 255, 255, 0.8); text-decoration: underline; }
 
-/* Marqueur placeholder MailerLite */
-.mailerlite-placeholder {
-  border: 2px dashed var(--or);
-  border-radius: 8px;
-  padding: 1rem;
-  background: rgba(184, 151, 90, 0.08);
-  font-size: 0.78rem;
-  color: var(--or);
-  margin-bottom: 0.8rem;
+/* Message de succès après inscription MailerLite */
+.row-success {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(184, 151, 90, 0.3);
+  border-radius: 10px;
+  padding: 1.4rem 1.2rem;
+  color: white;
 }
+
+.row-success strong,
+.row-success h4 {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--or);
+  margin-bottom: 0.5rem;
+}
+
+.row-success p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Container MailerLite — ne pas perturber le layout */
+.ml-form-embedContainer { width: 100%; }
 
 /* ==========================================================================
    FORMULAIRES

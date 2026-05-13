@@ -120,21 +120,24 @@
   });
 
   /* ----------------------------------------------------------------------
-     Formulaire infolettre inline (placeholder MailerLite)
+     Callback de succès MailerLite (déclenché par webforms.min.js)
+     Form ID: 41268111 — partagé entre toutes les pages avec inscription
      ---------------------------------------------------------------------- */
-  document.querySelectorAll('form[data-form-type="newsletter"]').forEach(form => {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const confirm = form.querySelector('.form-confirm');
-      if (confirm) {
-        confirm.textContent =
-          '✓ Une fois MailerLite branché, vous recevrez un courriel de confirmation.';
-        confirm.classList.add('show');
-      }
-      form.reset();
-      // TODO: Remplacer ce formulaire par le code MailerLite Embedded Form
-    });
-  });
+  window.ml_webform_success_41268111 = function () {
+    var $ = window.ml_jQuery || window.jQuery;
+    if ($) {
+      $('.ml-subscribe-form-41268111 .row-success').show();
+      $('.ml-subscribe-form-41268111 .row-form').hide();
+    } else {
+      document.querySelectorAll('.ml-subscribe-form-41268111 .row-success').forEach(el => el.style.display = 'block');
+      document.querySelectorAll('.ml-subscribe-form-41268111 .row-form').forEach(el => el.style.display = 'none');
+    }
+  };
+
+  // Tracking pixel MailerLite — déclenché si un formulaire est présent
+  if (document.querySelector('.ml-subscribe-form-41268111')) {
+    fetch('https://assets.mailerlite.com/jsonp/2346008/forms/187388314435716606/takel').catch(() => {});
+  }
 
   /* ----------------------------------------------------------------------
      Mise en évidence du lien actif dans la nav

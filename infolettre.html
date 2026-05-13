@@ -56,18 +56,20 @@
           <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: white; margin-bottom: 0.8rem; line-height: 1.2;">Rejoindre l'infolettre</h2>
           <p style="font-size: 0.92rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 1.4rem;">Une fois par mois. Aucun spam. Désinscription en un clic.</p>
 
-          <!-- ============================================================
-               PLACEHOLDER MAILERLITE
-               Remplacer ce bloc par le code Embedded Form de MailerLite
-               ============================================================ -->
-          <div class="mailerlite-placeholder">⚠ Placeholder MailerLite</div>
-          <form class="newsletter-form" data-form-type="newsletter">
-            <input type="text" placeholder="Prénom" required aria-label="Prénom" />
-            <input type="email" placeholder="Votre courriel" required aria-label="Courriel" />
-            <button type="submit">M'inscrire</button>
-            <p class="newsletter-fineprint">En vous inscrivant, vous acceptez de recevoir l'infolettre. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</p>
-            <p class="form-confirm"></p>
-          </form>
+          <div id="mlb2-41268111" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41268111">
+            <form class="newsletter-form ml-block-form row-form" action="https://assets.mailerlite.com/jsonp/2346008/forms/187388314435716606/subscribe" method="post" target="_blank">
+              <input type="text" name="fields[name]" placeholder="Prénom" required aria-label="Prénom" autocomplete="given-name" />
+              <input type="email" name="fields[email]" placeholder="Votre courriel" required aria-label="Courriel" autocomplete="email" />
+              <input type="hidden" name="ml-submit" value="1" />
+              <input type="hidden" name="anticsrf" value="true" />
+              <button type="submit">M'inscrire</button>
+              <p class="newsletter-fineprint">En vous inscrivant, vous acceptez de recevoir l'infolettre. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+            </form>
+            <div class="row-success" style="display: none;">
+              <strong>✓ Merci !</strong>
+              <p>Un courriel de confirmation vient d'être envoyé. Cliquez sur le lien à l'intérieur pour finaliser votre inscription.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -180,6 +182,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
 
   <!-- Styles spécifiques infolettre -->
   <style>
