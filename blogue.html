@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogue — Benoit Plante</title>
+  <meta name="description" content="Veille hebdomadaire et articles approfondis sur l'IA en recherche : outils, controverses, bonnes pratiques. Pour étudiants gradués, chercheurs et praticiens." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blogue — IA en recherche · Benoit Plante" />
+  <meta property="og:description" content="Veille hebdomadaire et articles de fond sur l'IA en recherche." />
+  <meta property="og:locale" content="fr_CA" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">Benoit Plante</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blogue.html">Blogue</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="contact.html" class="nav-cta">Me contacter</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero-compact">
+    <div class="hero-content" style="max-width: 760px;">
+      <div class="hero-eyebrow">Blogue · IA en recherche</div>
+      <h1 class="hero-h1">Veille et <em>réflexions</em> sur l'IA en recherche.</h1>
+      <p class="hero-sub">Chaque semaine, une revue structurée des nouveautés IA pour la recherche. Chaque mois, un article de fond pour aller plus loin. Pour étudiants gradués, chercheurs établis et praticiens du milieu communautaire et institutionnel.</p>
+    </div>
+  </section>
+
+  <!-- LISTE DES BILLETS -->
+  <section style="padding-top: 0;">
+    <div class="inner">
+
+      <!-- Filtres -->
+      <div class="filters reveal" data-filter-container>
+        <div class="filter-group">
+          <span class="filter-label">Format</span>
+          <button class="filter-chip active" data-group="categorie" data-value="tous">Tous</button>
+          <button class="filter-chip" data-group="categorie" data-value="article">Articles de fond</button>
+          <button class="filter-chip" data-group="categorie" data-value="veille">Veille hebdo</button>
+        </div>
+      </div>
+
+      <p class="results-count" data-results-count>Chargement…</p>
+
+      <!-- Note placeholder -->
+      <div style="background: rgba(184, 151, 90, 0.08); border: 1px dashed var(--or); border-radius: 10px; padding: 1rem 1.4rem; margin-bottom: 2rem; font-size: 0.85rem; color: var(--gris-700);">
+        <strong style="color: var(--or);">⚠ Note :</strong> les trois premières entrées ci-dessous sont des templates qui illustrent la structure du blogue. À remplacer par les vraies publications une fois la veille en cours.
+      </div>
+
+      <div class="resource-grid">
+
+        <!-- Article 1 -->
+        <article class="resource-card" data-categorie="article" data-prix="tous">
+          <div class="resource-header">
+            <div class="resource-icon methodologie" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="resource-badges">
+              <span class="badge post-badge-article">Article</span>
+              <span class="badge badge-format">8 min</span>
+            </div>
+          </div>
+          <div class="resource-category">12 mai 2026</div>
+          <h3>Pourquoi je code mes entrevues à la main, même avec NotebookLM dans l'autre fenêtre</h3>
+          <p class="resource-desc">L'IA peut accélérer le codage qualitatif. Mais elle ne peut pas remplacer ce que la familiarisation manuelle vous apprend. Réflexion à partir d'un projet récent au GRIN.</p>
+          <a href="blogue/article-coder-a-la-main.html" class="resource-cta">Lire l'article →</a>
+        </article>
+
+        <!-- Veille 1 -->
+        <article class="resource-card" data-categorie="veille" data-prix="tous">
+          <div class="resource-header">
+            <div class="resource-icon analyse" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="resource-badges">
+              <span class="badge post-badge-veille">Veille</span>
+              <span class="badge badge-format">5 items</span>
+            </div>
+          </div>
+          <div class="resource-category">Semaine du 11 mai 2026</div>
+          <h3>NotebookLM source-by-source, Claude Skills et un cadre éthique du CRSH</h3>
+          <p class="resource-desc">Cette semaine : NotebookLM ajoute un mode d'analyse source par source · ChatGPT Atlas pour la navigation académique · Claude Skills · une controverse sur la peer-review générée · le CRSH publie un cadre éthique IA.</p>
+          <a href="blogue/veille-2026-05-11.html" class="resource-cta">Lire la brève →</a>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="resource-card" data-categorie="article" data-prix="tous">
+          <div class="resource-header">
+            <div class="resource-icon collecte" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <div class="resource-badges">
+              <span class="badge post-badge-article">Article</span>
+              <span class="badge badge-format">12 min</span>
+            </div>
+          </div>
+          <div class="resource-category">5 mai 2026</div>
+          <h3>Trois prompts qui changent vraiment ma revue de littérature</h3>
+          <p class="resource-desc">Pas du « ChatGPT résume cet article ». Des prompts structurés qui transforment l'IA en assistante de synthèse critique — sans hallucinations. Avec les prompts complets et leurs justifications.</p>
+          <a href="blogue/article-prompts-revue-litterature.html" class="resource-cta">Lire l'article →</a>
+        </article>
+
+        <!-- Veille 2 -->
+        <article class="resource-card" data-categorie="veille" data-prix="tous">
+          <div class="resource-header">
+            <div class="resource-icon mobilisation" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="resource-badges">
+              <span class="badge post-badge-veille">Veille</span>
+              <span class="badge badge-format">4 items</span>
+            </div>
+          </div>
+          <div class="resource-category">Semaine du 4 mai 2026</div>
+          <h3>Les modèles de raisonnement transforment-ils l'analyse qualitative ?</h3>
+          <p class="resource-desc">Cette semaine : OpenAI o3 vs Claude Opus 4 pour le codage thématique · Une nouvelle plateforme de transcription · Un débat sur la transparence en publication · Le FRQ-SC ouvre des bourses spéciales IA.</p>
+          <a href="blogue/veille-2026-05-04.html" class="resource-cta">Lire la brève →</a>
+        </article>
+
+        <!-- Article 3 (placeholder) -->
+        <article class="resource-card" data-categorie="article" data-prix="tous">
+          <div class="resource-header">
+            <div class="resource-icon analyse" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m6 0h6"/></svg>
+            </div>
+            <div class="resource-badges">
+              <span class="badge post-badge-article">Article</span>
+              <span class="badge badge-format">À paraître</span>
+            </div>
+          </div>
+          <div class="resource-category">À paraître</div>
+          <h3>Soumettre un projet de recherche utilisant l'IA au CER : retour d'expérience</h3>
+          <p class="resource-desc">Comment j'ai présenté l'usage de l'IA dans un protocole à un comité d'éthique. Les questions soulevées, les réponses qui ont rassuré, ce que j'ai ajusté pour la prochaine fois.</p>
+          <a href="#" class="resource-cta" style="opacity: 0.6; pointer-events: none;">À venir</a>
+        </article>
+
+        <!-- Veille 3 (placeholder) -->
+        <article class="resource-card" data-categorie="veille" data-prix="tous">
+          <div class="resource-header">
+            <div class="resource-icon methodologie" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="resource-badges">
+              <span class="badge post-badge-veille">Veille</span>
+              <span class="badge badge-format">À paraître</span>
+            </div>
+          </div>
+          <div class="resource-category">À paraître</div>
+          <h3>La veille hebdo arrive lundi</h3>
+          <p class="resource-desc">Inscrivez-vous à l'infolettre pour recevoir chaque mardi matin la synthèse des nouveautés IA pour la recherche, directement dans votre boîte courriel.</p>
+          <a href="infolettre.html" class="resource-cta">S'inscrire →</a>
+        </article>
+
+        <p class="empty-state" data-empty-state style="display: none;">Aucun billet ne correspond à ce filtre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOC INFOLETTRE -->
+  <section style="padding-top: 2rem; padding-bottom: 4rem;">
+    <div class="inner">
+      <div class="newsletter-block reveal">
+        <div class="newsletter-block-inner">
+          <div>
+            <span class="section-tag">L'infolettre</span>
+            <h2>Recevez la <em>veille hebdo</em> avant tout le monde.</h2>
+            <p>Chaque mardi matin, la synthèse des nouveautés IA pour la recherche directement dans votre boîte. Plus les articles de fond dès leur publication.</p>
+          </div>
+          <div id="mlb2-41268111" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41268111">
+            <form class="newsletter-form ml-block-form row-form" action="https://assets.mailerlite.com/jsonp/2346008/forms/187388314435716606/subscribe" method="post" target="_blank">
+              <input type="text" name="fields[name]" placeholder="Prénom" required aria-label="Prénom" autocomplete="given-name" />
+              <input type="email" name="fields[email]" placeholder="Votre courriel" required aria-label="Courriel" autocomplete="email" />
+              <input type="hidden" name="ml-submit" value="1" />
+              <input type="hidden" name="anticsrf" value="true" />
+              <button type="submit">S'abonner gratuitement</button>
+              <p class="newsletter-fineprint">Désinscription en un clic. <a href="confidentialite.html">Politique de confidentialité</a>.</p>
+            </form>
+            <div class="row-success" style="display: none;">
+              <strong>✓ Merci !</strong>
+              <p>Un courriel de confirmation vient d'être envoyé. Cliquez sur le lien à l'intérieur pour finaliser votre inscription.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Benoit Plante</div>
+        <p>Consultant en recherche à l'ère de l'IA. Veille, formations et accompagnement pour intégrer l'intelligence artificielle dans les pratiques de recherche, sans compromettre la rigueur.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Offre</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blogue.html">Blogue</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="outils.html">Outils</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="a-propos.html">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="infolettre.html">Infolettre</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal &amp; liens</h4>
+        <ul>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Benoit Plante. Tous droits réservés.</p>
+      <span class="footer-mark">IA &amp; recherche</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
+</body>
+</html>

@@ -522,6 +522,194 @@ section { padding: 6rem var(--pad-x); }
 }
 
 /* ==========================================================================
+   BLOG / ARTICLES
+   ========================================================================== */
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.4rem;
+}
+
+.post-card {
+  background: white;
+  border: 1px solid var(--gris-200);
+  border-radius: 14px;
+  padding: 1.6rem 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.post-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--or));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.post-card:hover::after { transform: scaleX(1); }
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.post-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.post-badge-veille    { background: var(--accent-s); color: var(--accent); }
+.post-badge-article   { background: var(--or-pale); color: var(--or); }
+.post-badge-guide     { background: var(--gratuit-s); color: var(--gratuit); }
+
+.post-date {
+  font-size: 0.78rem;
+  color: var(--gris-500);
+}
+
+.post-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--bleu);
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: var(--gris-700);
+  line-height: 1.65;
+  margin-bottom: 1.3rem;
+  flex-grow: 1;
+}
+
+.post-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--bleu);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--gris-100);
+  transition: color 0.2s, gap 0.2s;
+}
+
+.post-cta:hover { color: var(--accent); gap: 0.6rem; }
+
+/* Article individuel */
+.post-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.post-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bleu);
+  margin: 2.2rem 0 1rem;
+}
+
+.post-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--bleu-med);
+  margin: 1.6rem 0 0.8rem;
+}
+
+.post-content p {
+  font-size: 1rem;
+  color: var(--gris-700);
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+.post-content ul, .post-content ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.post-content ul li, .post-content ol li {
+  font-size: 1rem;
+  color: var(--gris-700);
+  line-height: 1.8;
+  margin-bottom: 0.4rem;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--or);
+  background: var(--gris-50);
+  padding: 1rem 1.4rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--ardoise);
+}
+
+.post-content code {
+  background: var(--gris-100);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--bleu);
+}
+
+.post-content a { color: var(--accent); }
+
+.post-veille-item {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--gris-200);
+}
+.post-veille-item:last-child { border-bottom: none; }
+
+.post-veille-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--bleu);
+  margin-bottom: 0.3rem;
+}
+
+.post-veille-source {
+  font-size: 0.78rem;
+  color: var(--gris-500);
+  margin-bottom: 0.6rem;
+}
+
+.post-veille-source a { color: var(--accent); text-decoration: none; }
+
+.post-veille-item p {
+  font-size: 0.94rem;
+  color: var(--gris-700);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
    BLOC INFOLETTRE
    ========================================================================== */
 
