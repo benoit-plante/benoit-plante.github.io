@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checklist : intégrer l'IA dans votre projet de recherche — Benoit Plante</title>
+  <meta name="description" content="Les questions à se poser avant d'utiliser l'IA dans un projet de recherche : transparence, traçabilité, soumission au CER, biais, confidentialité des données. Ancré dans TCPS 2, Loi 25 et politiques éditoriales." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Checklist : intégrer l'IA dans votre projet de recherche" />
+  <meta property="og:description" content="Questions à se poser avant d'utiliser l'IA dans un projet : transparence, traçabilité, CER, biais, confidentialité." />
+  <meta property="og:locale" content="fr_CA" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">Benoit Plante</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="contact.html" class="nav-cta">Me contacter</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero-compact guide-hero">
+    <div class="hero-content" style="max-width: 820px;">
+      <div class="hero-eyebrow">Bibliothèque · Recherche à l'ère de l'IA</div>
+      <h1 class="hero-h1">Checklist : intégrer l'IA dans votre <em>projet de recherche</em></h1>
+      <p class="hero-sub">Les questions à se poser <strong style="color: var(--bleu);">avant</strong> d'utiliser l'IA dans un projet — pour éviter les écueils éthiques, méthodologiques et juridiques. Ancrée dans TCPS 2, la Loi 25, l'ICMJE et la littérature scientifique récente.</p>
+      <div class="hero-actions">
+        <a href="assets/checklist-integrer-ia-projet-recherche.pdf" class="btn-primary">Télécharger la checklist (PDF)</a>
+        <a href="#checklist" class="btn-ghost">Lire la checklist ↓</a>
+      </div>
+      <p class="guide-meta">
+        <span>Par Benoit Plante</span>
+        <span>·</span>
+        <span>Édition 2026</span>
+        <span>·</span>
+        <span>Lecture : ~15 minutes</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- LAYOUT AVEC TOC + CONTENU -->
+  <section class="guide-body">
+    <div class="inner guide-layout">
+
+      <!-- TABLE DES MATIÈRES STICKY -->
+      <aside class="guide-toc" aria-label="Table des matières">
+        <div class="guide-toc-inner">
+          <p class="guide-toc-title">Dans ce guide</p>
+          <ol class="guide-toc-list">
+            <li><a href="#pourquoi">Pourquoi cette checklist</a></li>
+            <li><a href="#recherche">Ce que dit la recherche</a></li>
+            <li><a href="#checklist">La checklist (6 sections)</a>
+              <ul>
+                <li><a href="#section-a">A. Avant d'utiliser l'IA</a></li>
+                <li><a href="#section-b">B. Choix de l'outil</a></li>
+                <li><a href="#section-c">C. Données et confidentialité</a></li>
+                <li><a href="#section-d">D. Transparence et documentation</a></li>
+                <li><a href="#section-e">E. Biais et fiabilité</a></li>
+                <li><a href="#section-f">F. Publication et auctorialité</a></li>
+              </ul>
+            </li>
+            <li><a href="#signaux">3 signaux d'alarme</a></li>
+            <li><a href="#bibliographie">Bibliographie</a></li>
+          </ol>
+          <a href="assets/checklist-integrer-ia-projet-recherche.pdf" class="guide-toc-cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger la checklist
+          </a>
+        </div>
+      </aside>
+
+      <!-- CONTENU -->
+      <article class="guide-content">
+
+        <!-- POURQUOI -->
+        <section id="pourquoi" class="guide-section">
+          <span class="section-tag">Introduction</span>
+          <h2>Pourquoi cette checklist</h2>
+          <p class="guide-lead">L'utilisation de l'IA dans la recherche n'est plus une question d'innovation isolée. Elle touche désormais l'éthique, le droit, la rigueur méthodologique et la responsabilité scientifique. Et la majorité des protocoles soumis aux comités d'éthique de la recherche (CER) ne le mentionnent toujours pas explicitement.</p>
+          <p>Cette checklist vous aide à poser les bonnes questions <strong>avant</strong> d'utiliser l'IA dans un projet — pas après, pas pendant. Elle est conçue pour trois moments précis :</p>
+          <ul>
+            <li>Au moment de rédiger ou de modifier un protocole pour le CER</li>
+            <li>Au moment de choisir un outil IA pour une tâche spécifique (analyse, codage, extraction, rédaction)</li>
+            <li>Au moment de soumettre un manuscrit à une revue scientifique</li>
+          </ul>
+          <p>Chaque question renvoie à une exigence : du <strong>Tri-Council Policy Statement (TCPS 2, 2022)</strong>, de la <strong>Loi 25 du Québec</strong>, de l'<strong>ICMJE</strong> pour la publication, ou d'un consensus scientifique émergent. Quand une réponse est non, vous savez exactement quoi corriger.</p>
+        </section>
+
+        <!-- CE QUE DIT LA RECHERCHE -->
+        <section id="recherche" class="guide-section research-section">
+          <span class="section-tag">Pour les sceptiques</span>
+          <h2>Ce que dit la recherche</h2>
+          <p class="guide-lead">L'écart entre les pratiques actuelles et les exigences éthiques est documenté. Quatre constats récents qui motivent cette checklist.</p>
+
+          <div class="finding">
+            <div class="finding-num">01</div>
+            <h3>La majorité des études IA en santé mentale n'aborde pas le consentement</h3>
+            <p>Une revue de portée publiée dans <em>AI &amp; Society</em> (2025) sur l'approbation éthique en santé mentale a trouvé que <strong class="stat">les études utilisant IA et apprentissage automatique manquent souvent d'une discussion explicite</strong> sur la manière dont le consentement éclairé s'applique à l'entraînement algorithmique, à la réutilisation des modèles et aux applications secondaires des données.</p>
+            <p class="implication"><strong>Implication :</strong> votre formulaire de consentement doit explicitement nommer l'usage de l'IA et le sort des données. Une formulation générique sur le « traitement informatisé » n'est plus suffisante.</p>
+          </div>
+
+          <div class="finding">
+            <div class="finding-num">02</div>
+            <h3>Les CER manquent d'outils spécifiques à l'IA</h3>
+            <p>Un article publié dans <em>Frontiers in Artificial Intelligence</em> (2023) note que « les comités d'éthique de la recherche se réfèrent au TCPS 2 pour bâtir leur cadre, mais les <strong class="stat">ordonnances et règlements concernant l'IA sont limités</strong>, et le manque d'outils rend plus difficile leur adaptation aux nouveaux défis créés par l'IA ». Le NIH américain a même <strong>interdit</strong> en 2023 l'usage de LLM dans l'évaluation par les pairs des subventions.</p>
+            <p class="implication"><strong>Implication :</strong> ne présumez pas que votre CER a une politique claire. C'est à vous de documenter l'usage IA dans votre protocole — soyez plus précis que ce qu'on vous demande.</p>
+          </div>
+
+          <div class="finding">
+            <div class="finding-num">03</div>
+            <h3>La Loi 25 impose une analyse de risques pour tout transfert vers une IA externe</h3>
+            <p>Depuis septembre 2022, la Loi 25 oblige les organisations québécoises à conduire une <strong class="stat">analyse des facteurs relatifs à la vie privée (AFRVP)</strong> lorsque des renseignements personnels sont transmis à un fournisseur tiers — ce qui inclut OpenAI, Anthropic et Google. Les pénalités peuvent atteindre <strong class="stat">25 M$</strong> ou 4 % du chiffre d'affaires mondial.</p>
+            <p class="implication"><strong>Implication :</strong> traiter des données de participants québécois dans ChatGPT, Claude ou Gemini sans avoir documenté l'analyse de risques est, dans plusieurs cas, illégal. La version « gratuite » ou « grand public » de ces outils est rarement conforme.</p>
+          </div>
+
+          <div class="finding">
+            <div class="finding-num">04</div>
+            <h3>Les revues scientifiques exigent désormais une déclaration explicite</h3>
+            <p>L'<strong>ICMJE</strong> (qui régit la plupart des revues médicales et plusieurs revues en sciences sociales) a clarifié dès 2023 que <strong class="stat">les outils d'IA générative ne peuvent pas être listés comme auteurs</strong>. À la soumission, l'auteur doit divulguer dans la lettre d'accompagnement <em>et</em> dans le manuscrit l'usage qui a été fait des LLM, des chatbots et des générateurs d'images. La responsabilité scientifique demeure entièrement humaine.</p>
+            <p class="implication"><strong>Implication :</strong> tenir un journal des usages IA pendant la conduite du projet n'est plus optionnel — c'est ce que vous devrez déclarer à la soumission. Sans journal, votre déclaration sera approximative ou incomplète.</p>
+          </div>
+
+          <p class="takeaway">La conformité éthique à l'IA n'attend pas l'arrivée d'une politique parfaite : elle se construit projet par projet, par anticipation. <a href="#bibliographie">Voir les sources →</a></p>
+        </section>
+
+        <!-- LA CHECKLIST -->
+        <section id="checklist" class="guide-section">
+          <span class="section-tag">Cœur du guide</span>
+          <h2>La checklist en 6 sections</h2>
+          <p class="guide-lead">Pour chaque question, cochez <strong>Oui</strong>, <strong>Non</strong> ou <strong>N/A</strong>. Toute réponse <strong>Non</strong> appelle une action de correction avant de poursuivre le projet ou de soumettre le protocole.</p>
+
+          <!-- SECTION A -->
+          <div id="section-a" class="checklist-block">
+            <div class="checklist-header">
+              <span class="checklist-letter">A</span>
+              <h3>Avant d'utiliser l'IA</h3>
+            </div>
+            <p class="checklist-intro">Questions préalables à toute intégration de l'IA dans le projet.</p>
+            <ul class="checklist">
+              <li>
+                <span class="check-q">A1.</span>
+                <div>
+                  <strong>Mon institution a-t-elle une politique sur l'usage de l'IA en recherche ?</strong>
+                  <p>Vérifiez auprès du bureau de recherche / vice-rectorat / CER. Plusieurs universités canadiennes ont publié leur politique en 2024-2025.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">A2.</span>
+                <div>
+                  <strong>Mon projet a-t-il un protocole approuvé par un CER ?</strong>
+                  <p>Si oui, l'usage de l'IA est-il compatible avec ce qui a été approuvé ? Sinon, une modification au protocole est requise <em>avant</em> de commencer.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">A3.</span>
+                <div>
+                  <strong>Ai-je consulté un éthicien ou un conseiller en intégrité scientifique de mon institution ?</strong>
+                  <p>Pour un usage non standard (analyse de données sensibles, IA générative pour entrevues, etc.), un avis professionnel évite des mois de retard plus tard.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">A4.</span>
+                <div>
+                  <strong>L'usage prévu de l'IA est-il compatible avec ma discipline et ses normes ?</strong>
+                  <p>Certaines associations savantes (psychologie, médecine, droit) ont leurs propres lignes directrices, parfois plus strictes que TCPS 2.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">A5.</span>
+                <div>
+                  <strong>Ai-je identifié précisément <em>quelles tâches</em> l'IA va effectuer dans le projet ?</strong>
+                  <p>« Aide à l'analyse » est trop vague pour le CER et pour vous-même. Listez chaque tâche : recherche documentaire ? extraction ? codage ? rédaction ? traduction ?</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SECTION B -->
+          <div id="section-b" class="checklist-block">
+            <div class="checklist-header">
+              <span class="checklist-letter">B</span>
+              <h3>Choix de l'outil</h3>
+            </div>
+            <p class="checklist-intro">Tous les outils IA ne se valent pas sur le plan éthique et juridique. Vérifiez avant de cliquer sur « accepter ».</p>
+            <ul class="checklist">
+              <li>
+                <span class="check-q">B1.</span>
+                <div>
+                  <strong>L'outil traite-t-il les données dans une juridiction acceptable ?</strong>
+                  <p>Canada, UE, États-Unis avec contrats d'accès au marché européen (DPF) sont en général acceptables. Données traitées hors de ces zones : risque accru sous la Loi 25 et le RGPD.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">B2.</span>
+                <div>
+                  <strong>L'outil utilise-t-il mes saisies pour entraîner ses modèles ?</strong>
+                  <p>Versions grand public (ChatGPT Free, Claude Free) : <strong>oui</strong> par défaut. Versions API ou Enterprise : <strong>non</strong> en général, à confirmer dans les conditions d'utilisation.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">B3.</span>
+                <div>
+                  <strong>Le fournisseur dispose-t-il de certifications de sécurité reconnues ?</strong>
+                  <p>SOC 2 Type II, ISO 27001, HIPAA (pour les données de santé). Si le fournisseur ne peut pas les fournir, n'y déposez pas de données sensibles.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">B4.</span>
+                <div>
+                  <strong>Quelle est la politique de rétention et de suppression des données ?</strong>
+                  <p>Vérifiez la durée de conservation et l'existence d'une option de suppression manuelle. Si non clair, considérez l'outil comme non conforme aux exigences académiques.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">B5.</span>
+                <div>
+                  <strong>L'institution a-t-elle négocié un accord institutionnel avec le fournisseur ?</strong>
+                  <p>Plusieurs universités ont des licences Claude, ChatGPT Enterprise ou Microsoft Copilot avec clauses spécifiques. Préférez ces accès institutionnels au compte personnel.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SECTION C -->
+          <div id="section-c" class="checklist-block">
+            <div class="checklist-header">
+              <span class="checklist-letter">C</span>
+              <h3>Données et confidentialité</h3>
+            </div>
+            <p class="checklist-intro">La section la plus critique. Les erreurs ici exposent à des sanctions financières et à la perte de la confiance des participants.</p>
+            <ul class="checklist">
+              <li>
+                <span class="check-q">C1.</span>
+                <div>
+                  <strong>Mes données contiennent-elles des renseignements personnels au sens de la Loi 25 ?</strong>
+                  <p>Nom, adresse courriel, données biométriques, opinions politiques, données de santé. Si oui, une AFRVP (analyse des facteurs relatifs à la vie privée) est requise <em>avant</em> tout transfert vers un outil IA externe.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">C2.</span>
+                <div>
+                  <strong>Mes participants ont-ils consenti spécifiquement à ce que leurs données soient traitées par IA ?</strong>
+                  <p>Un consentement éclairé doit nommer l'IA, le type d'outil, le lieu de traitement et les risques. Les formulaires antérieurs à 2023 ne couvrent généralement pas cet usage.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">C3.</span>
+                <div>
+                  <strong>Les données sont-elles dépersonnalisées <em>avant</em> d'être déposées dans l'outil IA ?</strong>
+                  <p>Retrait des noms, codification systématique des identifiants, suppression des verbatims trop identifiants. Idéalement : l'IA ne voit jamais de données nominatives.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">C4.</span>
+                <div>
+                  <strong>Une AFRVP a-t-elle été conduite et documentée ?</strong>
+                  <p>Document écrit qui identifie les risques résiduels et les mesures d'atténuation. Obligatoire sous la Loi 25 dès qu'un fournisseur externe est impliqué.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">C5.</span>
+                <div>
+                  <strong>Mon CER a-t-il approuvé spécifiquement l'usage de l'IA dans ce projet ?</strong>
+                  <p>Si le protocole approuvé est antérieur à l'introduction de l'IA, soumettez une modification. Décrire la tâche, l'outil, la juridiction et l'AFRVP.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">C6.</span>
+                <div>
+                  <strong>Le contrat avec le fournisseur prévoit-il un droit de retrait pour les participants ?</strong>
+                  <p>Pour qu'un participant puisse exercer son droit de retrait, il faut pouvoir effectivement retirer ses données de l'outil. Vérifiez la mécanique avant la collecte.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SECTION D -->
+          <div id="section-d" class="checklist-block">
+            <div class="checklist-header">
+              <span class="checklist-letter">D</span>
+              <h3>Transparence et documentation</h3>
+            </div>
+            <p class="checklist-intro">Ce qui n'est pas documenté n'est pas défendable.</p>
+            <ul class="checklist">
+              <li>
+                <span class="check-q">D1.</span>
+                <div>
+                  <strong>Je tiens un journal des usages IA pour ce projet</strong>
+                  <p>Pour chaque session : date, outil et version du modèle (ex. Claude Opus 4.5, GPT-4o-2024-08), prompt complet, fichiers déposés, décision prise sur la base de la réponse.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">D2.</span>
+                <div>
+                  <strong>Mes prompts utilisés pour des analyses sont conservés intégralement</strong>
+                  <p>Pas seulement leur description : le texte exact. Lors de la révision par les pairs, c'est ce texte qu'on pourra vous demander.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">D3.</span>
+                <div>
+                  <strong>J'ai défini comment l'usage de l'IA sera déclaré dans la publication finale</strong>
+                  <p>Section méthodes : tâche, outil, version, prompt. Lettre d'accompagnement : déclaration explicite. Annexe : journal des usages si requis par la revue.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">D4.</span>
+                <div>
+                  <strong>Mon équipe a une convention partagée sur l'usage de l'IA</strong>
+                  <p>Si plusieurs personnes contribuent (étudiants, professionnels de recherche, collaborateurs), le journal et les politiques doivent être communs. Une page partagée du projet suffit.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SECTION E -->
+          <div id="section-e" class="checklist-block">
+            <div class="checklist-header">
+              <span class="checklist-letter">E</span>
+              <h3>Biais et fiabilité</h3>
+            </div>
+            <p class="checklist-intro">L'IA produit des résultats plausibles, pas nécessairement justes. Le contrôle qualité humain demeure la responsabilité du chercheur.</p>
+            <ul class="checklist">
+              <li>
+                <span class="check-q">E1.</span>
+                <div>
+                  <strong>J'ai identifié les biais connus du modèle pour ma tâche</strong>
+                  <p>Sous-représentation des perspectives non anglo-saxonnes, biais de récence dans les références, biais de genre dans les recommandations professionnelles, biais culturels dans les analyses qualitatives.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">E2.</span>
+                <div>
+                  <strong>Chaque référence générée par l'IA est vérifiée à la source</strong>
+                  <p>Les taux d'hallucination atteignent 28,6 % à 91,3 % selon le modèle (Chelli et al., JMIR 2024). Aucune citation non vérifiée ne devrait apparaître dans une publication.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">E3.</span>
+                <div>
+                  <strong>Mes extractions et codages issus de l'IA font l'objet d'un audit humain</strong>
+                  <p>Minimum 10 % des décisions auditées au hasard. Pour les enjeux à risque (santé, populations vulnérables), un audit complet.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">E4.</span>
+                <div>
+                  <strong>J'ai prévu une triangulation indépendante des résultats sensibles</strong>
+                  <p>Pour toute conclusion qui aura un impact (recommandations cliniques, politiques publiques, jugements de valeur), une vérification humaine indépendante de l'IA.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">E5.</span>
+                <div>
+                  <strong>Je documente les limites de l'IA dans la section « Limites » de ma publication</strong>
+                  <p>Quel modèle, quelle version, quels biais possibles, quelles tâches non confiées à l'IA et pourquoi.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SECTION F -->
+          <div id="section-f" class="checklist-block">
+            <div class="checklist-header">
+              <span class="checklist-letter">F</span>
+              <h3>Publication et auctorialité</h3>
+            </div>
+            <p class="checklist-intro">Les revues exigent désormais une déclaration explicite. Soyez précis.</p>
+            <ul class="checklist">
+              <li>
+                <span class="check-q">F1.</span>
+                <div>
+                  <strong>L'IA n'est <em>jamais</em> listée comme auteur (ICMJE, 2023)</strong>
+                  <p>Un outil ne peut pas être responsable de la rigueur, de l'intégrité et de l'originalité du travail. La responsabilité demeure humaine.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">F2.</span>
+                <div>
+                  <strong>J'ai consulté la politique IA de la revue visée</strong>
+                  <p>Chaque revue a sa formulation. Certaines exigent une déclaration en page-titre, d'autres dans la section méthodes, d'autres dans la cover letter — voire les trois.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">F3.</span>
+                <div>
+                  <strong>Ma déclaration nomme l'outil, sa version et son rôle précis</strong>
+                  <p>Pas « ChatGPT a aidé à la rédaction ». Plutôt : « Claude Sonnet 4.5 a été utilisé pour reformuler la section discussion ; tous les passages ont été révisés et validés par les auteurs. »</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-q">F4.</span>
+                <div>
+                  <strong>Tous les co-auteurs sont informés et d'accord avec l'usage de l'IA documenté</strong>
+                  <p>La responsabilité des auteurs est collective. Un usage non déclaré à un co-auteur peut entraîner une rétraction.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </section>
+
+        <!-- SIGNAUX D'ALARME -->
+        <section id="signaux" class="guide-section">
+          <span class="section-tag">Vigilance</span>
+          <h2>3 signaux d'alarme : arrêtez tout</h2>
+          <p class="guide-lead">Si vous rencontrez l'une des trois situations suivantes, mettez le projet en pause et consultez votre conseiller en éthique avant de poursuivre.</p>
+
+          <div class="alarm">
+            <h3>1. Vous traitez des données nominatives dans un outil grand public</h3>
+            <p>Verbatim d'entrevues avec noms, courriels de participants, dossiers médicaux dans la version gratuite de ChatGPT, Claude ou Gemini. <strong>Risque :</strong> violation de la Loi 25 (pénalités jusqu'à 25 M$), retrait obligatoire des données, possible rétraction de publication.</p>
+            <p class="action"><strong>Action :</strong> arrêtez immédiatement le traitement. Documentez l'incident. Consultez le responsable de la protection des renseignements personnels de votre institution.</p>
+          </div>
+
+          <div class="alarm">
+            <h3>2. Votre formulaire de consentement ne mentionne pas l'IA</h3>
+            <p>Vous avez recruté des participants sous un formulaire de consentement antérieur à votre décision d'utiliser l'IA. <strong>Risque :</strong> usage non couvert par le consentement, possible plainte au CER, données potentiellement inutilisables.</p>
+            <p class="action"><strong>Action :</strong> ne déposez aucune donnée participante dans un outil IA. Soumettez une modification au protocole et obtenez un consentement supplémentaire avant tout traitement.</p>
+          </div>
+
+          <div class="alarm">
+            <h3>3. Une révision par les pairs vous demande votre prompt — et vous ne l'avez pas</h3>
+            <p>Cas de plus en plus fréquent : l'évaluateur soupçonne un usage de l'IA non déclaré et demande la documentation. Sans journal, vous êtes obligé de reconstituer de mémoire — ce qui est inacceptable. <strong>Risque :</strong> rejet du manuscrit, perte de crédibilité, signalement à l'éditeur.</p>
+            <p class="action"><strong>Action :</strong> prévention. Tenez le journal dès le début du projet, pas à la fin. Considérez-le comme la version 2025 de votre cahier de laboratoire.</p>
+          </div>
+        </section>
+
+        <!-- BIBLIOGRAPHIE -->
+        <section id="bibliographie" class="guide-section bibliography">
+          <span class="section-tag">Sources</span>
+          <h2>Bibliographie</h2>
+          <p class="guide-lead">Les références qui appuient les questions et les chiffres de cette checklist. Format APA 7e (abrégé).</p>
+
+          <div class="bib-section">
+            <h3>Cadres éthiques et juridiques</h3>
+            <ul>
+              <li>Conseil de recherches en sciences humaines, Conseil de recherches en sciences naturelles et en génie, &amp; Instituts de recherche en santé du Canada. (2022). <em>Énoncé de politique des trois Conseils : éthique de la recherche avec des êtres humains — EPTC 2 (2022)</em>. Gouvernement du Canada. <a href="https://ethique.gc.ca/fra/policy-politique_tcps2-eptc2_2022.html" target="_blank" rel="noopener">ethique.gc.ca ↗</a></li>
+              <li>Gouvernement du Québec. (2021). <em>Loi modernisant des dispositions législatives en matière de protection des renseignements personnels</em> (Loi 25). <a href="https://www.cai.gouv.qc.ca/" target="_blank" rel="noopener">Commission d'accès à l'information du Québec ↗</a></li>
+              <li>International Committee of Medical Journal Editors. (2024). <em>Recommendations for the conduct, reporting, editing, and publication of scholarly work in medical journals</em> (mise à jour janvier 2024). <a href="https://www.icmje.org/recommendations/" target="_blank" rel="noopener">icmje.org ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="bib-section">
+            <h3>Défis spécifiques de l'IA en éthique de la recherche</h3>
+            <ul>
+              <li>Resnik, D. B., &amp; Hosseini, M. (2023). Specific challenges posed by artificial intelligence in research ethics. <em>Frontiers in Artificial Intelligence, 6</em>, 1149082. <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2023.1149082/full" target="_blank" rel="noopener">frontiersin.org ↗</a></li>
+              <li>Resnik, D. B., &amp; Hosseini, M. (2024). The ethics of using artificial intelligence in scientific research: New guidance needed for a new tool. <em>AI and Ethics</em>. <a href="https://link.springer.com/article/10.1007/s43681-024-00493-8" target="_blank" rel="noopener">springer.com ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="bib-section">
+            <h3>Consentement éclairé et IA</h3>
+            <ul>
+              <li>Diaz Milian, R., &amp; Bhattacharyya, A. (2025). Ethical approval and informed consent in mental health research: A scoping review. <em>AI &amp; Society</em>. <a href="https://link.springer.com/article/10.1007/s00146-025-02364-0" target="_blank" rel="noopener">springer.com ↗</a></li>
+              <li>U.S. Department of Health and Human Services, SACHRP. (2024). IRB considerations on the use of artificial intelligence in human subjects research. <a href="https://www.hhs.gov/ohrp/sachrp-committee/recommendations/irb-considerations-use-artificial-intelligence-human-subjects-research/index.html" target="_blank" rel="noopener">hhs.gov ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="bib-section">
+            <h3>Hallucinations et fiabilité (référence croisée)</h3>
+            <ul>
+              <li>Chelli, M., Descamps, J., Lavoué, V., et al. (2024). Hallucination rates and reference accuracy of ChatGPT and Bard for systematic reviews: Comparative analysis. <em>Journal of Medical Internet Research, 26</em>, e53164. <a href="https://www.jmir.org/2024/1/e53164" target="_blank" rel="noopener">jmir.org ↗</a></li>
+              <li>Voir aussi la <a href="10-prompts-revue-litterature.html#bibliographie">bibliographie complète sur les hallucinations</a> du guide sur la revue de littérature.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CTA TÉLÉCHARGEMENT -->
+        <section class="guide-cta-block">
+          <h2>Gardez la checklist à portée de main</h2>
+          <p>Les 28 questions condensées dans un PDF imprimable avec cases à cocher, prêtes à servir au moment d'écrire votre protocole.</p>
+          <a href="assets/checklist-integrer-ia-projet-recherche.pdf" class="btn-primary">Télécharger la checklist (PDF, 6 pages)</a>
+        </section>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- BLOC INFOLETTRE -->
+  <section style="padding-top: 2rem; padding-bottom: 4rem;">
+    <div class="inner">
+      <div class="newsletter-block reveal">
+        <div class="newsletter-block-inner">
+          <div>
+            <span class="section-tag">L'infolettre</span>
+            <h2>Pour suivre les <em>nouvelles ressources</em> sur l'IA en recherche.</h2>
+            <p>Une infolettre mensuelle qui réunit veille, guides pratiques et réflexions critiques sur l'IA dans la recherche en sciences sociales.</p>
+          </div>
+          <div>
+            <div class="mailerlite-placeholder">⚠ Placeholder MailerLite</div>
+            <form class="newsletter-form" data-form-type="newsletter">
+              <input type="text" placeholder="Prénom" required aria-label="Prénom" />
+              <input type="email" placeholder="Votre courriel" required aria-label="Courriel" />
+              <button type="submit">S'abonner gratuitement</button>
+              <p class="newsletter-fineprint">Désinscription en un clic. <a href="confidentialite.html">Politique de confidentialité</a>.</p>
+              <p class="form-confirm"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Benoit Plante</div>
+        <p>Consultant en recherche à l'ère de l'IA. Veille, formations et accompagnement pour intégrer l'intelligence artificielle dans les pratiques de recherche, sans compromettre la rigueur.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Offre</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="outils.html">Outils</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="a-propos.html">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="infolettre.html">Infolettre</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal &amp; liens</h4>
+        <ul>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Benoit Plante. Tous droits réservés.</p>
+      <span class="footer-mark">Recherche &amp; impact social</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- STYLES SPÉCIFIQUES À CE GUIDE -->
+  <style>
+    /* HERO */
+    .guide-hero .hero-h1 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); }
+    .guide-meta {
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      color: var(--gris-500);
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      letter-spacing: 0.04em;
+    }
+
+    /* LAYOUT */
+    .guide-body { padding-top: 2rem; padding-bottom: 3rem; background: var(--gris-50); }
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .guide-content { max-width: 720px; }
+
+    /* TOC */
+    .guide-toc { position: sticky; top: 90px; align-self: start; }
+    .guide-toc-inner {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .guide-toc-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 1rem;
+    }
+    .guide-toc-list {
+      list-style: none;
+      padding: 0;
+      font-size: 0.82rem;
+      counter-reset: tocitem;
+    }
+    .guide-toc-list > li {
+      counter-increment: tocitem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.6rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .guide-toc-list > li::before {
+      content: counter(tocitem, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0.05rem;
+      font-size: 0.66rem;
+      font-weight: 600;
+      color: var(--or);
+      letter-spacing: 0.05em;
+    }
+    .guide-toc-list a { color: var(--ardoise); text-decoration: none; transition: color 0.2s; }
+    .guide-toc-list a:hover { color: var(--accent); }
+    .guide-toc-list ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.4rem;
+      font-size: 0.76rem;
+    }
+    .guide-toc-list ul li {
+      padding: 0.18rem 0 0.18rem 0.7rem;
+      border-left: 2px solid var(--gris-200);
+      margin-left: 0.1rem;
+    }
+    .guide-toc-list ul li a { color: var(--gris-500); }
+    .guide-toc-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.4rem;
+      padding: 0.7rem 0.9rem;
+      background: var(--bleu);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .guide-toc-cta:hover { background: var(--bleu-med); }
+    .guide-toc-cta svg { width: 14px; height: 14px; }
+
+    /* SECTIONS */
+    .guide-section {
+      background: white;
+      border-radius: 14px;
+      padding: 2.6rem 2.4rem;
+      margin-bottom: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gris-200);
+    }
+    .guide-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+      font-weight: 700;
+      color: var(--bleu);
+      margin: 0.4rem 0 1.2rem;
+      letter-spacing: -0.01em;
+    }
+    .guide-section h2 em { color: var(--or); font-style: italic; }
+    .guide-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--bleu);
+      margin: 1.6rem 0 0.6rem;
+    }
+    .guide-section p { font-size: 0.95rem; color: var(--ardoise); line-height: 1.75; margin-bottom: 1rem; }
+    .guide-section ul { margin: 0.6rem 0 1.2rem 1.2rem; }
+    .guide-section li { font-size: 0.92rem; color: var(--gris-700); line-height: 1.65; margin-bottom: 0.4rem; }
+    .guide-lead { font-size: 1.02rem !important; color: var(--ardoise); font-weight: 400; }
+
+    /* SECTION TAG */
+    .section-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.4rem;
+    }
+
+    /* RESEARCH SECTION */
+    .research-section { background: linear-gradient(180deg, white 0%, var(--bleu-pale) 100%); }
+    .finding {
+      background: white;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 1.4rem 1.6rem;
+      margin: 1.2rem 0;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .finding-num {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent-s);
+      line-height: 1;
+    }
+    .finding h3 { font-size: 1.1rem !important; margin: 0 0 0.7rem 0 !important; padding-right: 3rem; }
+    .finding p { font-size: 0.92rem !important; margin-bottom: 0.6rem !important; }
+    .stat { color: var(--bleu); font-weight: 600; }
+    .implication {
+      padding: 0.7rem 1rem;
+      background: var(--or-pale);
+      border-radius: 6px;
+      font-size: 0.88rem !important;
+      margin-top: 0.7rem !important;
+      margin-bottom: 0 !important;
+    }
+    .implication strong { color: var(--or); }
+    .takeaway {
+      background: var(--bleu);
+      color: white !important;
+      padding: 1.2rem 1.4rem;
+      border-radius: 10px;
+      font-size: 0.92rem !important;
+      margin-top: 1.6rem !important;
+    }
+    .takeaway a { color: var(--or); font-weight: 500; }
+
+    /* CHECKLIST BLOCKS */
+    .checklist-block { margin: 2rem 0; }
+    .checklist-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 0.6rem;
+      margin-bottom: 0.6rem;
+      border-bottom: 2px solid var(--or);
+    }
+    .checklist-letter {
+      width: 42px; height: 42px;
+      background: var(--or);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+    .checklist-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem !important;
+      font-weight: 700;
+      color: var(--bleu);
+      margin: 0 !important;
+    }
+    .checklist-intro {
+      font-size: 0.9rem !important;
+      color: var(--gris-500) !important;
+      font-style: italic;
+      margin: 0 0 1.2rem 0 !important;
+    }
+    .checklist {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .checklist li {
+      display: flex;
+      gap: 0.8rem;
+      padding: 0.9rem 1rem;
+      background: var(--gris-50);
+      border-left: 3px solid var(--gris-200);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 0.7rem;
+      transition: border-color 0.2s, background 0.2s;
+      font-size: 0.9rem !important;
+    }
+    .checklist li:hover {
+      border-left-color: var(--or);
+      background: white;
+    }
+    .check-q {
+      flex: none;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--or);
+      font-size: 0.95rem;
+      padding-top: 0.05rem;
+    }
+    .checklist strong {
+      display: block;
+      color: var(--bleu);
+      font-size: 0.93rem;
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+    .checklist p {
+      font-size: 0.84rem !important;
+      color: var(--gris-700) !important;
+      margin: 0 !important;
+      line-height: 1.55 !important;
+    }
+
+    /* ALARM BOX */
+    .alarm {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 4px solid #ea580c;
+      border-radius: 0 10px 10px 0;
+      padding: 1.4rem 1.6rem;
+      margin: 1.2rem 0;
+    }
+    .alarm h3 {
+      color: #9a3412 !important;
+      margin: 0 0 0.6rem 0 !important;
+      font-size: 1.05rem !important;
+    }
+    .alarm p { font-size: 0.9rem !important; margin-bottom: 0.5rem !important; color: #7c2d12 !important; }
+    .alarm strong { color: #9a3412; }
+    .action {
+      background: #fefce8;
+      border: 1px solid #fde047;
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
+      font-size: 0.88rem !important;
+      margin-top: 0.5rem !important;
+      color: #713f12 !important;
+    }
+    .action strong { color: #713f12; }
+
+    /* BIBLIOGRAPHIE */
+    .bibliography .bib-section { margin: 1.4rem 0; }
+    .bibliography .bib-section h3 { font-size: 0.95rem !important; margin: 0 0 0.6rem 0 !important; }
+    .bibliography ul { list-style: none; padding: 0 !important; margin: 0 !important; }
+    .bibliography li {
+      font-size: 0.85rem !important;
+      line-height: 1.55 !important;
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed var(--gris-200);
+      color: var(--gris-700) !important;
+    }
+    .bibliography li:last-child { border-bottom: none; }
+    .bibliography a { color: var(--accent); font-weight: 500; text-decoration: none; }
+    .bibliography a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .guide-cta-block {
+      background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-med) 100%);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: 14px;
+      margin-bottom: 1.8rem;
+    }
+    .guide-cta-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: white;
+    }
+    .guide-cta-block p {
+      max-width: 480px;
+      margin: 0 auto 1.4rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+    }
+    .guide-cta-block .btn-primary {
+      background: var(--or);
+      color: var(--bleu);
+      font-weight: 600;
+    }
+    .guide-cta-block .btn-primary:hover { background: white; color: var(--bleu); }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .guide-layout { grid-template-columns: 1fr; gap: 1.6rem; }
+      .guide-toc { position: static; }
+      .guide-section { padding: 1.8rem 1.4rem; }
+    }
+    @media (max-width: 600px) {
+      .checklist li { flex-direction: column; gap: 0.3rem; }
+    }
+  </style>
+</body>
+</html>
