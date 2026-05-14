@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10 prompts pour une revue de littérature assistée par IA — Benoit Plante</title>
+  <meta name="description" content="Guide pratique pour utiliser NotebookLM, Elicit et Claude dans une revue de littérature scientifique. Sans hallucinations, sans paresse intellectuelle." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="10 prompts pour une revue de littérature assistée par IA" />
+  <meta property="og:description" content="Guide pratique pour utiliser NotebookLM, Elicit et Claude dans une revue de littérature scientifique." />
+  <meta property="og:locale" content="fr_CA" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">Benoit Plante</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="contact.html" class="nav-cta">Me contacter</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero-compact guide-hero">
+    <div class="hero-content" style="max-width: 820px;">
+      <div class="hero-eyebrow">Bibliothèque · Recherche à l'ère de l'IA</div>
+      <h1 class="hero-h1">10 prompts pour une <em>revue de littérature</em> assistée par IA</h1>
+      <p class="hero-sub">Un guide pratique pour utiliser NotebookLM, Elicit et Claude comme assistants critiques de revue de littérature. <strong style="color: var(--bleu);">Sans hallucinations.</strong> <strong style="color: var(--or);">Sans paresse intellectuelle.</strong></p>
+      <div class="hero-actions">
+        <a href="assets/10-prompts-revue-litterature-aide-memoire.pdf" class="btn-primary">Télécharger l'aide-mémoire (PDF)</a>
+        <a href="#prompts" class="btn-ghost">Voir les 10 prompts ↓</a>
+      </div>
+      <p class="guide-meta">
+        <span>Par Benoit Plante</span>
+        <span>·</span>
+        <span>Édition 2026</span>
+        <span>·</span>
+        <span>Lecture : ~25 minutes</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- LAYOUT AVEC TOC + CONTENU -->
+  <section class="guide-body">
+    <div class="inner guide-layout">
+
+      <!-- TABLE DES MATIÈRES STICKY -->
+      <aside class="guide-toc" aria-label="Table des matières">
+        <div class="guide-toc-inner">
+          <p class="guide-toc-title">Dans ce guide</p>
+          <ol class="guide-toc-list">
+            <li><a href="#introduction">Pourquoi ce guide</a></li>
+            <li><a href="#philosophie">La philosophie</a></li>
+            <li><a href="#outils">Trois outils, trois forces</a></li>
+            <li><a href="#recherche">Ce que dit la recherche</a></li>
+            <li><a href="#prompts">Les 10 prompts</a>
+              <ul>
+                <li><a href="#phase-1">Phase 1 — Cadrer</a></li>
+                <li><a href="#phase-2">Phase 2 — Trier</a></li>
+                <li><a href="#phase-3">Phase 3 — Extraire</a></li>
+                <li><a href="#phase-4">Phase 4 — Synthétiser</a></li>
+                <li><a href="#phase-5">Phase 5 — Rédiger</a></li>
+              </ul>
+            </li>
+            <li><a href="#anti-patrons">5 anti-patrons</a></li>
+            <li><a href="#bibliographie">Bibliographie</a></li>
+          </ol>
+          <a href="assets/10-prompts-revue-litterature-aide-memoire.pdf" class="guide-toc-cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger l'aide-mémoire
+          </a>
+        </div>
+      </aside>
+
+      <!-- CONTENU -->
+      <article class="guide-content">
+
+        <!-- INTRODUCTION -->
+        <section id="introduction" class="guide-section">
+          <span class="section-tag">Introduction</span>
+          <h2>Pourquoi ce guide existe</h2>
+          <p class="guide-lead">L'IA générative a transformé la revue de littérature en quelques mois. La question n'est plus de savoir si vous allez l'utiliser pour scruter la documentation scientifique, mais comment vous allez le faire sans sacrifier la rigueur attendue d'un travail académique.</p>
+          <p>Trois pièges guettent celles et ceux qui s'y mettent sans cadre :</p>
+
+          <div class="trap-grid">
+            <div class="trap-card">
+              <div class="trap-num">01</div>
+              <h3>Les hallucinations</h3>
+              <p>L'IA invente des références qui n'existent pas, ou attribue des conclusions à des auteurs qui ne les ont jamais formulées.</p>
+            </div>
+            <div class="trap-card">
+              <div class="trap-num">02</div>
+              <h3>La paresse intellectuelle</h3>
+              <p>On accepte la synthèse sans vérifier, on saute la lecture critique, et on se retrouve à citer des idées qu'on ne maîtrise pas.</p>
+            </div>
+            <div class="trap-card">
+              <div class="trap-num">03</div>
+              <h3>L'effet bulle</h3>
+              <p>L'IA produit ce qui est statistiquement attendu pour votre requête, et passe à côté des courants dissidents ou des travaux peu cités mais cruciaux.</p>
+            </div>
+          </div>
+
+          <p>Ce guide propose dix prompts pour éviter ces pièges. Chacun a été testé dans des projets de recherche réels, et accompagné d'une règle de vérification.</p>
+        </section>
+
+        <!-- PHILOSOPHIE -->
+        <section id="philosophie" class="guide-section">
+          <span class="section-tag">Posture</span>
+          <h2>La philosophie : <em>assistant critique, pas oracle</em></h2>
+          <p>L'IA ne remplace pas la lecture. Elle remplace les tâches coûteuses qui empêchaient de bien lire : trier 200 abstracts, identifier les termes synonymes dans trois langues, comparer la structure de cinq articles. Quand l'IA fait bien ces tâches, vous reprenez du temps pour ce qui compte : la lecture profonde, la critique, la synthèse argumentative.</p>
+          <p>Trois règles d'or sous-tendent chacun des prompts qui suivent :</p>
+
+          <div class="rules-block">
+            <div class="rule">
+              <span class="rule-num">1</span>
+              <div>
+                <strong>Toute référence doit être vérifiée à la source.</strong>
+                <p>Si l'IA cite Smith (2019), vous lisez Smith (2019).</p>
+              </div>
+            </div>
+            <div class="rule">
+              <span class="rule-num">2</span>
+              <div>
+                <strong>Toute trace de l'usage de l'IA est conservée.</strong>
+                <p>Prompts utilisés, version du modèle, date. Cette transparence vous protège devant un comité, un évaluateur ou un éditeur.</p>
+              </div>
+            </div>
+            <div class="rule">
+              <span class="rule-num">3</span>
+              <div>
+                <strong>L'IA propose, vous décidez.</strong>
+                <p>Si vous ne pouvez pas défendre une affirmation, elle ne devrait pas se retrouver dans votre revue.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TROIS OUTILS -->
+        <section id="outils" class="guide-section">
+          <span class="section-tag">Outils</span>
+          <h2>Trois outils, trois forces</h2>
+          <p>Les prompts de ce guide font référence à trois outils. Choisir le bon pour la bonne tâche, c'est déjà la moitié du travail.</p>
+
+          <div class="tools-grid">
+            <div class="tool-card">
+              <div class="tool-name">Claude</div>
+              <div class="tool-sub">Anthropic · <em>Raisonnement</em></div>
+              <p>Excellent pour reformuler, structurer, critiquer une argumentation. Sa fenêtre contextuelle longue permet de travailler sur des documents entiers.</p>
+              <p class="tool-use"><strong>À utiliser pour :</strong> cadrage, comparaison, rédaction, critique de votre propre texte.</p>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">NotebookLM</div>
+              <div class="tool-sub">Google · <em>Corpus fermé et sourcé</em></div>
+              <p>Très bon pour interroger un corpus que <strong>vous</strong> déposez (PDF, articles). Chaque réponse cite la source dans votre corpus. Moins d'hallucinations.</p>
+              <p class="tool-use"><strong>À utiliser pour :</strong> extraction, comparaison structurée, recherche dans un corpus connu.</p>
+            </div>
+            <div class="tool-card">
+              <div class="tool-name">Elicit</div>
+              <div class="tool-sub">Elicit · <em>Recherche structurée</em></div>
+              <p>Spécialisé dans la recherche académique. Trouve des articles pertinents à partir d'une question, extrait automatiquement méthodologie, échantillon, résultats.</p>
+              <p class="tool-use"><strong>À utiliser pour :</strong> identifier des articles à lire, découvrir un champ inconnu.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CE QUE DIT LA RECHERCHE -->
+        <section id="recherche" class="guide-section research-section">
+          <span class="section-tag">Pour les sceptiques</span>
+          <h2>Ce que dit la recherche</h2>
+          <p class="guide-lead">Les recommandations de ce guide ne reposent pas sur des intuitions. Entre 2023 et 2025, plusieurs dizaines d'études empiriques ont mesuré ce que l'IA fait bien (et moins bien) dans une revue de littérature. Voici les quatre conclusions les plus solides du champ.</p>
+
+          <div class="finding">
+            <div class="finding-num">01</div>
+            <h3>L'hallucination de références est massive — et inégale</h3>
+            <p>Chelli et collègues (JMIR, 2024) ont mesuré que ChatGPT et Bard fabriquent des références dans <strong class="stat">28,6 % à 91,3 % des cas</strong> selon le modèle et la tâche. Une étude publiée dans <em>AI &amp; Society</em> (2025) sur la santé mentale a trouvé que <strong class="stat">56 %</strong> des citations générées par GPT-4o étaient fausses ou contenaient des erreurs, avec une variation forte selon le sous-domaine (94 % de citations réelles pour la dépression, mais ~30 % pour les troubles du comportement alimentaire).</p>
+            <p class="implication"><strong>Implication :</strong> vérifier chaque référence générée par une IA n'est pas une précaution excessive, c'est la condition de base d'un travail défendable. Plus votre champ est niché, plus le risque d'hallucination est élevé.</p>
+          </div>
+
+          <div class="finding">
+            <div class="finding-num">02</div>
+            <h3>Le tri d'abstracts par IA performe bien — sous conditions</h3>
+            <p>Pour le screening titre-résumé, les LLM atteignent des coefficients de Matthews (MCC) autour de <strong class="stat">0,30 à 0,35</strong> (Tran et al., Cambridge <em>Research Synthesis Methods</em>, 2025). Issaiy et collègues (PNAS, 2025) montrent que des ensembles de LLM rivalisent avec les humains en sensibilité, mais perdent en spécificité.</p>
+            <p class="implication"><strong>Implication :</strong> l'IA peut accélérer le tri, mais elle inclut plus de faux positifs que de faux négatifs. Le contrôle qualité humain — au minimum 10 % des décisions, idéalement en double codage — reste essentiel.</p>
+          </div>
+
+          <div class="finding">
+            <div class="finding-num">03</div>
+            <h3>Performance variable selon la phase de la revue</h3>
+            <p>Une revue de portée publiée dans JAMIA (Bolanos et al., 2025) a analysé 37 études qui ont utilisé des LLM dans des revues. L'IA est utilisée surtout pour la <strong class="stat">recherche documentaire (41 %)</strong>, la <strong class="stat">sélection d'études (38 %)</strong> et <strong class="stat">l'extraction de données (30 %)</strong>. Mais une revue de portée parallèle dans le <em>Journal of Clinical Epidemiology</em> (de la Torre-López et al., 2025) conclut que les LLM sont « <em>on the rise, but not yet ready for use</em> » comme outils autonomes.</p>
+            <p class="implication"><strong>Implication :</strong> l'IA est mature pour le travail mécanique (tri, extraction structurée). Elle est immature pour le travail interprétatif (synthèse argumentative, critique théorique). C'est exactement la frontière que ce guide vous aide à respecter.</p>
+          </div>
+
+          <div class="finding">
+            <div class="finding-num">04</div>
+            <h3>Une norme de transparence émerge : PRISMA-trAIce</h3>
+            <p>En 2025, une équipe internationale a proposé <strong>PRISMA-trAIce</strong> (JMIR AI, 2025), une extension de PRISMA 2020 qui demande aux auteurs de documenter explicitement l'usage de l'IA dans leur revue : modèle utilisé, version, prompts, nombre d'enregistrements screenés par IA versus par humain. La consultation publique est en cours, mais l'orientation est claire : la transparence sur l'usage de l'IA deviendra exigée dans les revues sérieuses.</p>
+            <p class="implication"><strong>Implication :</strong> tenir un journal des usages (date, modèle, prompt complet, décision prise) n'est plus un luxe méthodologique. C'est le standard qui se dessine pour les publications scientifiques.</p>
+          </div>
+
+          <p class="takeaway">L'IA accélère ce qui était fastidieux. Elle n'évacue pas la lecture critique. La rigueur méthodologique demeure le travail du chercheur — l'IA n'en est que l'outil. <a href="#bibliographie">Voir la bibliographie complète →</a></p>
+        </section>
+
+        <!-- LES 10 PROMPTS -->
+        <section id="prompts" class="guide-section">
+          <span class="section-tag">Cœur du guide</span>
+          <h2>Les 10 prompts, en 5 phases</h2>
+          <p class="guide-lead">Chaque prompt est conçu pour un moment précis du processus. Les variables à personnaliser sont signalées entre <code>[CROCHETS]</code>. Conservez la structure du prompt — c'est sa formulation précise qui produit la rigueur de la réponse.</p>
+
+          <!-- PHASE 1 -->
+          <div id="phase-1" class="phase-block">
+            <div class="phase-header">
+              <span class="phase-num">Phase 1</span>
+              <h3>Cadrer le terrain</h3>
+            </div>
+
+            <!-- PROMPT 1 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">01</span>
+                <div>
+                  <h4>Préciser et opérationnaliser ma question de recherche</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">Claude</span>
+                    <span class="prompt-when">Au tout début, quand la question est floue.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un assistant en méthodologie de recherche en sciences sociales.
+Je travaille sur le projet suivant :
+
+[DÉCRIS EN 3 À 5 PHRASES TON PROJET, TON INTÉRÊT, TON CONTEXTE]
+
+Ma question de recherche provisoire est :
+
+[VOTRE QUESTION ACTUELLE — MÊME SI ELLE EST FLOUE]
+
+Aide-moi à la préciser. Pour cela :
+1. Identifie les concepts clés, ambigus ou sous-spécifiés dans ma question.
+2. Propose 3 versions plus opérationnelles de la question, chacune avec
+   un angle différent (descriptif, comparatif, explicatif).
+3. Pour chacune des 3 versions, propose un cadre adapté (PICO, SPIDER,
+   ou CIMO selon la nature de la question), avec les composantes
+   complétées.
+4. Termine par 3 questions que tu me poserais avant de choisir l'une
+   des trois versions.
+
+Ne propose pas de littérature, ne cite pas d'auteurs. Concentre-toi
+uniquement sur la formulation et l'opérationnalisation.</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>En méthodologie qualitative, demandez le cadre SPIDER plutôt que PICO.</li>
+                    <li>Pour un projet partenarial, ajoutez une phrase décrivant le partenaire.</li>
+                    <li>Conservez les 3 versions dans votre journal : elles serviront à la justification méthodologique.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Demander à l'IA de citer la littérature dès cette étape : elle inventera des références. On cadre d'abord, on cherche ensuite.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROMPT 2 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">02</span>
+                <div>
+                  <h4>Cartographier le champ conceptuel</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">Claude</span>
+                    <span class="prompt-when">Une fois la question précisée, pour repérer concepts voisins et débats.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un assistant pour la préparation d'une revue de littérature en
+[VOTRE DISCIPLINE — p. ex. psychologie de l'éducation].
+
+Ma question de recherche est :
+[VOTRE QUESTION DE RECHERCHE PRÉCISÉE]
+
+Aide-moi à cartographier le champ conceptuel. Produis :
+
+1. CONCEPTS CENTRAUX (3 à 5) : pour chacun, définition opérationnelle en
+   une phrase, et 2 à 3 synonymes ou variantes utilisés dans la
+   littérature francophone et anglophone.
+
+2. CONCEPTS PÉRIPHÉRIQUES (5 à 8) : concepts adjacents ou imbriqués.
+   Indique pour chacun s'il faut l'inclure ou l'exclure de la revue,
+   avec une justification d'une ligne.
+
+3. COURANTS THÉORIQUES MAJEURS (2 à 4) : grandes écoles de pensée. Pour
+   chacun, hypothèse centrale et auteurs fréquemment associés
+   (signale si tu n'es pas certain — ne pas inventer).
+
+4. TENSIONS ATTENDUES : 2 à 3 débats que je vais probablement
+   rencontrer.
+
+Format : tableau pour 1 et 2, liste structurée pour 3 et 4.</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>Pour la francophonie, précisez-le : les LLM sont biaisés vers la littérature anglo-saxonne.</li>
+                    <li>Vérifiez chaque auteur proposé dans Google Scholar avant inclusion.</li>
+                    <li>Cette cartographie deviendra le squelette de votre section conceptuelle.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Prendre la liste d'auteurs comme point de départ bibliographique fiable. C'est une boussole, jamais une source.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROMPT 3 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">03</span>
+                <div>
+                  <h4>Construire une stratégie de mots-clés multilingue</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">Claude + bases de données</span>
+                    <span class="prompt-when">Avant la première requête dans PsycINFO, ERIC, Scopus.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un assistant en recherche documentaire pour les sciences sociales.
+Aide-moi à construire une stratégie de recherche pour : [PsycINFO, ERIC,
+Scopus, autres].
+
+Ma question : [VOTRE QUESTION]
+Mes concepts : [LISTE DES 3 À 5 CONCEPTS]
+
+Pour chaque concept, produis :
+1. MOTS-CLÉS FRANÇAIS : 4 à 6 termes, variantes incluses.
+2. MOTS-CLÉS ANGLAIS : 4 à 6 termes équivalents.
+3. TERMES DE THESAURUS : si tu connais les descripteurs PsycINFO ou ERIC,
+   indique-les (sinon, dis-le).
+
+Puis assemble une requête booléenne pour chaque base, en respectant la
+syntaxe (ET/OU, troncatures, guillemets, parenthèses).
+
+Termine par 3 STRATÉGIES DE RAFFINEMENT : trop de résultats ? Pas assez ?
+Hors sujet ?</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>Vérifiez les descripteurs dans le thesaurus officiel — l'IA peut en inventer.</li>
+                    <li>Faites valider par votre bibliothécaire de discipline.</li>
+                    <li>Conservez chaque requête avec sa date, sa base et son nombre de résultats.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Accepter la requête sans la tester. Lancez-la dans la base : si moins de 50 % des 20 premiers résultats sont pertinents, recalibrez.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- PHASE 2 -->
+          <div id="phase-2" class="phase-block">
+            <div class="phase-header">
+              <span class="phase-num">Phase 2</span>
+              <h3>Trier et évaluer</h3>
+            </div>
+
+            <!-- PROMPT 4 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">04</span>
+                <div>
+                  <h4>Trier rapidement une liste d'abstracts</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">Claude / Elicit</span>
+                    <span class="prompt-when">Après une recherche qui retourne 50, 100 ou 200 références.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un assistant pour le tri d'abstracts dans une revue de
+littérature.
+
+Ma question : [VOTRE QUESTION]
+
+Critères d'inclusion :
+- [CRITÈRE 1 — p. ex. : publié entre 2015 et 2026]
+- [CRITÈRE 2 — p. ex. : porte sur des adolescents]
+- [CRITÈRE 3 — p. ex. : devis empirique]
+
+Critères d'exclusion :
+- [CRITÈRE 1 — p. ex. : revues narratives sans méthodologie explicite]
+- [CRITÈRE 2 — p. ex. : littérature grise non révisée par les pairs]
+
+Abstracts à trier (1 par ligne) :
+1. [ABSTRACT 1]
+2. [ABSTRACT 2]
+...
+
+Pour chaque abstract, produis une ligne :
+Numéro — DÉCISION (INCLURE / EXCLURE / À VÉRIFIER) — JUSTIFICATION
+(1 phrase) — CRITÈRE LIÉ
+
+Termine par un tableau résumé : nombre inclus / exclus / à vérifier.</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>Limitez-vous à 20 abstracts par requête pour préserver la qualité.</li>
+                    <li>Toutes les décisions « À VÉRIFIER » sont relues par vous.</li>
+                    <li>En duo : faites trier le même lot par deux IA différentes et comparez.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Accepter les exclusions sans relecture. Auditez 10 % des décisions au hasard. Désaccord &gt; 15 % ? Recalibrez vos critères.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROMPT 5 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">05</span>
+                <div>
+                  <h4>Évaluer la qualité méthodologique d'un article</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">NotebookLM</span>
+                    <span class="prompt-when">Après sélection, pour évaluer la rigueur avant d'utiliser comme appui empirique.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un évaluateur méthodologique pour une revue de littérature en
+[DISCIPLINE]. L'article déposé dans cette source est l'objet de ton
+évaluation.
+
+Applique la grille suivante. Pour chaque élément, donne une cote
+(SOLIDE / ACCEPTABLE / FAIBLE / NON APPLICABLE) et une justification
+courte AVEC CITATION DU PASSAGE PERTINENT.
+
+1. QUESTION DE RECHERCHE : claire ? Concepts définis ?
+2. CADRE THÉORIQUE : explicite ? Mobilisé pour l'interprétation ?
+3. DEVIS : adéquat ? Justifié ?
+4. ÉCHANTILLON : stratégie décrite ? Taille justifiée ? Critères ?
+5. COLLECTE : instruments décrits ? Qualité des données discutée ?
+6. ANALYSE : méthode nommée ? Étapes explicites ? Réflexivité (qualitatif) ?
+7. RÉSULTATS : reliés aux questions ? Visualisation appropriée ?
+8. ÉTHIQUE : approbation ? Consentement ? Conflits d'intérêts ?
+9. LIMITES : reconnues ? Honnêteté face aux failles ?
+10. TRANSFÉRABILITÉ : conclusions proportionnées aux données ?
+
+Termine par une SYNTHÈSE EN 5 LIGNES : peut-on s'appuyer sur cet
+article ? Pour quoi exactement ? Avec quelles réserves ?</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>Ce prompt brille dans NotebookLM : chaque cote est reliée à un extrait précis.</li>
+                    <li>Exportez plusieurs évaluations dans un Excel pour les comparer.</li>
+                    <li>Adaptez la grille : puissance statistique pour quantitatif, saturation pour qualitatif.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Prendre l'évaluation comme un verdict. L'IA peut manquer des subtilités contextuelles. Première passe, pas jugement final.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- PHASE 3 -->
+          <div id="phase-3" class="phase-block">
+            <div class="phase-header">
+              <span class="phase-num">Phase 3</span>
+              <h3>Extraire et organiser</h3>
+            </div>
+
+            <!-- PROMPT 6 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">06</span>
+                <div>
+                  <h4>Extraire une matrice de données à partir d'un article</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">NotebookLM / Elicit</span>
+                    <span class="prompt-when">Pour chaque article inclus, uniformiser l'extraction.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un assistant pour l'extraction de données dans une revue
+systématique. L'article déposé dans cette source est l'objet de
+l'extraction.
+
+Remplis la matrice suivante. Pour chaque cellule, donne :
+- la réponse extraite (pas de paraphrase libre)
+- la citation textuelle de l'extrait source (entre guillemets)
+- la page (si visible)
+
+Si une information n'est pas disponible, écris NON RAPPORTÉ.
+
+CHAMP 1  — Référence complète (APA 7e)
+CHAMP 2  — Question / objectif de recherche
+CHAMP 3  — Cadre théorique principal
+CHAMP 4  — Devis (qualitatif / quantitatif / mixte) — sous-type
+CHAMP 5  — Échantillon (taille, caractéristiques, recrutement)
+CHAMP 6  — Contexte (lieu, période, secteur)
+CHAMP 7  — Instruments / méthodes de collecte
+CHAMP 8  — Méthode d'analyse
+CHAMP 9  — Résultats principaux (3 à 5 points)
+CHAMP 10 — Conclusion des auteurs
+CHAMP 11 — Limites déclarées
+CHAMP 12 — Concepts/thèmes qui éclairent MA question : [VOTRE QUESTION]
+
+Format final : tableau structuré, 3 colonnes (Réponse / Citation / Page).</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>Une extraction par fichier, nommé selon l'article. Vous aurez un dossier prêt pour la synthèse.</li>
+                    <li>Gardez le MÊME prompt pour tous les articles — la cohérence d'extraction est essentielle.</li>
+                    <li>Le champ 12 transforme une extraction générique en extraction orientée revue.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Accepter une extraction sans citation textuelle. La citation est votre filet contre l'hallucination.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROMPT 7 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">07</span>
+                <div>
+                  <h4>Comparer plusieurs études sur un même sujet</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">NotebookLM</span>
+                    <span class="prompt-when">Une fois 5 à 20 articles extraits — pour repérer convergences et tensions.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un assistant pour la synthèse comparative d'une revue de
+littérature. Les sources déposées sont les articles à comparer.
+
+Ma question de revue : [VOTRE QUESTION]
+
+Produis une SYNTHÈSE COMPARATIVE structurée comme suit :
+
+A. CONVERGENCES MÉTHODOLOGIQUES : sur quoi les études s'accordent ?
+B. DIVERGENCES MÉTHODOLOGIQUES : sur quoi diffèrent-elles ?
+C. CONVERGENCES DE RÉSULTATS : quels constats reviennent ? Cite chaque
+   étude (auteur, année).
+D. DIVERGENCES DE RÉSULTATS : où les études se contredisent-elles ?
+   Hypothèses explicatives (population, mesure, contexte).
+E. ANGLES MORTS : quels aspects de ma question ne sont abordés par
+   aucune des études du corpus ?
+F. TABLEAU DE SYNTHÈSE : matrice études × dimensions (devis, population,
+   résultats, limites).
+
+Pour chaque affirmation, cite la source dans le corpus (auteur, année,
+page idéalement).</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>Maximum 20 articles dans le corpus : au-delà, NotebookLM perd en précision.</li>
+                    <li>Signalez les articles fondamentaux par leur nom — NotebookLM y accordera plus de poids.</li>
+                    <li>Exportez en Markdown pour réorganiser sans tout copier-coller.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Généraliser à partir de 3-4 études seulement. La comparaison gagne en intérêt à partir de 8-10.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- PHASE 4 -->
+          <div id="phase-4" class="phase-block">
+            <div class="phase-header">
+              <span class="phase-num">Phase 4</span>
+              <h3>Synthétiser et critiquer</h3>
+            </div>
+
+            <!-- PROMPT 8 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">08</span>
+                <div>
+                  <h4>Identifier les angles morts et les lacunes</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">NotebookLM + Claude</span>
+                    <span class="prompt-when">Pour définir la contribution originale du projet.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un assistant pour la phase de synthèse critique d'une revue.
+Les sources représentent l'état des connaissances sur [VOTRE SUJET].
+
+Ma question : [VOTRE QUESTION]
+
+Identifie les ANGLES MORTS, organisés en 5 catégories :
+
+1. POPULATIONNELS : quelles populations sont sous-étudiées ?
+2. MÉTHODOLOGIQUES : quelles approches manquent (qualitatif,
+   longitudinal, participatif) ?
+3. CONCEPTUELS : quels concepts adjacents ne sont pas articulés à mon
+   sujet ?
+4. TEMPORELS / CONTEXTUELS : la littérature est-elle datée ?
+5. APPLICATIFS : connaissances actionnables pour pratique et
+   politiques ?
+
+Pour chaque angle, cite les indices dans le corpus qui te font conclure
+à une lacune (absence, signalements d'auteurs, appels à recherche).
+
+Termine par 3 PROPOSITIONS DE CONTRIBUTION ORIGINALE pour mon projet.</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>Les phrases « future research should... » dans les conclusions sont vos meilleures sources — demandez-les explicitement.</li>
+                    <li>Vérifiez les lacunes identifiées par une recherche Google Scholar ciblée : peut-être que des études existent ailleurs.</li>
+                    <li>Ce prompt nourrit vos arguments de justification scientifique en introduction.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Prendre une lacune apparente pour une lacune réelle. Validez par recherche ciblée avant d'en faire un argument central.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROMPT 9 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">09</span>
+                <div>
+                  <h4>Construire une matrice de synthèse argumentative</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">Claude + tableur</span>
+                    <span class="prompt-when">Au moment de structurer la section « État de la littérature ».</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un assistant pour la rédaction d'une revue argumentative.
+
+Ma question : [VOTRE QUESTION]
+
+Extractions de [N] articles clés (formatées au prompt 6) :
+[COLLEZ VOS EXTRACTIONS — 5 À 12 ARTICLES]
+
+Construis une MATRICE ARGUMENTATIVE qui dépasse le format catalogue.
+
+Propose 3 ANGLES STRUCTURANTS :
+
+A. NARRATION CHRONOLOGIQUE : évolution dans le temps, ruptures,
+   continuités.
+B. NARRATION THÉMATIQUE : grands axes, articles regroupés par axe,
+   apport collectif.
+C. NARRATION CONTROVERSE / DÉBAT : où la littérature se divise-t-elle ?
+   Positions, auteurs, données.
+
+Pour chaque narration, propose :
+- une phrase-thèse qui structurerait la section
+- 4 à 6 sous-sections (titre + phrase-résumé)
+- les articles à citer dans chaque sous-section
+
+Termine par une recommandation : quelle narration sert le mieux ma
+question, et pourquoi.</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>La narration controverse est puissante pour une thèse de doctorat ou un article scientifique.</li>
+                    <li>La narration thématique est plus accessible pour un public appliqué.</li>
+                    <li>La matrice devient votre squelette de rédaction.</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Choisir la narration qui ressemble à ce que vous vouliez écrire. Si les trois vous semblent équivalentes, votre question n'est pas assez précise.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- PHASE 5 -->
+          <div id="phase-5" class="phase-block">
+            <div class="phase-header">
+              <span class="phase-num">Phase 5</span>
+              <h3>Rédiger et critiquer</h3>
+            </div>
+
+            <!-- PROMPT 10 -->
+            <article class="prompt-card">
+              <header class="prompt-header">
+                <span class="prompt-num">10</span>
+                <div>
+                  <h4>Faire critiquer mon propre paragraphe de revue</h4>
+                  <div class="prompt-meta">
+                    <span class="prompt-tool">Claude</span>
+                    <span class="prompt-when">Après rédaction, avant la relecture par un pair.</span>
+                  </div>
+                </div>
+              </header>
+              <pre class="prompt-text">Tu es un évaluateur exigeant pour une revue de littérature en
+[DISCIPLINE]. Voici un paragraphe que j'ai rédigé :
+
+[VOTRE PARAGRAPHE — 150 À 400 MOTS]
+
+Critique-le selon 7 critères. Pour chacun, une cote (FORT / ACCEPTABLE /
+FAIBLE) et une justification précise avec extrait du texte.
+
+1. CLARTÉ DE LA THÈSE : argument central explicite dès la première
+   phrase ?
+2. INTÉGRATION DES SOURCES : citations articulées à un raisonnement,
+   ou juxtaposées ?
+3. PRÉCISION DES CITATIONS : références soutiennent-elles bien ce qui
+   est affirmé ? Affirmations sans citation ?
+4. ÉQUILIBRE : position nuancée ? Contradictions reconnues ?
+5. STYLE ACADÉMIQUE : hedges excessifs ? Généralisations abusives ?
+   Affirmations non sourcées ?
+6. TRANSITIONS : intégration logique avec ce qui précède / suit ?
+7. CONTRIBUTION AU RAISONNEMENT GLOBAL : fait-il avancer la revue ?
+
+Termine par 3 RÉVISIONS CONCRÈTES (citations à remplacer, phrases à
+reformuler, ajouts à faire).
+
+Ne réécris pas le paragraphe. Critique-le.</pre>
+              <div class="prompt-tips">
+                <div>
+                  <strong>Conseils</strong>
+                  <ul>
+                    <li>« Ne réécris pas » est important : sinon l'IA reformule et vous perdez votre voix.</li>
+                    <li>Utilisez ce prompt sur vos paragraphes-clés : intro, argument central, conclusion.</li>
+                    <li>Variante : « Ce paragraphe défendrait-il une thèse contraire ? Si oui, où est la faille ? »</li>
+                  </ul>
+                </div>
+                <div class="prompt-trap">
+                  <strong>Piège à éviter</strong>
+                  <p>Accepter les révisions sans esprit critique. L'IA peut suggérer une citation qu'elle inventera. Vérifiez chaque source.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </section>
+
+        <!-- ANTI-PATRONS -->
+        <section id="anti-patrons" class="guide-section">
+          <span class="section-tag">Vigilance</span>
+          <h2>5 anti-patrons à éviter</h2>
+          <p class="guide-lead">Les erreurs les plus fréquentes observées chez les personnes qui intègrent l'IA dans leur travail de revue.</p>
+
+          <div class="antipattern">
+            <h3>1. La citation fantôme</h3>
+            <p>L'IA produit une référence qui n'existe pas. Auteur plausible, année crédible, revue connue — mais l'article n'existe pas, ou est attribué à un autre auteur.</p>
+            <p class="remede"><strong>Remède :</strong> vérifier chaque référence. Google Scholar, DOI.org, Crossref. Si vous ne pouvez pas la trouver, ne la citez pas.</p>
+          </div>
+
+          <div class="antipattern">
+            <h3>2. La paraphrase erronée</h3>
+            <p>L'IA résume un article en attribuant aux auteurs une conclusion qu'ils n'ont pas tirée, ou en gommant leurs nuances.</p>
+            <p class="remede"><strong>Remède :</strong> pour chaque résumé qui sert votre argumentation, relire le passage source. La perte de temps est moindre que la perte de crédibilité.</p>
+          </div>
+
+          <div class="antipattern">
+            <h3>3. Le biais de confirmation augmenté</h3>
+            <p>Vous demandez à l'IA des arguments pour une thèse que vous avez déjà en tête. Elle s'exécute — sans aller chercher les contre-arguments.</p>
+            <p class="remede"><strong>Remède :</strong> demandez systématiquement « quels sont les contre-arguments dans la littérature, et quels auteurs les portent ? ». Si l'IA n'en trouve pas, votre revue n'est pas finie.</p>
+          </div>
+
+          <div class="antipattern">
+            <h3>4. La synthèse sans corpus</h3>
+            <p>Vous demandez à Claude (non à NotebookLM) une synthèse sur un sujet. L'IA puise dans ses données d'entraînement — sans citer, sans vérifier, biaisée vers la littérature anglo-saxonne.</p>
+            <p class="remede"><strong>Remède :</strong> pour toute synthèse sourcée, déposez votre corpus dans NotebookLM ou Elicit. La synthèse sans corpus sert au cadrage, pas à la conclusion.</p>
+          </div>
+
+          <div class="antipattern">
+            <h3>5. La trace effacée</h3>
+            <p>Vous utilisez l'IA pour produire un paragraphe, vous le retravaillez, vous oubliez de le noter. Votre comité ou votre revue scientifique vous le reprochera.</p>
+            <p class="remede"><strong>Remède :</strong> tenez un journal des usages (date, modèle, prompt, décision). Documentez dans votre méthodologie. La transparence est la meilleure protection.</p>
+          </div>
+        </section>
+
+        <!-- BIBLIOGRAPHIE -->
+        <section id="bibliographie" class="guide-section bibliography">
+          <span class="section-tag">Sources</span>
+          <h2>Bibliographie scientifique</h2>
+          <p class="guide-lead">Les références qui appuient les chiffres et recommandations de la section « Ce que dit la recherche ». Format APA 7e (abrégé). Toutes vérifiées.</p>
+
+          <div class="bib-section">
+            <h3>Sur les hallucinations et la fiabilité</h3>
+            <ul>
+              <li>Chelli, M., Descamps, J., Lavoué, V., Trojani, C., Azar, M., Deckert, M., Raynier, J.-L., Clowez, G., Boileau, P., &amp; Ruetsch-Chelli, C. (2024). Hallucination rates and reference accuracy of ChatGPT and Bard for systematic reviews: Comparative analysis. <em>Journal of Medical Internet Research, 26</em>, e53164. <a href="https://www.jmir.org/2024/1/e53164" target="_blank" rel="noopener">jmir.org ↗</a></li>
+              <li>Walters, W. H., &amp; Wilder, E. I. (2025). Can generative AI reliably synthesise literature? Exploring hallucination issues in ChatGPT. <em>AI &amp; Society</em>. <a href="https://link.springer.com/article/10.1007/s00146-025-02406-7" target="_blank" rel="noopener">springer.com ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="bib-section">
+            <h3>Sur la performance du tri d'abstracts</h3>
+            <ul>
+              <li>Issaiy, M., Zarei, D., &amp; Saghazadeh, A. (2025). Transforming literature screening: The emerging role of large language models in systematic reviews. <em>Proceedings of the National Academy of Sciences, 122</em>(15), e2411962122. <a href="https://www.pnas.org/doi/10.1073/pnas.2411962122" target="_blank" rel="noopener">pnas.org ↗</a></li>
+              <li>Tran, V.-T., Gartlehner, G., Yaacoub, S., Boutron, I., Schwingshackl, L., Stadelmaier, J., Sommer, I., Aboulayeh, F., Afach, S., Meerpohl, J., &amp; Ravaud, P. (2025). Optimal large language models to screen citations for systematic reviews. <em>Research Synthesis Methods</em>. Cambridge University Press.</li>
+              <li>Guo, E., Gupta, M., Deng, J., Park, Y.-J., Paget, M., &amp; Naugler, C. (2024). Automated paper screening for clinical reviews using large language models: Data analysis study. <em>Journal of Medical Internet Research, 26</em>, e48996. <a href="https://www.jmir.org/2024/1/e48996" target="_blank" rel="noopener">jmir.org ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="bib-section">
+            <h3>Sur l'état du champ (revues de portée 2025)</h3>
+            <ul>
+              <li>Bolanos, F., Salatino, A., Osborne, F., &amp; Motta, E. (2025). The emergence of large language models as tools in literature reviews: A large language model-assisted systematic review. <em>Journal of the American Medical Informatics Association, 32</em>(6), 1071-1086. <a href="https://academic.oup.com/jamia/article/32/6/1071/8126534" target="_blank" rel="noopener">academic.oup.com ↗</a></li>
+              <li>de la Torre-López, J., Ramírez, A., &amp; Romero, J. R. (2025). Large language models for conducting systematic reviews: On the rise, but not yet ready for use — A scoping review. <em>Journal of Clinical Epidemiology</em>. <a href="https://www.sciencedirect.com/science/article/pii/S0895435625000794" target="_blank" rel="noopener">sciencedirect.com ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="bib-section">
+            <h3>Sur les normes de transparence</h3>
+            <ul>
+              <li>Hammoud, R. A., et collaborateurs. (2025). Transparent reporting of AI in systematic literature reviews: Development of the PRISMA-trAIce checklist. <em>JMIR AI, 4</em>, e80247. <a href="https://ai.jmir.org/2025/1/e80247" target="_blank" rel="noopener">ai.jmir.org ↗</a></li>
+              <li>Sanderson, J. (2023). PRISMA-DFLLM: An extension of PRISMA for systematic literature reviews using domain-specific finetuned large language models. <em>arXiv preprint arXiv:2306.14905</em>. <a href="https://arxiv.org/abs/2306.14905" target="_blank" rel="noopener">arxiv.org ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="bib-section">
+            <h3>Sur les cadres méthodologiques classiques</h3>
+            <ul>
+              <li>Tricco, A. C., Lillie, E., Zarin, W., O'Brien, K. K., Colquhoun, H., Levac, D., Moher, D., et collaborateurs. (2018). PRISMA extension for scoping reviews (PRISMA-ScR): Checklist and explanation. <em>Annals of Internal Medicine, 169</em>(7), 467-473.</li>
+              <li>Maxwell, J. A. (2006). Literature reviews of, and for, educational research: A commentary on Boote and Beile's « Scholars before researchers ». <em>Educational Researcher, 35</em>(9), 28-31.</li>
+              <li>Higgins, J. P. T., Thomas, J., Chandler, J., Cumpston, M., Li, T., Page, M. J., &amp; Welch, V. A. (Eds.). (2023). <em>Cochrane handbook for systematic reviews of interventions</em> (version 6.4). Cochrane.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CTA TÉLÉCHARGEMENT -->
+        <section class="guide-cta-block">
+          <h2>Gardez l'essentiel à portée de main</h2>
+          <p>Les 10 prompts condensés en un aide-mémoire PDF imprimable. Un prompt par page, prêt à copier dans NotebookLM, Elicit ou Claude.</p>
+          <a href="assets/10-prompts-revue-litterature-aide-memoire.pdf" class="btn-primary">Télécharger l'aide-mémoire (PDF, 12 pages)</a>
+        </section>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- BLOC INFOLETTRE -->
+  <section style="padding-top: 2rem; padding-bottom: 4rem;">
+    <div class="inner">
+      <div class="newsletter-block reveal">
+        <div class="newsletter-block-inner">
+          <div>
+            <span class="section-tag">L'infolettre</span>
+            <h2>Pour suivre les <em>nouvelles ressources</em> sur l'IA en recherche.</h2>
+            <p>Une infolettre mensuelle qui réunit veille, guides pratiques et réflexions critiques sur l'IA dans la recherche en sciences sociales.</p>
+          </div>
+          <div>
+            <div class="mailerlite-placeholder">⚠ Placeholder MailerLite</div>
+            <form class="newsletter-form" data-form-type="newsletter">
+              <input type="text" placeholder="Prénom" required aria-label="Prénom" />
+              <input type="email" placeholder="Votre courriel" required aria-label="Courriel" />
+              <button type="submit">S'abonner gratuitement</button>
+              <p class="newsletter-fineprint">Désinscription en un clic. <a href="confidentialite.html">Politique de confidentialité</a>.</p>
+              <p class="form-confirm"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Benoit Plante</div>
+        <p>Consultant en recherche à l'ère de l'IA. Veille, formations et accompagnement pour intégrer l'intelligence artificielle dans les pratiques de recherche, sans compromettre la rigueur.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Offre</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="outils.html">Outils</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="a-propos.html">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="infolettre.html">Infolettre</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal &amp; liens</h4>
+        <ul>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Benoit Plante. Tous droits réservés.</p>
+      <span class="footer-mark">Recherche &amp; impact social</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- STYLES SPÉCIFIQUES À CE GUIDE -->
+  <style>
+    /* HERO */
+    .guide-hero .hero-h1 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); }
+    .guide-meta {
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      color: var(--gris-500);
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      letter-spacing: 0.04em;
+    }
+
+    /* LAYOUT */
+    .guide-body { padding-top: 2rem; padding-bottom: 3rem; background: var(--gris-50); }
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .guide-content { max-width: 720px; }
+
+    /* TOC */
+    .guide-toc {
+      position: sticky;
+      top: 90px;
+      align-self: start;
+    }
+    .guide-toc-inner {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .guide-toc-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 1rem;
+    }
+    .guide-toc-list {
+      list-style: none;
+      padding: 0;
+      font-size: 0.82rem;
+      counter-reset: tocitem;
+    }
+    .guide-toc-list > li {
+      counter-increment: tocitem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.6rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .guide-toc-list > li::before {
+      content: counter(tocitem, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0.05rem;
+      font-size: 0.66rem;
+      font-weight: 600;
+      color: var(--or);
+      letter-spacing: 0.05em;
+    }
+    .guide-toc-list a {
+      color: var(--ardoise);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .guide-toc-list a:hover { color: var(--accent); }
+    .guide-toc-list ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.4rem;
+      font-size: 0.76rem;
+    }
+    .guide-toc-list ul li {
+      padding: 0.18rem 0 0.18rem 0.7rem;
+      border-left: 2px solid var(--gris-200);
+      margin-left: 0.1rem;
+    }
+    .guide-toc-list ul li a { color: var(--gris-500); }
+    .guide-toc-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.4rem;
+      padding: 0.7rem 0.9rem;
+      background: var(--bleu);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .guide-toc-cta:hover { background: var(--bleu-med); }
+    .guide-toc-cta svg { width: 14px; height: 14px; }
+
+    /* SECTIONS */
+    .guide-section {
+      background: white;
+      border-radius: 14px;
+      padding: 2.6rem 2.4rem;
+      margin-bottom: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gris-200);
+    }
+    .guide-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+      font-weight: 700;
+      color: var(--bleu);
+      margin: 0.4rem 0 1.2rem;
+      letter-spacing: -0.01em;
+    }
+    .guide-section h2 em { color: var(--or); font-style: italic; }
+    .guide-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--bleu);
+      margin: 1.6rem 0 0.6rem;
+    }
+    .guide-section p { font-size: 0.95rem; color: var(--ardoise); line-height: 1.75; margin-bottom: 1rem; }
+    .guide-section ul { margin: 0.6rem 0 1.2rem 1.2rem; }
+    .guide-section li { font-size: 0.92rem; color: var(--gris-700); line-height: 1.65; margin-bottom: 0.4rem; }
+    .guide-lead { font-size: 1.02rem !important; color: var(--ardoise); font-weight: 400; }
+
+    /* SECTION TAG */
+    .section-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.4rem;
+    }
+
+    /* TRAP CARDS (3 pièges) */
+    .trap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0 1.5rem;
+    }
+    .trap-card {
+      background: var(--gris-50);
+      border: 1px solid var(--gris-200);
+      border-radius: 10px;
+      padding: 1.1rem 1rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .trap-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--or);
+      box-shadow: var(--shadow-md);
+    }
+    .trap-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--or);
+      margin-bottom: 0.3rem;
+    }
+    .trap-card h3 { font-size: 0.95rem !important; margin: 0 0 0.4rem !important; }
+    .trap-card p { font-size: 0.85rem !important; margin: 0 !important; line-height: 1.55 !important; }
+
+    /* RULES BLOCK */
+    .rules-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1.4rem 0;
+    }
+    .rule {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--bleu-pale);
+      border-left: 3px solid var(--bleu);
+      padding: 1rem 1.2rem;
+      border-radius: 0 8px 8px 0;
+    }
+    .rule-num {
+      flex: none;
+      width: 28px; height: 28px;
+      background: var(--bleu);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+    }
+    .rule strong { color: var(--bleu); font-size: 0.95rem; display: block; margin-bottom: 0.2rem; }
+    .rule p { font-size: 0.88rem !important; margin: 0 !important; }
+
+    /* TOOLS GRID */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.4rem 0;
+    }
+    .tool-card {
+      background: var(--gris-50);
+      border: 1px solid var(--gris-200);
+      border-radius: 10px;
+      padding: 1.2rem 1.1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tool-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .tool-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--bleu);
+      margin-bottom: 0.2rem;
+    }
+    .tool-sub {
+      font-size: 0.74rem;
+      color: var(--gris-500);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+    .tool-sub em { color: var(--or); font-style: normal; font-weight: 500; text-transform: none; letter-spacing: 0; }
+    .tool-card p { font-size: 0.84rem !important; margin-bottom: 0.6rem !important; }
+    .tool-use { font-size: 0.84rem !important; padding-top: 0.5rem; border-top: 1px solid var(--gris-200); }
+    .tool-use strong { color: var(--accent); }
+
+    /* FINDINGS (recherche) */
+    .research-section { background: linear-gradient(180deg, white 0%, var(--bleu-pale) 100%); }
+    .finding {
+      background: white;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 1.4rem 1.6rem;
+      margin: 1.2rem 0;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .finding-num {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent-s);
+      line-height: 1;
+    }
+    .finding h3 { font-size: 1.1rem !important; margin: 0 0 0.7rem 0 !important; padding-right: 3rem; }
+    .finding p { font-size: 0.92rem !important; margin-bottom: 0.6rem !important; }
+    .stat { color: var(--bleu); font-weight: 600; }
+    .implication {
+      padding: 0.7rem 1rem;
+      background: var(--or-pale);
+      border-radius: 6px;
+      font-size: 0.88rem !important;
+      margin-top: 0.7rem !important;
+      margin-bottom: 0 !important;
+    }
+    .implication strong { color: var(--or); }
+    .takeaway {
+      background: var(--bleu);
+      color: white !important;
+      padding: 1.2rem 1.4rem;
+      border-radius: 10px;
+      font-size: 0.92rem !important;
+      margin-top: 1.6rem !important;
+    }
+    .takeaway a { color: var(--or); font-weight: 500; }
+
+    /* PHASE BLOCKS */
+    .phase-block { margin: 2rem 0; }
+    .phase-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid var(--or);
+    }
+    .phase-num {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+    }
+    .phase-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem !important;
+      font-weight: 700;
+      color: var(--bleu);
+      margin: 0 !important;
+    }
+
+    /* PROMPT CARDS */
+    .prompt-card {
+      background: var(--gris-50);
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.5rem 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+    .prompt-header {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .prompt-num {
+      flex: none;
+      width: 38px; height: 38px;
+      background: var(--or);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .prompt-header h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--bleu);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.005em;
+    }
+    .prompt-meta {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      color: var(--gris-500);
+    }
+    .prompt-tool {
+      background: var(--bleu);
+      color: white;
+      padding: 0.18rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.72rem;
+    }
+    .prompt-when { font-style: italic; }
+    .prompt-text {
+      background: #fdfaf2;
+      border: 1px solid #ead7a5;
+      border-left: 3px solid var(--or);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: var(--ardoise);
+      white-space: pre-wrap;
+      overflow-x: auto;
+      margin: 0 0 1rem;
+    }
+    .prompt-tips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .prompt-tips strong {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 0.5rem;
+    }
+    .prompt-tips ul { margin: 0 0 0 1rem; padding: 0; }
+    .prompt-tips li { font-size: 0.83rem !important; margin-bottom: 0.3rem !important; line-height: 1.55 !important; }
+    .prompt-trap {
+      background: #fef9eb;
+      border: 1px solid #f5e8b5;
+      border-radius: 6px;
+      padding: 0.8rem 1rem;
+    }
+    .prompt-trap strong { color: #92651a; }
+    .prompt-trap p { font-size: 0.83rem !important; margin: 0 !important; line-height: 1.55 !important; color: #5c4810 !important; }
+
+    /* ANTI-PATTERNS */
+    .antipattern {
+      border-left: 3px solid var(--or);
+      padding: 0 0 0 1.2rem;
+      margin: 1.4rem 0;
+    }
+    .antipattern h3 { margin: 0 0 0.5rem 0 !important; font-size: 1.05rem !important; }
+    .remede {
+      background: var(--gris-50);
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
+      font-size: 0.88rem !important;
+      margin-top: 0.5rem !important;
+    }
+    .remede strong { color: var(--bleu); }
+
+    /* BIBLIOGRAPHIE */
+    .bibliography .bib-section { margin: 1.4rem 0; }
+    .bibliography .bib-section h3 { font-size: 0.95rem !important; margin: 0 0 0.6rem 0 !important; }
+    .bibliography ul { list-style: none; padding: 0 !important; margin: 0 !important; }
+    .bibliography li {
+      font-size: 0.85rem !important;
+      line-height: 1.55 !important;
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed var(--gris-200);
+      color: var(--gris-700) !important;
+    }
+    .bibliography li:last-child { border-bottom: none; }
+    .bibliography a { color: var(--accent); font-weight: 500; text-decoration: none; }
+    .bibliography a:hover { text-decoration: underline; }
+
+    /* CTA TÉLÉCHARGEMENT */
+    .guide-cta-block {
+      background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-med) 100%);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: 14px;
+      margin-bottom: 1.8rem;
+    }
+    .guide-cta-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: white;
+    }
+    .guide-cta-block p {
+      max-width: 480px;
+      margin: 0 auto 1.4rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+    }
+    .guide-cta-block .btn-primary {
+      background: var(--or);
+      color: var(--bleu);
+      font-weight: 600;
+    }
+    .guide-cta-block .btn-primary:hover { background: white; color: var(--bleu); }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .guide-layout { grid-template-columns: 1fr; gap: 1.6rem; }
+      .guide-toc { position: static; }
+      .trap-grid, .tools-grid { grid-template-columns: 1fr; }
+      .prompt-tips { grid-template-columns: 1fr; }
+      .guide-section { padding: 1.8rem 1.4rem; }
+    }
+    @media (max-width: 600px) {
+      .prompt-text { font-size: 0.72rem; padding: 0.8rem 1rem; }
+      .prompt-header { flex-direction: column; }
+    }
+  </style>
+</body>
+</html>
