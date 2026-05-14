@@ -709,6 +709,48 @@ section { padding: 6rem var(--pad-x); }
   line-height: 1.65;
 }
 
+/* État vide du blogue (avant la première publication) */
+.empty-blog {
+  max-width: 540px;
+  margin: 3rem auto 4rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--gris-50);
+  border: 1px solid var(--gris-200);
+  border-radius: 16px;
+}
+
+.empty-blog-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid var(--gris-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.4rem;
+  color: var(--or);
+}
+
+.empty-blog-icon svg { width: 26px; height: 26px; }
+
+.empty-blog h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--bleu);
+  margin-bottom: 0.6rem;
+}
+
+.empty-blog p {
+  font-size: 0.95rem;
+  color: var(--gris-700);
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
 /* ==========================================================================
    BLOC INFOLETTRE
    ========================================================================== */
