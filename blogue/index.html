@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blogue — Benoit Plante</title>
-  <meta name="description" content="Articles de fond sur la recherche à l'ère de l'IA : méthodes, outils, enjeux critiques. Un nouveau billet chaque lundi." />
+  <title>Blogue — Benoit Plante, Consultant IA Écosystème Claude</title>
+  <meta name="description" content="Articles, veille et analyses sur l'Écosystème Claude d'Anthropic. À venir prochainement." />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Blogue — Benoit Plante" />
-  <meta property="og:description" content="Articles de fond sur la recherche à l'ère de l'IA. Un nouveau billet chaque lundi." />
   <meta property="og:locale" content="fr_CA" />
 
-  <link rel="canonical" href="https://benoitplante.com/blogue/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="article.css" />
 </head>
-<body>
+<body class="has-dev-banner">
 
+  <!-- BANNIÈRE DÉVELOPPEMENT -->
+  <div class="dev-banner" role="banner">
+    <span class="dev-banner-dot"></span>
+    <strong>Site en développement</strong> — Le contenu est en cours de finalisation. Merci de votre patience.
+  </div>
+
+  <!-- NAVIGATION -->
   <nav class="nav" aria-label="Navigation principale">
     <a class="nav-logo" href="../">Benoit Plante</a>
     <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -29,47 +33,76 @@
     </button>
     <ul class="nav-links">
       <li><a href="../services/">Services</a></li>
-      <li><a href="index.html" class="active">Blogue</a></li>
+      <li><a href="../blogue/" class="active">Blogue</a></li>
       <li><a href="../ressources/">Ressources</a></li>
-      <li><a href="../formations/">Formations</a></li>
       <li><a href="../a-propos/">À propos</a></li>
       <li><a href="../contact/" class="nav-cta">Me contacter</a></li>
     </ul>
   </nav>
 
+  <!-- HERO -->
   <section class="hero hero-compact">
-    <div class="hero-content" style="max-width: 780px; text-align: center;">
-      <div class="hero-eyebrow" style="margin-left:auto; margin-right:auto;">Le blogue</div>
-      <h1 class="hero-h1">Veille critique sur la <em>recherche</em> à l'ère de l'IA</h1>
-      <p class="hero-sub">Articles de fond sur les outils, méthodes et enjeux qui transforment la recherche en sciences sociales. Un nouveau billet chaque lundi.</p>
+    <div class="hero-content" style="max-width: 760px;">
+      <div class="hero-eyebrow">Blogue et veille</div>
+      <h1 class="hero-h1">Analyses sur l'<em>Écosystème Claude</em>.</h1>
+      <p class="hero-sub">Articles de fond, veille sur les nouveautés d'Anthropic, guides pratiques et analyses de cas d'usage. Le contenu arrive bientôt.</p>
     </div>
   </section>
 
-  <section class="blog-list-section">
+  <!-- ÉTAT VIDE -->
+  <section style="padding-top: 0; padding-bottom: 6rem;">
     <div class="inner">
-      <div class="blog-list">
-        <div class="blog-empty">
-          <p>Le premier billet sera publié sous peu. Inscrivez-vous à l'infolettre pour être notifié.</p>
-          <a href="../infolettre/" class="btn-primary">M'abonner →</a>
+
+      <!-- Filtres (structure conservée pour usage futur) -->
+      <div class="filters reveal">
+        <div class="filter-group">
+          <span class="filter-label">Type</span>
+          <button class="filter-chip active">Tout</button>
+          <button class="filter-chip">Veille</button>
+          <button class="filter-chip">Articles</button>
+          <button class="filter-chip">Guides</button>
         </div>
+        <div class="filter-group">
+          <span class="filter-label">Thème</span>
+          <button class="filter-chip active">Tous</button>
+          <button class="filter-chip">API</button>
+          <button class="filter-chip">Agents</button>
+          <button class="filter-chip">MCP</button>
+          <button class="filter-chip">Prompting</button>
+          <button class="filter-chip">Stratégie</button>
+        </div>
+      </div>
+
+      <!-- État vide -->
+      <div class="empty-blog reveal">
+        <div class="empty-blog-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h2>Le contenu arrive bientôt</h2>
+        <p>Je travaille actuellement à la rédaction des premiers articles sur l'Écosystème Claude : veille hebdomadaire, guides pratiques et analyses de cas d'usage concrets. Revenez bientôt ou contactez-moi directement.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT TEASER -->
+  <section style="background: var(--bleu-pale);">
+    <div class="inner" style="text-align: center;">
+      <div class="reveal">
+        <span class="section-tag" style="margin-left: auto; margin-right: auto;">En attendant</span>
+        <h2 class="section-h2">Une question sur l'Écosystème Claude ?</h2>
+        <p class="section-lead" style="margin: 0 auto 2rem;">Je suis disponible pour discuter de vos projets, même avant la publication du blogue. Écrivez-moi directement.</p>
+        <a href="../contact/" class="btn-primary">Me contacter →</a>
       </div>
     </div>
   </section>
 
-  <section style="background: var(--gris-50); border-top: 1px solid var(--gris-200);">
-    <div class="inner" style="text-align: center; max-width: 720px;">
-      <span class="section-tag" style="margin-left:auto; margin-right:auto;">Pour ne rien manquer</span>
-      <h2 class="section-h2">Recevez chaque lundi le nouvel article + le digest hebdo</h2>
-      <p class="section-lead" style="margin: 0 auto 2rem;">L'infolettre relaie chaque semaine le nouvel article du blogue et résume les annonces marquantes en IA pour la recherche en sciences sociales.</p>
-      <a href="../infolettre/" class="btn-primary">M'abonner gratuitement →</a>
-    </div>
-  </section>
-
+  <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">Benoit Plante</div>
-        <p>Consultant en recherche à l'ère de l'IA. Veille, formations et accompagnement pour intégrer l'intelligence artificielle dans les pratiques de recherche, sans compromettre la rigueur.</p>
+        <p>Consultant en IA spécialisé dans l'Écosystème Claude d'Anthropic. Intégration, formation et conseil stratégique autour de Claude — API, agents, MCP, automatisation.</p>
       </div>
       <div class="footer-col">
         <h4>Offre</h4>
@@ -77,8 +110,6 @@
           <li><a href="../services/">Services</a></li>
           <li><a href="../blogue/">Blogue</a></li>
           <li><a href="../ressources/">Ressources</a></li>
-          <li><a href="../formations/">Formations</a></li>
-          <li><a href="../outils/">Outils</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -86,7 +117,6 @@
         <ul>
           <li><a href="../a-propos/">Parcours</a></li>
           <li><a href="../contact/">Contact</a></li>
-          <li><a href="../infolettre/">Infolettre</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -100,7 +130,7 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 Benoit Plante. Tous droits réservés.</p>
-      <span class="footer-mark">IA &amp; recherche</span>
+      <span class="footer-mark">Écosystème Claude</span>
     </div>
   </footer>
 

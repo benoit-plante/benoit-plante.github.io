@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>À propos — Benoit Plante</title>
-  <meta name="description" content="Le parcours de Benoit Plante : doctorant en méthodes de recherche, coordonnateur scientifique au GRIN et au CEIDEF, chargé de cours à la TÉLUQ." />
+  <title>À propos — Benoit Plante, Consultant IA Écosystème Claude</title>
+  <meta name="description" content="Le parcours de Benoit Plante : consultant en IA spécialisé dans l'Écosystème Claude d'Anthropic, doctorant en psychologie, coordonnateur scientifique et chargé de cours." />
 
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="À propos — Benoit Plante" />
@@ -17,7 +17,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
+<body class="has-dev-banner">
+
+  <!-- BANNIÈRE DÉVELOPPEMENT -->
+  <div class="dev-banner" role="banner">
+    <span class="dev-banner-dot"></span>
+    <strong>Site en développement</strong> — Le contenu est en cours de finalisation. Merci de votre patience.
+  </div>
 
   <!-- NAVIGATION -->
   <nav class="nav" aria-label="Navigation principale">
@@ -29,8 +35,7 @@
       <li><a href="../services/">Services</a></li>
       <li><a href="../blogue/">Blogue</a></li>
       <li><a href="../ressources/">Ressources</a></li>
-      <li><a href="../formations/">Formations</a></li>
-      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../a-propos/" class="active">À propos</a></li>
       <li><a href="../contact/" class="nav-cta">Me contacter</a></li>
     </ul>
   </nav>
@@ -39,8 +44,8 @@
   <section class="hero hero-compact">
     <div class="hero-content" style="max-width: 760px;">
       <div class="hero-eyebrow">Mon parcours</div>
-      <h1 class="hero-h1">À l'intersection de la <em>méthodologie</em> et de l'<em>IA</em>.</h1>
-      <p class="hero-sub">Doctorant en méthodes de recherche, coordonnateur scientifique et consultant. Mon travail consiste à accompagner les équipes de recherche dans l'intégration de l'intelligence artificielle — sans précipitation, sans céder à la mode, sans compromettre la rigueur.</p>
+      <h1 class="hero-h1">À la croisée de la <em>rigueur</em> et de l'<em>IA</em>.</h1>
+      <p class="hero-sub">Consultant en IA spécialisé dans l'Écosystème Claude d'Anthropic, doctorant en psychologie et coordonnateur scientifique. Mon travail consiste à transformer la complexité de l'IA en solutions concrètes pour les organisations.</p>
     </div>
   </section>
 
@@ -51,54 +56,43 @@
 
         <div class="bio-main reveal">
           <span class="section-tag">Bio</span>
-          <h2 class="section-h2">Accompagner la recherche dans le virage IA</h2>
+          <h2 class="section-h2">Spécialiste de l'Écosystème Claude</h2>
 
-          <p class="bio-lead">Mon travail consiste à aider les équipes de recherche — chercheurs, étudiants aux cycles supérieurs, praticiens — à intégrer l'intelligence artificielle dans leurs pratiques sans compromettre ce qui fait leur valeur : la rigueur, la transparence, l'ancrage dans le terrain.</p>
+          <p class="bio-lead">Je me suis spécialisé dans l'Écosystème Claude d'Anthropic parce que je crois que Claude représente aujourd'hui l'une des plateformes IA les plus rigoureuses, les plus capables et les plus complètes disponibles — et que la plupart des organisations n'en exploitent qu'une fraction du potentiel.</p>
 
-          <p>Comment ? À travers trois activités complémentaires :</p>
+          <p>Mon travail se déploie sur trois axes :</p>
 
           <ul class="bio-bullets">
-            <li><strong>Une veille hebdomadaire</strong> sur les nouveautés IA pour la recherche, publiée chaque semaine sur le <a href="../blogue/" style="color: var(--accent);">blogue</a> et dans l'infolettre. Outils, controverses, bonnes pratiques émergentes.</li>
-            <li><strong>L'accompagnement d'équipes</strong> de recherche dans leur intégration de l'IA — audits IA, formations sur mesure, conception de protocoles méthodologiques augmentés, conseil stratégique aux directions.</li>
-            <li><strong>Le développement de ressources</strong> (guides, templates, prompts structurés) pour trois publics distincts : étudiants gradués, chercheurs établis, praticiens du milieu communautaire et institutionnel.</li>
+            <li><strong>La consultation et l'intégration :</strong> j'accompagne les organisations à identifier les bons cas d'usage dans l'Écosystème Claude, à concevoir des solutions et à les déployer — de l'audit stratégique au développement d'agents et d'intégrations MCP.</li>
+            <li><strong>La formation :</strong> des ateliers pratiques pour aider vos équipes à maîtriser Claude à leur niveau — de l'utilisateur quotidien de Claude Pro au développeur qui construit avec l'API et l'Agent SDK.</li>
+            <li><strong>La veille et le conseil :</strong> l'Écosystème Claude évolue constamment. Je maintiens une veille active sur les nouveautés d'Anthropic et partage cette connaissance avec mes clients pour qu'ils restent à la frontière des possibilités.</li>
           </ul>
 
-          <h2 class="section-h2" style="margin-top: 2.5rem; font-size: 1.5rem;">Pourquoi moi</h2>
+          <h2 class="section-h2" style="margin-top: 2.5rem; font-size: 1.5rem;">Pourquoi Claude ?</h2>
 
-          <p>L'IA est l'un des chantiers les plus structurants de la décennie pour la recherche en sciences sociales. Plutôt que de la subir, je veux aider les équipes à se l'approprier de manière <strong>critique et productive</strong>.</p>
+          <p>J'ai choisi de me spécialiser sur l'Écosystème Claude parce qu'Anthropic construit une suite cohérente et complémentaire d'outils — de l'interface conversationnelle à l'API, en passant par Claude Code, Cowork, le MCP et l'Agent SDK. Cette cohérence permet de concevoir des solutions robustes qui s'approfondissent avec le temps, plutôt que de jongler entre des plateformes disparates.</p>
 
-          <p>Ma posture s'appuie sur une formation et une pratique solides en méthodes de recherche : <strong>doctorant en méthodes de recherche</strong>, <strong>chargé de cours à la TÉLUQ</strong> en méthodes et psychométrie, <strong>coordonnateur scientifique</strong> de longue date au GRIN et au CEIDEF, conseiller méthodologique au <strong>SESAME de l'UQTR</strong> auprès d'étudiants aux cycles supérieurs.</p>
-
-          <p>Cette expérience nourrit directement mon approche de l'IA : la rigueur n'est pas un obstacle à l'innovation, c'est sa condition. Une équipe qui maîtrise déjà la méthodologie tire dix fois plus de l'IA qu'une équipe qui s'en sert pour court-circuiter la réflexion.</p>
+          <p>Ma formation en méthodes de recherche (doctorat en psychologie, chargé de cours en méthodes à la TÉLUQ, coordonnateur scientifique au GRIN et au CEIDEF) nourrit directement mon approche : rigueur dans l'analyse des besoins, exigence dans la conception des solutions, attention aux risques et aux limites réelles des systèmes IA.</p>
         </div>
 
         <aside class="bio-side reveal" style="transition-delay: 0.15s;">
           <div class="bio-card">
+            <h4>Spécialités</h4>
+            <ul>
+              <li><strong>Écosystème Claude</strong> <span>API, Claude Code, Cowork, MCP, Agent SDK</span></li>
+              <li><strong>Agents et automatisation</strong> <span>Workflows IA autonomes</span></li>
+              <li><strong>Intégrations MCP</strong> <span>Connexion Claude à vos outils</span></li>
+              <li><strong>Prompting avancé</strong> <span>Structuration et optimisation</span></li>
+              <li><strong>Stratégie IA</strong> <span>Audit, feuille de route, gouvernance</span></li>
+            </ul>
+          </div>
+
+          <div class="bio-card">
             <h4>Formation</h4>
             <ul>
-              <li><strong>Doctorat en méthodes de recherche</strong> <span>en cours · scolarité complétée</span></li>
-              <li><strong>Maîtrise en administration publique (MAP)</strong> <span>ENAP</span></li>
-            </ul>
-          </div>
-
-          <div class="bio-card">
-            <h4>Affiliations</h4>
-            <ul>
-              <li><strong>GRIN</strong> <span>Coordonnateur scientifique</span></li>
-              <li><strong>CEIDEF</strong> <span>Coordonnateur scientifique</span></li>
-              <li><strong>TÉLUQ</strong> <span>Chargé de cours — méthodes &amp; psychométrie</span></li>
-              <li><strong>SESAME, UQTR</strong> <span>Conseiller méthodologique</span></li>
-            </ul>
-          </div>
-
-          <div class="bio-card">
-            <h4>Domaines d'expertise</h4>
-            <ul>
-              <li><strong>Audit IA</strong> <span>équipes et projets de recherche</span></li>
-              <li><strong>Formation IA</strong> <span>revue de littérature, analyse, prompting</span></li>
-              <li><strong>Méthodes augmentées</strong> <span>protocoles intégrant l'IA, traçabilité</span></li>
-              <li><strong>Veille IA-recherche</strong> <span>outils, controverses, bonnes pratiques</span></li>
-              <li><strong>Éthique de l'IA en recherche</strong> <span>cadres, conformité, validation humaine</span></li>
+              <li><strong>Doctorat en psychologie</strong> <span>en cours, scolarité complétée</span></li>
+              <li><strong>Maîtrise en administration publique</strong> <span>ENAP</span></li>
+              <li><strong>Data Scientist with R</strong> <span>DataCamp</span></li>
             </ul>
           </div>
 
@@ -118,8 +112,8 @@
     <div class="inner" style="max-width: 820px; text-align: center;">
       <div class="reveal">
         <span class="section-tag" style="color: rgba(255,255,255,0.85); margin-left: auto; margin-right: auto;">Ma philosophie</span>
-        <h2 class="section-h2" style="color: white;">Rigueur au service du terrain.</h2>
-        <p style="font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.85; margin-top: 1.5rem;">Je crois que la qualité méthodologique n'est pas un luxe académique, mais une condition pour que la recherche produise vraiment du changement. C'est en alliant l'exigence scientifique à la pertinence sociale que les données deviennent des leviers pour les décideurs, les praticiens et les communautés.</p>
+        <h2 class="section-h2" style="color: white;">L'IA au service de vos objectifs réels.</h2>
+        <p style="font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.85; margin-top: 1.5rem;">Je crois que l'IA n'a de valeur que lorsqu'elle s'intègre de manière réfléchie dans des workflows réels, avec des personnes réelles, pour atteindre des objectifs concrets. Mon rôle n'est pas de vendre la technologie pour elle-même, mais de vous aider à la mettre au service de ce qui compte vraiment pour votre organisation.</p>
         <p style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--or); font-size: 1.05rem; margin-top: 1.5rem;">— Benoit Plante</p>
       </div>
     </div>
@@ -130,7 +124,7 @@
     <div class="inner" style="max-width: 700px; text-align: center;">
       <div class="reveal">
         <h2 class="section-h2">Envie d'en discuter ?</h2>
-        <p class="section-lead" style="margin: 0 auto 2rem;">Que ce soit pour un projet de recherche, une collaboration ou une question méthodologique, je suis disponible pour échanger.</p>
+        <p class="section-lead" style="margin: 0 auto 2rem;">Que ce soit pour un projet d'intégration, une formation ou simplement explorer les possibilités de l'Écosystème Claude, je suis disponible pour échanger.</p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <a href="../contact/" class="btn-primary">Me contacter →</a>
           <a href="../services/" class="btn-ghost">Voir mes services</a>
@@ -144,16 +138,14 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">Benoit Plante</div>
-        <p>Consultant en recherche à l'ère de l'IA. Veille, formations et accompagnement pour intégrer l'intelligence artificielle dans les pratiques de recherche, sans compromettre la rigueur.</p>
+        <p>Consultant en IA spécialisé dans l'Écosystème Claude d'Anthropic. Intégration, formation et conseil stratégique autour de Claude — API, agents, MCP, automatisation.</p>
       </div>
       <div class="footer-col">
         <h4>Offre</h4>
         <ul>
           <li><a href="../services/">Services</a></li>
           <li><a href="../blogue/">Blogue</a></li>
-      <li><a href="../ressources/">Ressources</a></li>
-          <li><a href="../formations/">Formations</a></li>
-          <li><a href="../outils/">Outils</a></li>
+          <li><a href="../ressources/">Ressources</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -161,7 +153,6 @@
         <ul>
           <li><a href="../a-propos/">Parcours</a></li>
           <li><a href="../contact/">Contact</a></li>
-          <li><a href="../infolettre/">Infolettre</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -175,7 +166,7 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 Benoit Plante. Tous droits réservés.</p>
-      <span class="footer-mark">IA &amp; recherche</span>
+      <span class="footer-mark">Écosystème Claude</span>
     </div>
   </footer>
 
@@ -199,4 +190,69 @@
       color: var(--ardoise);
       font-weight: 300;
       line-height: 1.8;
-      mar
+      margin-bottom: 1.4rem;
+    }
+    .bio-bullets {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.4rem;
+    }
+    .bio-bullets li {
+      position: relative;
+      padding-left: 1.4rem;
+      font-size: 0.96rem;
+      color: var(--gris-700);
+      line-height: 1.75;
+      margin-bottom: 0.8rem;
+    }
+    .bio-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.62rem;
+      width: 7px; height: 7px;
+      background: var(--or);
+      border-radius: 50%;
+    }
+    .bio-card {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .bio-card h4 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gris-500);
+      margin-bottom: 0.9rem;
+    }
+    .bio-card ul { list-style: none; padding: 0; }
+    .bio-card ul li {
+      font-size: 0.88rem;
+      color: var(--gris-700);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--gris-100);
+      line-height: 1.5;
+    }
+    .bio-card ul li:last-child { border-bottom: none; }
+    .bio-card ul li strong { display: block; color: var(--bleu); font-weight: 600; }
+    .bio-card ul li span { font-size: 0.78rem; color: var(--gris-500); }
+    .bio-card-cta a {
+      display: block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.4rem 0;
+      transition: color 0.2s;
+    }
+    .bio-card-cta a:hover { color: var(--bleu); }
+
+    @media (max-width: 900px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
+</body>
+</html>
