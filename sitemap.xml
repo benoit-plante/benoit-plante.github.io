@@ -6,47 +6,57 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/services.html</loc>
+    <loc>https://benoitplante.com/services/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/blogue.html</loc>
+    <loc>https://benoitplante.com/blogue/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/ressources.html</loc>
+    <loc>https://benoitplante.com/ressources/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/infolettre.html</loc>
+    <loc>https://benoitplante.com/ressources/10-prompts-revue-litterature.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/formations.html</loc>
+    <loc>https://benoitplante.com/ressources/integrer-ia-projet-recherche.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benoitplante.com/infolettre/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benoitplante.com/formations/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/outils.html</loc>
+    <loc>https://benoitplante.com/outils/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/a-propos.html</loc>
+    <loc>https://benoitplante.com/a-propos/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/contact.html</loc>
+    <loc>https://benoitplante.com/contact/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://benoitplante.com/confidentialite.html</loc>
+    <loc>https://benoitplante.com/confidentialite/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
