@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude rêve : quand l'IA consolide ses souvenirs pendant que vous dormez — Benoit Plante</title>
+  <meta name="description" content="La fonction Dream d'Anthropic, présentée en mai 2026, donne aux agents Claude un mécanisme inspiré du sommeil pour apprendre de leurs propres séances passées." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Claude rêve : quand l'IA consolide ses souvenirs pendant que vous dormez" />
+  <meta property="og:description" content="La fonction Dream d'Anthropic donne aux agents IA un mécanisme inspiré du sommeil pour apprendre de leurs propres séances passées." />
+  <meta property="og:locale" content="fr_CA" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    /* =====================================================================
+       STYLES SPÉCIFIQUES AUX ARTICLES DE BLOGUE
+       ===================================================================== */
+
+    /* HERO article */
+    .post-hero {
+      background: linear-gradient(160deg, var(--bleu) 0%, var(--bleu-med) 100%);
+      color: white;
+      padding: 3.5rem 0 3rem;
+    }
+    .post-hero .hero-eyebrow { color: var(--or); }
+    .post-hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      max-width: 760px;
+    }
+    .post-hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+      line-height: 1.65;
+    }
+    .post-hero-meta {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      letter-spacing: 0.04em;
+      align-items: center;
+    }
+    .post-hero-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .post-hero-meta .sep { color: rgba(255,255,255,0.3); }
+
+    /* LAYOUT ARTICLE */
+    .article-body { padding-top: 2rem; padding-bottom: 4rem; background: var(--gris-50); }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* TOC */
+    .article-toc { position: sticky; top: 90px; align-self: start; }
+    .article-toc-inner {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .article-toc-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 1rem;
+    }
+    .article-toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .article-toc-list a {
+      font-size: 0.82rem;
+      color: var(--gris-600);
+      text-decoration: none;
+      display: block;
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+      line-height: 1.35;
+      transition: background 0.15s, color 0.15s;
+    }
+    .article-toc-list a:hover,
+    .article-toc-list a.active {
+      background: var(--bleu-pale);
+      color: var(--bleu);
+    }
+    .article-toc-list .toc-sub a {
+      font-size: 0.78rem;
+      padding-left: 1.1rem;
+      color: var(--gris-500);
+    }
+
+    /* STAT HIGHLIGHT */
+    .stat-block {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-left: 4px solid var(--or);
+      border-radius: 0 10px 10px 0;
+      padding: 1.2rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--or);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.88rem;
+      color: var(--gris-600);
+      margin-top: 0.3rem;
+    }
+
+    /* PRUDENCE CALLOUT */
+    .callout {
+      background: var(--or-pale, #fdf6e3);
+      border: 1px solid var(--or);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.8rem 0;
+      font-size: 0.92rem;
+      color: var(--gris-800);
+      line-height: 1.65;
+    }
+    .callout strong { color: var(--bleu); }
+
+    /* SECTION DE SÉCURITÉ */
+    .security-section {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.6rem;
+      margin: 1.8rem 0;
+    }
+    .security-section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--bleu);
+      margin-bottom: 0.6rem;
+    }
+
+    /* KEY TAKEAWAYS */
+    .takeaways {
+      background: var(--bleu-pale);
+      border-radius: 12px;
+      padding: 1.8rem;
+      margin: 2.5rem 0;
+    }
+    .takeaways-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--bleu);
+      margin-bottom: 1rem;
+    }
+    .takeaways ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .takeaways li {
+      font-size: 0.94rem;
+      color: var(--gris-700);
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .takeaways li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--or);
+      font-weight: 600;
+    }
+
+    /* SOURCES */
+    .sources-section {
+      border-top: 1px solid var(--gris-200);
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+    }
+    .sources-section h2 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gris-500);
+      margin-bottom: 1rem;
+    }
+    .sources-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .sources-list li {
+      font-size: 0.84rem;
+      color: var(--gris-600);
+      line-height: 1.5;
+    }
+    .sources-list a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .sources-list a:hover { text-decoration: underline; }
+
+    /* NAV RETOUR */
+    .back-nav {
+      font-size: 0.85rem;
+      color: var(--gris-500);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .back-nav a { color: var(--accent); text-decoration: none; }
+    .back-nav a:hover { text-decoration: underline; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-toc { display: none; }
+    }
+  </style>
+</head>
+<body class="has-dev-banner">
+
+  <!-- BANNIÈRE DÉVELOPPEMENT -->
+  <div class="dev-banner" role="banner">
+    <span class="dev-banner-dot"></span>
+    <strong>Site en développement</strong> — Le contenu est en cours de finalisation. Merci de votre patience.
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="../">Benoit Plante</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../services/">Services</a></li>
+      <li><a href="../blogue/" class="active">Blogue</a></li>
+      <li><a href="../ressources/">Ressources</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../contact/" class="nav-cta">Me contacter</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO ARTICLE -->
+  <section class="post-hero">
+    <div class="inner">
+      <div class="hero-eyebrow">Article de fond · Agents IA</div>
+      <h1 class="post-hero-h1">Claude rêve : quand l'IA consolide ses souvenirs pendant que vous dormez</h1>
+      <p class="post-hero-sub">La fonction Dream d'Anthropic, présentée en mai 2026, donne aux agents IA un mécanisme inspiré du sommeil pour apprendre de leurs propres séances passées.</p>
+      <div class="post-hero-meta">
+        <span>Par Benoit Plante</span>
+        <span class="sep">·</span>
+        <span>8 juin 2026</span>
+        <span class="sep">·</span>
+        <span>~12 min de lecture</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPS DE L'ARTICLE -->
+  <div class="article-body">
+    <div class="inner">
+      <div class="article-layout">
+
+        <!-- TABLE DES MATIÈRES -->
+        <aside class="article-toc" aria-label="Table des matières">
+          <div class="article-toc-inner">
+            <div class="article-toc-title">Dans cet article</div>
+            <ul class="article-toc-list">
+              <li><a href="#metaphore">Une métaphore ancrée dans la biologie</a></li>
+              <li><a href="#a-quoi-ca-sert">À quoi sert un agent qui rêve ?</a></li>
+              <li><a href="#ou-pour-qui">Où, pour qui, comment ?</a></li>
+              <li><a href="#ecosysteme">Ce que ça change pour l'écosystème</a></li>
+              <li><a href="#securite">Le revers : risques de sécurité</a></li>
+              <ul class="toc-sub">
+                <li><a href="#empoisonnement">Empoisonnement de mémoire</a></li>
+                <li><a href="#couche-protegee">Une couche peu protégée</a></li>
+                <li><a href="#transparence">Un manque de transparence</a></li>
+              </ul>
+              <li><a href="#utilisateur">Et pour l'utilisateur non-développeur ?</a></li>
+              <li><a href="#retenir">À retenir</a></li>
+              <li><a href="#sources">Sources</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- CONTENU -->
+        <article class="post-content">
+
+          <nav class="back-nav" aria-label="Navigation de retour">
+            <a href="../blogue/">← Retour au blogue</a>
+          </nav>
+
+          <p>Le 6 mai 2026, à San Francisco, Anthropic a dévoilé lors de sa conférence Code with Claude une fonction au nom étonnant : Dream (rêver). Derrière la métaphore poétique se cache une idée concrète : permettre aux agents Claude de revoir leurs séances passées entre deux missions, d'en extraire des leçons et de constituer une mémoire qui les rendra plus efficaces la fois suivante. Voici ce que ça change, à quoi ça sert, et pourquoi certains spécialistes en sécurité regardent l'annonce avec un mélange d'enthousiasme et de prudence.</p>
+
+          <h2 id="metaphore">Une métaphore qui n'en est pas tout à fait une</h2>
+
+          <p>Anthropic compare explicitement Dream au phénomène biologique de la consolidation de la mémoire : pendant le sommeil, le cerveau humain rejoue les événements de la journée et décide de ce qui mérite d'être conservé en mémoire à long terme. Dream applique une logique analogue à un agent Claude. Entre deux séances de travail, un processus programmé se déclenche, relit ce que l'agent a fait dans ses précédentes missions, en tire des régularités et écrit de nouvelles entrées dans une mémoire que la prochaine séance pourra consulter.</p>
+
+          <p>Concrètement, Dream peut analyser jusqu'à 100 transcriptions de séances antérieures, les comparer avec la mémoire existante, et produire une version réorganisée. Le processus ne modifie pas les poids du modèle Claude lui-même ; il écrit plutôt des notes en texte clair et ce qu'Anthropic appelle des « playbooks » structurés, c'est-à-dire des aide-mémoires que les sessions suivantes peuvent lire avant de commencer.</p>
+
+          <h2 id="a-quoi-ca-sert">À quoi sert un agent qui rêve ?</h2>
+
+          <p>Tout l'intérêt de Dream tient à la limite que la fonction cherche à résoudre. Jusqu'ici, un agent IA recommençait souvent les mêmes erreurs d'une mission à l'autre. Il oubliait les particularités d'un format de fichier, ne retenait pas qu'un outil donné réagit mal à certaines requêtes, ou répétait des contournements maladroits qu'un humain n'aurait pas refaits deux fois.</p>
+
+          <div class="stat-block">
+            <div class="stat-number">×6</div>
+            <div class="stat-label">Amélioration du taux de complétion des tâches chez Harvey (cabinet d'IA juridique) après activation de Dream, selon les données communiquées par Anthropic.</div>
+          </div>
+
+          <p>Le cas client le plus cité par Anthropic est celui de Harvey, une jeune entreprise d'IA juridique. Avant Dream, les agents de Harvey perdaient en moyenne du temps à redécouvrir les mêmes bizarreries entre séances. Après activation, leur taux de complétion des tâches a été multiplié par six environ, selon les chiffres internes communiqués par Anthropic. C'est un saut considérable, à prendre néanmoins avec la prudence qu'impose toute donnée fournie par le vendeur.</p>
+
+          <p>Au-delà de Harvey, les usages probables sont nombreux : un agent de service à la clientèle qui retient les préférences de chaque utilisateur sans qu'on les lui répète ; un agent de gestion de projet qui apprend la cadence et les conventions d'une équipe ; un agent de recherche qui mémorise les bases de données qu'il a déjà fouillées et celles où il a fait chou blanc.</p>
+
+          <h2 id="ou-pour-qui">Où, pour qui, comment ?</h2>
+
+          <p>Dream est pour l'instant disponible en aperçu de recherche, exclusivement pour les développeurs qui utilisent les Claude Managed Agents sur la plateforme Claude. La fonction nécessite des en-têtes beta spéciaux dans les appels API et n'est compatible qu'avec deux modèles : Claude Opus 4.7 et Claude Sonnet 4.6.</p>
+
+          <p>Cela veut dire que, pour la majorité des utilisateurs qui interagissent avec Claude via l'application grand public ou Claude Code, Dream ne s'applique pas directement aujourd'hui. La fonction vise un public bien précis : les équipes qui déploient des agents personnalisés capables de tourner en arrière-plan, sans supervision humaine constante, sur des tâches répétitives.</p>
+
+          <p>Dream n'est par ailleurs pas l'unique nouveauté de Code with Claude 2026. Anthropic a profité de la conférence pour annoncer quatre autres fonctionnalités : Outcomes (un système pour évaluer la réussite des agents), l'orchestration multi-agents, Claude Finance avec dix agents financiers préconçus, et les Add-ins. Dream est cependant la plus médiatisée des cinq, sans doute à cause de la métaphore qui parle à tout le monde.</p>
+
+          <h2 id="ecosysteme">Ce que ça change pour l'écosystème</h2>
+
+          <p>L'idée d'une IA qui apprend en continu de son expérience n'est pas nouvelle, mais Dream propose une approche intéressante. Plutôt que de réentraîner le modèle (procédure lourde, coûteuse et difficile à auditer), Anthropic découple la mémoire des poids du modèle. Le modèle reste fixe ; ce qui évolue, c'est un fichier de mémoire externe lisible par un humain, modifiable et auditable.</p>
+
+          <p>Cette architecture présente trois avantages techniques notables :</p>
+
+          <ul>
+            <li><strong>On peut lire la mémoire :</strong> un développeur peut ouvrir les notes et les playbooks générés, comprendre ce que l'agent a retenu, corriger des erreurs.</li>
+            <li><strong>On peut l'effacer ou la remplacer :</strong> si une mission part de travers, on peut repartir d'une mémoire vide ou d'une version antérieure.</li>
+            <li><strong>On peut la partager entre agents :</strong> une équipe peut faire bénéficier plusieurs agents des leçons tirées par un seul, sans avoir à recommencer l'apprentissage.</li>
+          </ul>
+
+          <p>À terme, si cette approche se généralise chez les autres fournisseurs d'IA, on pourrait voir émerger des « bibliothèques de playbooks » réutilisables, un peu comme on partage aujourd'hui du code open source ou des modèles entraînés.</p>
+
+          <h2 id="securite">Le revers : quand le rêve devient cauchemar</h2>
+
+          <p>L'enthousiasme autour de Dream n'a pas effacé les questions de sécurité. Plusieurs chercheurs en cybersécurité ont rapidement signalé que donner à un agent la capacité de réécrire sa propre mémoire crée une nouvelle surface d'attaque.</p>
+
+          <div class="security-section">
+            <h3 id="empoisonnement">Empoisonnement de mémoire (memory poisoning)</h3>
+            <p>Si une séance de travail est compromise par une injection de prompt malveillante (par exemple, du contenu glissé dans un document que l'agent lit), cette injection peut survivre au processus de consolidation. Le danger n'est pas seulement que l'agent retienne une mauvaise information : c'est qu'il la consolide en un playbook structuré, propre, qui aura l'air autoritaire à la prochaine séance. Une fausse certitude bien rangée est plus dangereuse qu'une fausse certitude désordonnée.</p>
+          </div>
+
+          <div class="security-section">
+            <h3 id="couche-protegee">Une couche peu protégée</h3>
+            <p>Ken Huang, qui dirige un projet sur la sécurité des systèmes d'IA, a noté que la couche de comportement (entre le grand modèle de langage et les outils que l'agent utilise) est la moins bien protégée de la pile actuelle. Dream s'installe précisément dans cette couche. Anthropic le sait et a mis en place des contre-mesures : les magasins de données d'entrée restent immuables (l'agent ne peut pas réécrire les sources, seulement les notes qu'il en tire) et un mode de révision humaine est disponible.</p>
+          </div>
+
+          <div class="security-section">
+            <h3 id="transparence">Un manque de transparence à corriger</h3>
+            <p>Au lancement, le processus Dream ne fournit pas encore d'explication lisible pour chaque modification qu'il apporte à la mémoire. Vous voyez le résultat, mais pas le raisonnement. Anthropic a indiqué que cette traçabilité arrive. En attendant, l'utilisation en production sur des dossiers sensibles devrait s'accompagner d'une révision humaine régulière.</p>
+          </div>
+
+          <h2 id="utilisateur">Et pour l'utilisateur non-développeur ?</h2>
+
+          <p>Vous n'écrivez pas d'agents personnalisés ? Dream ne change probablement rien à votre usage quotidien de Claude aujourd'hui. Mais l'annonce signale une direction qui finira par toucher tout le monde. À mesure que les assistants IA deviennent plus persistants et apprennent de leurs interactions avec vous, les questions à vous poser deviendront concrètes : qu'est-ce que l'assistant retient ? Puis-je consulter cette mémoire ? Comment l'effacer ? Qui d'autre y a accès ?</p>
+
+          <p>À court terme, on peut s'attendre à ce que des fonctionnalités proches apparaissent dans les versions grand public de Claude (et probablement chez les concurrents), avec, espérons-le, des contrôles utilisateur clairs. Dream est, à ce titre, autant un produit qu'une démonstration : Anthropic teste publiquement, sur un public développeur, ce qui descendra peut-être un jour dans les conversations courantes.</p>
+
+          <div class="takeaways">
+            <div class="takeaways-title" id="retenir">À retenir</div>
+            <ul>
+              <li>Dream est une consolidation de mémoire entre séances, inspirée du sommeil humain, qui rend les agents IA capables d'apprendre sans modifier le modèle de base.</li>
+              <li>Les premiers résultats sont impressionnants (multiplication par six du taux de complétion chez Harvey), mais ils proviennent d'un seul cas client et d'un déploiement maîtrisé.</li>
+              <li>L'architecture pose de vraies questions de sécurité (empoisonnement de mémoire, transparence du raisonnement) qu'Anthropic dit prendre en compte mais qui restent à valider sur des cas plus diversifiés.</li>
+            </ul>
+          </div>
+
+          <p>La métaphore du rêve est sympathique, et elle ne ment pas tout à fait. C'est aussi pour cela que la prudence s'impose. Une IA qui consolide ses propres souvenirs ouvre des possibilités fascinantes, mais elle oblige à mieux comprendre ce qu'elle garde et ce qu'elle oublie.</p>
+
+          <div class="sources-section" id="sources">
+            <h2>Sources et références</h2>
+            <ol class="sources-list">
+              <li>Anthropic (2026). <em>Code with Claude San Francisco, 6 mai 2026.</em> <a href="https://claude.com/code-with-claude/san-francisco" target="_blank" rel="noopener">claude.com/code-with-claude/san-francisco ↗</a></li>
+              <li>VentureBeat (2026). <em>Anthropic introduces dreaming, a system that lets AI agents learn from their own mistakes.</em> <a href="https://venturebeat.com/technology/anthropic-introduces-dreaming-a-system-that-lets-ai-agents-learn-from-their-own-mistakes" target="_blank" rel="noopener">venturebeat.com ↗</a></li>
+              <li>Digital Trends (2026). <em>Anthropic just taught Claude to dream between tasks.</em> <a href="https://www.digitaltrends.com/computing/anthropic-just-taught-claude-to-dream-between-tasks-and-it-makes-agents-meaningfully-smarter/" target="_blank" rel="noopener">digitaltrends.com ↗</a></li>
+              <li>SiliconANGLE (2026). <em>Anthropic is letting Claude agents 'dream' so they don't sleep on the job.</em> <a href="https://siliconangle.com/2026/05/06/anthropic-letting-claude-agents-dream-dont-sleep-job/" target="_blank" rel="noopener">siliconangle.com ↗</a></li>
+              <li>FindSkill.ai (2026). <em>Claude's Dreaming mode explained, and why it's a real risk.</em> <a href="https://findskill.ai/blog/claude-dreaming-mode-explained/" target="_blank" rel="noopener">findskill.ai ↗</a></li>
+              <li>MindStudio (2026). <em>Claude Dreaming Feature : How Anthropic's self-improving agent memory works.</em> <a href="https://www.mindstudio.ai/blog/claude-dreaming-feature-self-improving-agent-memory" target="_blank" rel="noopener">mindstudio.ai ↗</a></li>
+            </ol>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BAS DE PAGE -->
+  <section style="background: var(--bleu-pale);">
+    <div class="inner" style="text-align: center;">
+      <div class="reveal">
+        <span class="section-tag" style="margin-left: auto; margin-right: auto;">Approfondir</span>
+        <h2 class="section-h2">Vous déployez des agents Claude ?</h2>
+        <p class="section-lead" style="margin: 0 auto 2rem;">Je vous accompagne dans l'intégration des nouveautés de l'Écosystème Claude, de Dream aux agents multi-modèles. Discutons de votre projet.</p>
+        <a href="../contact/" class="btn-primary">Me contacter →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Benoit Plante</div>
+        <p>Consultant en IA spécialisé dans l'Écosystème Claude d'Anthropic. Intégration, formation et conseil stratégique autour de Claude — API, agents, MCP, automatisation.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Offre</h4>
+        <ul>
+          <li><a href="../services/">Services</a></li>
+          <li><a href="../blogue/">Blogue</a></li>
+          <li><a href="../ressources/">Ressources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="../a-propos/">Parcours</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal &amp; liens</h4>
+        <ul>
+          <li><a href="../confidentialite/">Confidentialité</a></li>
+          <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Benoit Plante. Tous droits réservés.</p>
+      <span class="footer-mark">Écosystème Claude</span>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    // Highlight TOC active section
+    (function () {
+      const headings = document.querySelectorAll('article h2[id], article h3[id]');
+      const links = document.querySelectorAll('.article-toc-list a');
+      if (!headings.length || !links.length) return;
+
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.article-toc-list a[href="#${e.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-10% 0px -80% 0px' });
+
+      headings.forEach(h => io.observe(h));
+    })();
+  </script>
+</body>
+</html>
