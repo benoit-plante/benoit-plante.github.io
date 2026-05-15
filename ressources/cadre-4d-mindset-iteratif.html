@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le cadre 4D et le mindset itératif pour utiliser l'IA efficacement — Benoit Plante</title>
+  <meta name="description" content="Comprendre et appliquer le cadre 4D de fluence IA (Délégation, Description, Discernement, Diligence) et adopter une approche itérative du prompting. Guide ancré dans la recherche Anthropic." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    /* =====================================================================
+       STYLES SPÉCIFIQUES AUX GUIDES DE RESSOURCES
+       ===================================================================== */
+
+    /* HERO spécifique aux guides */
+    .guide-hero {
+      background: linear-gradient(160deg, var(--bleu) 0%, var(--bleu-med) 100%);
+      color: white;
+    }
+    .guide-hero .hero-h1 { color: white; }
+    .guide-hero .hero-eyebrow { color: var(--or); }
+    .guide-hero .hero-sub { color: rgba(255, 255, 255, 0.82); }
+    .guide-meta {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.6);
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      letter-spacing: 0.04em;
+      margin-top: 1rem;
+    }
+    .guide-hero .btn-primary {
+      background: var(--or);
+      color: var(--bleu);
+      font-weight: 600;
+    }
+    .guide-hero .btn-primary:hover { background: #c9a86a; color: var(--bleu); }
+    .guide-hero .btn-ghost {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .guide-hero .btn-ghost:hover { background: rgba(255, 255, 255, 0.2); color: white; border-color: rgba(255,255,255,0.4); }
+
+    /* LAYOUT GUIDE */
+    .guide-body { padding-top: 2rem; padding-bottom: 3rem; background: var(--gris-50); }
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .guide-content { max-width: 720px; }
+
+    /* TOC */
+    .guide-toc { position: sticky; top: 90px; align-self: start; }
+    .guide-toc-inner {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .guide-toc-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--or);
+      margin-bottom: 1rem;
+    }
+    .guide-toc-list {
+      list-style: none;
+      padding: 0;
+      font-size: 0.82rem;
+      counter-reset: tocitem;
+    }
+    .guide-toc-list > li {
+      counter-increment: tocitem;
+      margin-bottom: 0.5rem;
+      padding-left: 1.6rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .guide-toc-list > li::before {
+      content: counter(tocitem, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0.05rem;
+      font-size: 0.66rem;
+      font-weight: 600;
+      color: var(--or);
+      letter-spacing: 0.05em;
+    }
+    .guide-toc-list a { color: var(--ardoise); text-decoration: none; transition: color 0.2s; }
+    .guide-toc-list a:hover { color: var(--accent); }
+    .guide-toc-list ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.4rem;
+      font-size: 0.76rem;
+    }
+    .guide-toc-list ul li {
+      padding: 0.18rem 0 0.18rem 0.7rem;
+      border-left: 2px solid var(--gris-200);
+      margin-left: 0.1rem;
+    }
+    .guide-toc-list ul li a { color: var(--gris-500); }
+    .guide-toc-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.4rem;
+      padding: 0.7rem 0.9rem;
+      background: var(--bleu);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .guide-toc-cta:hover { background: var(--bleu-med); color: white; }
+    .guide-toc-cta svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* SECTIONS */
+    .guide-section {
+      background: white;
+      border-radius: 14px;
+      padding: 2.6rem 2.4rem;
+      margin-bottom: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gris-200);
+    }
+    .guide-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+      font-weight: 700;
+      color: var(--bleu);
+      margin: 0.4rem 0 1.2rem;
+      letter-spacing: -0.01em;
+    }
+    .guide-section h2 em { color: var(--or); font-style: italic; }
+    .guide-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--bleu);
+      margin: 1.6rem 0 0.6rem;
+    }
+    .guide-section p { font-size: 0.95rem; color: var(--ardoise); line-height: 1.75; margin-bottom: 1rem; }
+    .guide-section ul { margin: 0.6rem 0 1.2rem 1.2rem; }
+    .guide-section li { font-size: 0.92rem; color: var(--gris-700); line-height: 1.65; margin-bottom: 0.4rem; }
+    .guide-lead { font-size: 1.02rem !important; color: var(--ardoise); font-weight: 400; }
+
+    /* FINDING */
+    .finding {
+      background: white;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 1.4rem 1.6rem;
+      margin: 1.2rem 0;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .finding-num {
+      position: absolute;
+      top: 1.4rem; right: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent-s);
+      line-height: 1;
+    }
+    .finding h3 { font-size: 1.05rem !important; margin: 0 0 0.7rem 0 !important; padding-right: 3rem; }
+    .finding p { font-size: 0.92rem !important; margin-bottom: 0.6rem !important; }
+    .stat { color: var(--bleu); font-weight: 600; }
+    .implication {
+      padding: 0.7rem 1rem;
+      background: var(--or-pale);
+      border-radius: 6px;
+      font-size: 0.88rem !important;
+      margin-top: 0.7rem !important;
+      margin-bottom: 0 !important;
+    }
+    .implication strong { color: var(--or); }
+
+    /* CARTES 4D */
+    .competences-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.6rem 0;
+    }
+    .competence-card {
+      background: var(--gris-50);
+      border: 1px solid var(--gris-200);
+      border-top: 4px solid var(--or);
+      border-radius: 10px;
+      padding: 1.4rem 1.3rem;
+      transition: box-shadow 0.2s;
+    }
+    .competence-card:hover { box-shadow: var(--shadow-md); }
+    .competence-card:nth-child(2) { border-top-color: var(--accent); }
+    .competence-card:nth-child(3) { border-top-color: #0ea5e9; }
+    .competence-card:nth-child(4) { border-top-color: #16a34a; }
+    .competence-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      background: var(--or);
+      color: white;
+      border-radius: 8px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .competence-card:nth-child(2) .competence-letter { background: var(--accent); }
+    .competence-card:nth-child(3) .competence-letter { background: #0ea5e9; }
+    .competence-card:nth-child(4) .competence-letter { background: #16a34a; }
+    .competence-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem !important;
+      font-weight: 700;
+      color: var(--bleu);
+      margin: 0 0 0.5rem 0 !important;
+    }
+    .competence-card p { font-size: 0.88rem !important; color: var(--gris-700); margin: 0 !important; line-height: 1.6; }
+    .competence-sous-titre {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--or);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .competence-card:nth-child(2) .competence-sous-titre { color: var(--accent); }
+    .competence-card:nth-child(3) .competence-sous-titre { color: #0ea5e9; }
+    .competence-card:nth-child(4) .competence-sous-titre { color: #16a34a; }
+
+    /* GRILLE DE TRI */
+    .tri-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.4rem 0;
+    }
+    .tri-case {
+      padding: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--gris-200);
+    }
+    .tri-case.confier    { background: rgba(22,163,74,0.06);  border-color: rgba(22,163,74,0.3);  }
+    .tri-case.collaborer { background: rgba(37,99,235,0.06);  border-color: rgba(37,99,235,0.25); }
+    .tri-case.prudence   { background: rgba(184,151,90,0.08); border-color: rgba(184,151,90,0.3); }
+    .tri-case.humain     { background: rgba(30,58,95,0.06);   border-color: rgba(30,58,95,0.2);   }
+    .tri-case-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .confier .tri-case-label    { color: #16a34a; }
+    .collaborer .tri-case-label { color: var(--accent); }
+    .prudence .tri-case-label   { color: var(--or); }
+    .humain .tri-case-label     { color: var(--bleu); }
+    .tri-case ul { margin: 0; padding-left: 1rem; }
+    .tri-case li { font-size: 0.84rem !important; color: var(--gris-700); margin-bottom: 0.25rem !important; }
+
+    /* BOUCLE ITERATIVE */
+    .iteration-loop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.4rem 0;
+    }
+    .loop-step {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      padding: 1.1rem 1.2rem;
+      background: var(--gris-50);
+      border-radius: 10px;
+      border: 1px solid var(--gris-200);
+    }
+    .loop-num {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--bleu);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .loop-step h4 { font-size: 0.88rem; font-weight: 600; color: var(--bleu); margin-bottom: 0.25rem; }
+    .loop-step p { font-size: 0.83rem !important; color: var(--gris-700); margin: 0 !important; line-height: 1.55; }
+
+    /* PIEGES */
+    .piege-block {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 4px solid #ea580c;
+      border-radius: 0 10px 10px 0;
+      padding: 1.3rem 1.5rem;
+      margin: 1.1rem 0;
+    }
+    .piege-block h3 { color: #9a3412 !important; margin: 0 0 0.5rem 0 !important; font-size: 1rem !important; }
+    .piege-block p  { font-size: 0.9rem !important; color: #7c2d12 !important; margin-bottom: 0.5rem !important; }
+    .conseil {
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.2);
+      padding: 0.65rem 1rem;
+      border-radius: 6px;
+      font-size: 0.86rem !important;
+      margin-top: 0.4rem !important;
+      margin-bottom: 0 !important;
+      color: var(--bleu) !important;
+    }
+
+    /* HABITUDES */
+    .habitudes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.4rem 0;
+    }
+    .habitude-card {
+      padding: 1.3rem 1.2rem;
+      background: var(--gris-50);
+      border: 1px solid var(--gris-200);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .habitude-icon {
+      width: 44px; height: 44px;
+      margin: 0 auto 0.8rem;
+      background: var(--bleu-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .habitude-icon svg { width: 20px; height: 20px; stroke: var(--bleu); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .habitude-card h3 { font-size: 0.9rem !important; font-weight: 600; color: var(--bleu); margin: 0 0 0.4rem 0 !important; }
+    .habitude-card p  { font-size: 0.82rem !important; color: var(--gris-700); margin: 0 !important; text-align: left; line-height: 1.55; }
+
+    /* AUTO-DIAGNOSTIC */
+    .diag-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0;
+      font-size: 0.88rem;
+    }
+    .diag-table thead tr { background: var(--bleu); color: white; }
+    .diag-table thead th { padding: 0.75rem 1rem; text-align: left; font-weight: 500; font-size: 0.82rem; }
+    .diag-table tbody tr { border-bottom: 1px solid var(--gris-200); }
+    .diag-table tbody tr:nth-child(even) { background: var(--gris-50); }
+    .diag-table tbody td { padding: 0.7rem 1rem; color: var(--gris-700); line-height: 1.55; vertical-align: top; }
+    .diag-table tbody td:first-child { color: var(--bleu); font-weight: 500; }
+
+    /* SOURCES */
+    .bib-section { margin: 1.4rem 0; }
+    .bib-section h3 { font-size: 0.95rem !important; margin: 0 0 0.6rem 0 !important; }
+    .bib-section ul { list-style: none; padding: 0 !important; margin: 0 !important; }
+    .bib-section li {
+      font-size: 0.85rem !important;
+      line-height: 1.55 !important;
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed var(--gris-200);
+      color: var(--gris-700) !important;
+    }
+    .bib-section li:last-child { border-bottom: none; }
+    .bib-section a { color: var(--accent); font-weight: 500; text-decoration: none; }
+    .bib-section a:hover { text-decoration: underline; }
+
+    /* CTA BLOCK */
+    .guide-cta-block {
+      background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-med) 100%);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: 14px;
+      margin-bottom: 1.8rem;
+    }
+    .guide-cta-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: white;
+    }
+    .guide-cta-block p { max-width: 480px; margin: 0 auto 1.4rem; color: rgba(255,255,255,0.85); font-size: 0.95rem; }
+    .guide-cta-block .btn-primary { background: var(--or); color: var(--bleu); font-weight: 600; }
+    .guide-cta-block .btn-primary:hover { background: white; color: var(--bleu); }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .guide-layout { grid-template-columns: 1fr; gap: 1.6rem; }
+      .guide-toc { position: static; }
+      .guide-section { padding: 1.8rem 1.4rem; }
+    }
+    @media (max-width: 680px) {
+      .competences-grid, .iteration-loop, .habitudes-grid, .tri-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="has-dev-banner">
+
+  <!-- BANNIÈRE DÉVELOPPEMENT -->
+  <div class="dev-banner" role="banner">
+    <span class="dev-banner-dot"></span>
+    <strong>Site en développement</strong> — Le contenu est en cours de finalisation. Merci de votre patience.
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="../">Benoit Plante</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../services/">Services</a></li>
+      <li><a href="../blogue/">Blogue</a></li>
+      <li><a href="../ressources/" class="active">Ressources</a></li>
+      <li><a href="../a-propos/">À propos</a></li>
+      <li><a href="../contact/" class="nav-cta">Me contacter</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero-compact guide-hero">
+    <div class="hero-content" style="max-width: 820px;">
+      <div class="hero-eyebrow">Ressources - Utilisation de l'IA</div>
+      <h1 class="hero-h1">Le cadre 4D et le <em>mindset itératif</em> pour utiliser l'IA efficacement</h1>
+      <p class="hero-sub">Deux cadres complémentaires ancrés dans la recherche d'Anthropic pour comprendre ce que demande vraiment la fluence IA et adopter une approche d'amélioration continue avec vos prompts.</p>
+      <div class="hero-actions">
+        <a href="aide-memoire-4D-iteration.pdf" class="btn-primary">Télécharger l'aide-mémoire PDF</a>
+        <a href="#cadre-4d" class="btn-ghost">Lire le guide</a>
+      </div>
+      <p class="guide-meta">
+        <span>Par Benoit Plante</span>
+        <span>·</span>
+        <span>Édition 2026</span>
+        <span>·</span>
+        <span>Lecture : ~12 minutes</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- LAYOUT TOC + CONTENU -->
+  <section class="guide-body">
+    <div class="inner guide-layout">
+
+      <!-- TABLE DES MATIÈRES STICKY -->
+      <aside class="guide-toc" aria-label="Table des matières">
+        <div class="guide-toc-inner">
+          <p class="guide-toc-title">Dans ce guide</p>
+          <ol class="guide-toc-list">
+            <li><a href="#pourquoi">Pourquoi deux cadres</a></li>
+            <li><a href="#cadre-4d">Le cadre 4D</a>
+              <ul>
+                <li><a href="#delegation">Délégation</a></li>
+                <li><a href="#description">Description</a></li>
+                <li><a href="#discernement">Discernement</a></li>
+                <li><a href="#diligence">Diligence</a></li>
+                <li><a href="#tri-taches">Grille de tri des tâches</a></li>
+              </ul>
+            </li>
+            <li><a href="#mindset-iteratif">Le mindset itératif</a>
+              <ul>
+                <li><a href="#boucle">La boucle en 4 étapes</a></li>
+                <li><a href="#pieges">3 pièges à éviter</a></li>
+                <li><a href="#habitudes">3 habitudes à cultiver</a></li>
+              </ul>
+            </li>
+            <li><a href="#autodiag">Auto-diagnostic</a></li>
+            <li><a href="#sources">Sources</a></li>
+          </ol>
+          <a href="aide-memoire-4D-iteration.pdf" class="guide-toc-cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger l'aide-mémoire
+          </a>
+        </div>
+      </aside>
+
+      <!-- CONTENU -->
+      <article class="guide-content">
+
+        <section id="pourquoi" class="guide-section">
+          <span class="section-tag">Introduction</span>
+          <h2>Pourquoi deux cadres plutôt qu'un</h2>
+          <p class="guide-lead">La plupart des guides sur l'IA commencent par les prompts. Ce guide commence par une question plus fondamentale : qu'est-ce que signifie être compétent avec l'IA ?</p>
+          <p>En 2025, des chercheurs en collaboration avec Anthropic, dont Rick Dakan et Joseph Feller, ont développé le cadre 4D de la fluence IA. Leur hypothèse centrale est que l'efficacité avec l'IA ne se réduit pas à un savoir-faire technique : elle repose sur quatre compétences interdépendantes que personne ne maîtrise d'emblée.</p>
+          <p>En parallèle, la documentation officielle d'Anthropic insiste sur une réalité souvent ignorée : <strong style="color: var(--bleu);">le premier prompt n'est jamais parfait</strong>. L'itération n'est pas un signe d'échec, c'est le processus normal de tout utilisateur compétent.</p>
+          <p>Ces deux cadres sont complémentaires. Le cadre 4D décrit où développer ses compétences. Le mindset itératif décrit comment progresser concrètement à chaque session.</p>
+          <div class="finding">
+            <div class="finding-num">01</div>
+            <h3>Ce que dit la recherche sur l'adoption de l'IA</h3>
+            <p>Une étude publiée dans <em>Science</em> (Noy &amp; Zhang, 2023) montre que les rédacteurs professionnels utilisant un assistant IA ont terminé leurs tâches <span class="stat">37 % plus rapidement</span> avec une qualité jugée <span class="stat">18 % supérieure</span> par des évaluateurs indépendants. L'étude de Dell'Acqua et al. (Harvard, 2023) sur des consultants McKinsey révèle que les utilisateurs avancés d'IA complètent <span class="stat">12,2 % de tâches supplémentaires</span> et sont <span class="stat">25 % plus rapides</span>.</p>
+            <p class="implication"><strong>En pratique :</strong> le gain de performance provient moins de la connaissance des outils que de la capacité à évaluer et à affiner les sorties. C'est exactement ce que développent le cadre 4D et le mindset itératif.</p>
+          </div>
+        </section>
+
+        <section id="cadre-4d" class="guide-section" style="background: linear-gradient(180deg, white 0%, var(--bleu-pale) 100%);">
+          <span class="section-tag">Cadre de compétences</span>
+          <h2>Le cadre 4D de la fluence IA</h2>
+          <p class="guide-lead">Développé avec Anthropic par Rick Dakan et Joseph Feller, le cadre 4D propose que la fluence IA repose sur quatre compétences distinctes : Délégation, Description, Discernement et Diligence.</p>
+          <p>Contrairement à l'idée reçue que l'IA s'apprend surtout en écrivant de meilleurs prompts, ce cadre montre que la compétence technique de description (prompting) n'est que l'une des quatre dimensions. Des utilisateurs excellents en description mais faibles en discernement produisent souvent des résultats convaincants mais inexacts.</p>
+
+          <div class="competences-grid">
+            <div class="competence-card" id="delegation">
+              <div class="competence-letter">D</div>
+              <h3><span class="competence-sous-titre">1re compétence</span>Délégation</h3>
+              <p>Savoir <em>quelles tâches</em> confier à l'IA, selon leur complexité, leur risque et leur valeur ajoutée. Inclut la capacité de concevoir des flux de travail hybrides humain-IA adaptés au contexte.</p>
+            </div>
+            <div class="competence-card" id="description">
+              <div class="competence-letter">D</div>
+              <h3><span class="competence-sous-titre">2e compétence</span>Description</h3>
+              <p>Formuler des instructions claires, complètes et contextualisées. C'est la compétence la plus souvent enseignée, mais son efficacité dépend des trois autres dimensions du cadre.</p>
+            </div>
+            <div class="competence-card" id="discernement">
+              <div class="competence-letter">D</div>
+              <h3><span class="competence-sous-titre">3e compétence</span>Discernement</h3>
+              <p>Évaluer de façon critique les sorties de l'IA : vérifier les faits, identifier les hallucinations (taux pouvant atteindre 28 à 91 % selon les tâches), détecter les angles morts.</p>
+            </div>
+            <div class="competence-card" id="diligence">
+              <div class="competence-letter">D</div>
+              <h3><span class="competence-sous-titre">4e compétence</span>Diligence</h3>
+              <p>Utiliser l'IA de façon responsable : protéger la confidentialité des données, respecter les droits d'auteur et maintenir l'intégrité dans les contextes professionnels et académiques.</p>
+            </div>
+          </div>
+
+          <h3 id="tri-taches">Grille de tri des tâches</h3>
+          <p>La compétence de délégation commence par une question simple : cette tâche est-elle appropriée pour l'IA ? La grille ci-dessous s'appuie sur deux axes : la prévisibilité de la tâche et la tolérance aux erreurs.</p>
+
+          <div class="tri-grid">
+            <div class="tri-case confier">
+              <div class="tri-case-label">Confier à l'IA</div>
+              <ul>
+                <li>Reformulation et résumés</li>
+                <li>Premiers jets de rédaction</li>
+                <li>Extraction d'information structurée</li>
+                <li>Brainstorming et génération d'idées</li>
+                <li>Traductions et adaptations de registre</li>
+              </ul>
+            </div>
+            <div class="tri-case collaborer">
+              <div class="tri-case-label">Collaborer avec l'IA</div>
+              <ul>
+                <li>Analyse de données qualitatives</li>
+                <li>Recherche documentaire exploratoire</li>
+                <li>Développement d'arguments</li>
+                <li>Révision d'un plan ou d'un raisonnement</li>
+                <li>Code de niveau intermédiaire</li>
+              </ul>
+            </div>
+            <div class="tri-case prudence">
+              <div class="tri-case-label">Utiliser avec prudence</div>
+              <ul>
+                <li>Citations et références bibliographiques</li>
+                <li>Statistiques et données chiffrées</li>
+                <li>Informations récentes (post-formation)</li>
+                <li>Contenu à portée juridique ou médicale</li>
+              </ul>
+            </div>
+            <div class="tri-case humain">
+              <div class="tri-case-label">Réserver au jugement humain</div>
+              <ul>
+                <li>Décisions éthiques complexes</li>
+                <li>Évaluations cliniques ou diagnostics</li>
+                <li>Jugements créatifs finaux</li>
+                <li>Responsabilité professionnelle directe</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="mindset-iteratif" class="guide-section">
+          <span class="section-tag">Approche pratique</span>
+          <h2>Le mindset itératif</h2>
+          <p class="guide-lead">La documentation officielle d'Anthropic est explicite : <strong>le prompt idéal n'existe pas dès le départ</strong>. La compétence se développe dans la boucle d'amélioration, pas dans la perfection du premier essai.</p>
+          <p>La plupart des utilisateurs débutants traitent chaque échange avec l'IA comme une tentative isolée. Quand le résultat ne convient pas, ils recommencent à zéro. Les utilisateurs avancés font l'inverse : ils partent d'un prompt simple, lisent attentivement le résultat, et affinent de façon progressive et ciblée.</p>
+
+          <h3 id="boucle">La boucle en 4 étapes</h3>
+          <div class="iteration-loop">
+            <div class="loop-step">
+              <div class="loop-num">1</div>
+              <div>
+                <h4>Rédiger</h4>
+                <p>Formulez votre demande avec le contexte disponible. Pas besoin d'être parfait : l'objectif est de générer une première réponse à évaluer.</p>
+              </div>
+            </div>
+            <div class="loop-step">
+              <div class="loop-num">2</div>
+              <div>
+                <h4>Lire</h4>
+                <p>Lisez la réponse en entier et de façon critique. Identifiez ce qui fonctionne, ce qui manque, ce qui est inexact. C'est l'étape de discernement.</p>
+              </div>
+            </div>
+            <div class="loop-step">
+              <div class="loop-num">3</div>
+              <div>
+                <h4>Reformuler</h4>
+                <p>Précisez votre demande. Ajoutez du contexte, reformulez l'angle, précisez le format ou demandez une correction ciblée sur un point précis.</p>
+              </div>
+            </div>
+            <div class="loop-step">
+              <div class="loop-num">4</div>
+              <div>
+                <h4>Recommencer</h4>
+                <p>Chaque cycle rapproche le résultat de ce que vous cherchez. La plupart des tâches complexes nécessitent 3 à 5 itérations.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 id="pieges">3 pièges à éviter</h3>
+          <div class="piege-block">
+            <h3>1. Le piège du tout-ou-rien</h3>
+            <p>Abandonner dès que le premier résultat est imparfait, ou au contraire accepter une réponse parce qu'elle est "assez bonne". Les deux extrêmes court-circuitent le processus d'amélioration.</p>
+            <p class="conseil"><strong>À la place :</strong> adoptez une évaluation graduée. Identifiez les 2 ou 3 aspects spécifiques à améliorer et reformulez sur ces points précis seulement.</p>
+          </div>
+          <div class="piege-block">
+            <h3>2. Le piège de la sur-correction</h3>
+            <p>Modifier radicalement le prompt après une réponse insatisfaisante, changeant à la fois le contexte, le format, le ton et les exemples. On ne sait plus ce qui a causé l'amélioration ou la détérioration.</p>
+            <p class="conseil"><strong>À la place :</strong> changez une variable à la fois. Si le contenu est bon mais le format mauvais, ne modifiez que les instructions de format. C'est l'approche d'un test A/B appliqué aux prompts.</p>
+          </div>
+          <div class="piege-block">
+            <h3>3. Le piège de la longue conversation</h3>
+            <p>Continuer à itérer dans une conversation où le modèle tente de concilier des instructions contradictoires accumulées sur 15 échanges. Le résultat devient incohérent et difficile à rattraper.</p>
+            <p class="conseil"><strong>À la place :</strong> n'hésitez pas à démarrer une nouvelle conversation avec un prompt intégrant les apprentissages des échanges précédents. Un prompt bien construit de 300 mots vaut souvent mieux qu'une conversation tortueuse de 20 messages.</p>
+          </div>
+
+          <h3 id="habitudes">3 habitudes à cultiver</h3>
+          <div class="habitudes-grid">
+            <div class="habitude-card">
+              <div class="habitude-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h3>Commencer simple</h3>
+              <p>Rédigez un premier prompt court et direct. Les prompts trop longs et contraignants d'entrée de jeu réduisent souvent la qualité des réponses. Ajoutez les contraintes progressivement.</p>
+            </div>
+            <div class="habitude-card">
+              <div class="habitude-icon">
+                <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <h3>Lire avant d'accepter</h3>
+              <p>Lisez chaque réponse en entier avant de l'utiliser. Les erreurs et les hallucinations se trouvent souvent dans la deuxième moitié d'une réponse longue.</p>
+            </div>
+            <div class="habitude-card">
+              <div class="habitude-icon">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <h3>Tenir un journal de prompts</h3>
+              <p>Notez les formulations qui fonctionnent pour vos cas d'usage récurrents. Cette bibliothèque personnelle est le capital le plus concret que vous construisez en pratiquant.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="autodiag" class="guide-section">
+          <span class="section-tag">Outils pratiques</span>
+          <h2>Auto-diagnostic : où en êtes-vous ?</h2>
+          <p class="guide-lead">Ce tableau vous aide à situer votre niveau actuel dans chacune des quatre dimensions du cadre 4D. Repérez l'énoncé qui vous décrit le mieux dans chaque ligne.</p>
+          <table class="diag-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Débutant</th>
+                <th>Intermédiaire</th>
+                <th>Avancé</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Délégation</td>
+                <td>Je confie à l'IA surtout des tâches simples et peu risquées.</td>
+                <td>Je commence à construire des flux de travail où l'IA prend en charge des étapes entières.</td>
+                <td>Je conçois des pipelines humain-IA adaptés au contexte, avec des points de contrôle explicites.</td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>Mes prompts sont courts et peu contextualisés. Je reformule rarement.</td>
+                <td>Je fournis contexte, format et exemples. J'itère 2 à 3 fois par tâche courante.</td>
+                <td>Mes prompts sont précis et économes. Je maintiens des bibliothèques de prompts réutilisables.</td>
+              </tr>
+              <tr>
+                <td>Discernement</td>
+                <td>J'accepte les réponses si elles me semblent raisonnables.</td>
+                <td>Je vérifie les faits importants et repère les imprécisions dans la structure logique.</td>
+                <td>J'identifie rapidement les limites du modèle sur mes cas d'usage et j'adapte mes stratégies.</td>
+              </tr>
+              <tr>
+                <td>Diligence</td>
+                <td>Je n'ai pas encore formalisé mes règles d'usage responsable de l'IA.</td>
+                <td>J'applique des règles claires sur la confidentialité et la déclaration de l'usage de l'IA.</td>
+                <td>J'ai des protocoles documentés sur la confidentialité, la traçabilité et l'intégrité dans mon contexte.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Repérez votre dimension la plus faible : c'est là que se trouve votre plus grand levier de progression. Un niveau débutant en Diligence ou en Discernement peut créer des risques même pour un utilisateur avancé en Description.</p>
+        </section>
+
+        <section id="sources" class="guide-section">
+          <span class="section-tag">Sources</span>
+          <h2>Sources et références</h2>
+          <div class="bib-section">
+            <h3>Cadre 4D et fluence IA</h3>
+            <ul>
+              <li>Dakan, R., &amp; Feller, J. (2025). <em>The 4D AI Fluency Framework</em>. Développé avec Anthropic. <a href="https://www.anthropic.com" target="_blank" rel="noopener">anthropic.com ↗</a></li>
+              <li>Anthropic. (2025). <em>Prompt engineering overview</em>. Documentation officielle. <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">docs.anthropic.com ↗</a></li>
+            </ul>
+          </div>
+          <div class="bib-section">
+            <h3>Efficacité de l'IA en milieu de travail</h3>
+            <ul>
+              <li>Noy, S., &amp; Zhang, W. (2023). Experimental evidence on the productivity effects of generative artificial intelligence. <em>Science, 381</em>(6654), 187-192. Résultats : gains de <strong>37 %</strong> en vitesse et <strong>18 %</strong> en qualité. <a href="https://www.science.org/doi/10.1126/science.adh2586" target="_blank" rel="noopener">science.org ↗</a></li>
+              <li>Dell'Acqua, F., et al. (2023). Navigating the jagged technological frontier. <em>Harvard Business School Working Paper</em>. Résultats : <strong>12,2 % de tâches supplémentaires</strong>, <strong>25 % plus rapidement</strong>. <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64700" target="_blank" rel="noopener">hbs.edu ↗</a></li>
+              <li>Brynjolfsson, E., Li, D., &amp; Raymond, L. R. (2023). Generative AI at work. <em>NBER Working Paper</em>, 31161. Résultats : augmentation de <strong>14 %</strong> de la productivité. <a href="https://www.nber.org/papers/w31161" target="_blank" rel="noopener">nber.org ↗</a></li>
+            </ul>
+          </div>
+          <div class="bib-section">
+            <h3>Hallucinations et fiabilité</h3>
+            <ul>
+              <li>Chelli, M., et al. (2024). Hallucination rates and reference accuracy of ChatGPT and Bard for systematic reviews. <em>Journal of Medical Internet Research, 26</em>, e53164. Taux d'hallucination : <strong>28,6 % à 91,3 %</strong> selon le modèle et la tâche. <a href="https://www.jmir.org/2024/1/e53164" target="_blank" rel="noopener">jmir.org ↗</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="guide-cta-block">
+          <h2>Gardez ces cadres à portée de main</h2>
+          <p>L'aide-mémoire PDF condense le cadre 4D, la grille de tri des tâches, la boucle itérative et le tableau d'auto-diagnostic sur une seule page imprimable.</p>
+          <a href="aide-memoire-4D-iteration.pdf" class="btn-primary">Télécharger l'aide-mémoire PDF</a>
+        </section>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Benoit Plante</div>
+        <p>Consultant en IA spécialisé dans l'Écosystème Claude d'Anthropic. Intégration, formation et conseil stratégique autour de Claude — API, agents, MCP, automatisation.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Offre</h4>
+        <ul>
+          <li><a href="../services/">Services</a></li>
+          <li><a href="../blogue/">Blogue</a></li>
+          <li><a href="../ressources/">Ressources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="../a-propos/">Parcours</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal &amp; liens</h4>
+        <ul>
+          <li><a href="../confidentialite/">Confidentialité</a></li>
+          <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Benoit Plante. Tous droits réservés.</p>
+      <span class="footer-mark">Écosystème Claude</span>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    // TOC active link highlight
+    const tocLinks = document.querySelectorAll('.guide-toc-list a');
+    const sections = document.querySelectorAll('[id]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.style.color = '');
+          const active = document.querySelector(`.guide-toc-list a[href="#${entry.target.id}"]`);
+          if (active) active.style.color = '#2563eb';
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
