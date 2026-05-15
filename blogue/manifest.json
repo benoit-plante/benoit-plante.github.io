@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "slug": "loi-25-ia-recherche",
+    "titre": "La Loi 25 et l'intelligence artificielle en recherche : ce que les chercheurs universitaires doivent savoir",
+    "sous_titre": "De l'obligation légale à la pratique de recherche : cadre, implications, cas d'usage et recommandations",
+    "eyebrow": "Article de fond",
+    "date": "2026-05-18",
+    "temps_lecture": 8
+  },
+  {
+    "slug": "prisma-traice-revues-systematiques",
+    "titre": "PRISMA-trAIce : la première grille pour rapporter l'usage de l'IA dans les revues systématiques",
+    "sous_titre": "Genèse, contenu, utilisation et exemples appliqués à la recherche en sciences sociales",
+    "eyebrow": "Article de fond",
+    "date": "2026-05-25",
+    "temps_lecture": 8
+  },
+  {
+    "slug": "hallucinations-recherche-documentaire-ia",
+    "titre": "Hallucinations dans la recherche documentaire assistée par IA : ce que mesurent vraiment les études",
+    "sous_titre": "Synthèse critique des taux d'hallucination publiés et de leur portée pour la pratique de revue de littérature",
+    "eyebrow": "Article de fond",
+    "date": "2026-06-01",
+    "temps_lecture": 7
+  },
+  {
+    "slug": "ia-comite-ethique-recherche",
+    "titre": "L'IA dans le processus d'évaluation éthique : ce que change votre demande au CER",
+    "sous_titre": "Cadre éthique, attentes des CER québécois et canadiens, et préparation d'un dossier qui anticipe les questions",
+    "eyebrow": "Article de fond",
+    "date": "2026-06-08",
+    "temps_lecture": 7
+  }
+]
