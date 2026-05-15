@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hallucinations dans la recherche documentaire assistée par IA : ce que mesurent vraiment les études — Benoit Plante</title>
+  <meta name="description" content="L’expression « ChatGPT invente des références » est entrée dans la culture académique en 2023 ; trois ans plus tard, la question n’est plus de savoir si les outils d’IA…" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Hallucinations dans la recherche documentaire assistée par IA : ce que mesurent vraiment les études" />
+  <meta property="og:description" content="L’expression « ChatGPT invente des références » est entrée dans la culture académique en 2023 ; trois ans plus tard, la question n’est plus de savoir si les outils d’IA…" />
+  <meta property="og:url" content="https://benoitplante.com/blogue/hallucinations-recherche-documentaire-ia.html" />
+  <meta property="og:locale" content="fr_CA" />
+  <meta property="article:published_time" content="2026-06-01" />
+  <meta property="article:author" content="Benoit Plante" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="https://benoitplante.com/blogue/hallucinations-recherche-documentaire-ia.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="article.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hallucinations dans la recherche documentaire assistée par IA : ce que mesurent vraiment les études",
+  "description": "L’expression « ChatGPT invente des références » est entrée dans la culture académique en 2023 ; trois ans plus tard, la question n’est plus de savoir si les outils d’IA…",
+  "datePublished": "2026-06-01",
+  "author": {
+    "@type": "Person",
+    "name": "Benoit Plante",
+    "url": "https://benoitplante.com/a-propos.html"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Benoit Plante"
+  },
+  "mainEntityOfPage": "https://benoitplante.com/blogue/hallucinations-recherche-documentaire-ia.html"
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="../index.html">Benoit Plante</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../services.html">Services</a></li>
+      <li><a href="../ressources.html">Ressources</a></li>
+      <li><a href="../blogue/index.html" class="active">Blogue</a></li>
+      <li><a href="../formations.html">Formations</a></li>
+      <li><a href="../a-propos.html">À propos</a></li>
+      <li><a href="../contact.html" class="nav-cta">Me contacter</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero hero-compact article-hero">
+    <div class="hero-content" style="max-width: 820px;">
+      <div class="hero-eyebrow"><a href="index.html" style="color: inherit; text-decoration: none;">Blogue</a> · Article de fond</div>
+      <h1 class="hero-h1">Hallucinations dans la recherche documentaire assistée par IA : ce que mesurent vraiment les études</h1>
+      <p class="hero-sub">Comparaison empirique entre ChatGPT, Claude, Elicit, SciSpace, Undermind, Consensus et Perplexity, et protocole pour des recherches fiables</p>
+      <p class="article-meta">
+        <span>Par Benoit Plante</span>
+        <span>·</span>
+        <time datetime="2026-06-01">1 juin 2026</time>
+        <span>·</span>
+        <span>Lecture : ~7 min</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="article-body">
+    <div class="inner article-layout">
+        <aside class="article-toc" aria-label="Sommaire">
+          <div class="article-toc-inner">
+            <p class="article-toc-title">Dans cet article</p>
+            <ol>
+            <li><a href="#1-hallucination-un-mot-plusieurs-ph-nom-nes">1. Hallucination : un mot, plusieurs phénomènes</a></li>
+            <li><a href="#2-les-chiffres-ce-que-disent-les-tudes">2. Les chiffres : ce que disent les études</a></li>
+            <li><a href="#3-pourquoi-certains-outils-hallucinent-beaucoup-d-autres-presque-pas">3. Pourquoi certains outils hallucinent beaucoup, d’autres presque pas</a></li>
+            <li><a href="#4-un-protocole-pratique-pour-des-recherches-fiables">4. Un protocole pratique pour des recherches fiables</a></li>
+            <li><a href="#5-trois-pi-ges-typiques-et-comment-les-viter">5. Trois pièges typiques et comment les éviter</a></li>
+            <li><a href="#conclusion-pas-une-question-de-mod-le-une-question-d-usage">Conclusion : pas une question de modèle, une question d’usage</a></li>
+            </ol>
+          </div>
+        </aside>
+
+      <article class="article-content">
+        <p class="article-lead">L’expression « ChatGPT invente des références » est entrée dans la culture académique en 2023 ; trois ans plus tard, la question n’est plus de savoir si les outils d’IA hallucinent, mais lesquels, à quel taux, et pour quelles tâches. La littérature empirique s’est étoffée : plus d’une dizaine d’études publiées entre 2024 et 2026 ont chiffré ces taux dans des conditions reproductibles. Cet article fait le point sur ce qu’elles mesurent réellement, propose un tableau comparatif des outils les plus utilisés en recherche, explique pourquoi certains hallucinent beaucoup et d’autres presque pas, et termine par un protocole pratique pour des recherches documentaires fiables.</p>
+
+        <h2 id="1-hallucination-un-mot-plusieurs-ph-nom-nes">1. Hallucination : un mot, plusieurs phénomènes</h2>
+        <p>Dans la littérature en IA, « hallucination » désigne une catégorie large : production par un modèle d’une information plausible mais factuellement fausse. Pour la recherche documentaire, on peut distinguer trois sous-types avec des conséquences très différentes.</p>
+        <ul>
+          <li>Référence fabriquée : l’outil cite un article qui n’existe pas (auteurs, titre, journal, DOI inventés ou mal mélangés). C’est l’hallucination la plus visible et la plus facile à détecter manuellement.</li>
+          <li>Référence existante mais mal attribuée : l’article existe, mais le contenu cité n’y figure pas, ou l’interprétation est erronée. C’est l’hallucination la plus dangereuse parce qu’elle survit aux vérifications superficielles.</li>
+          <li>Synthèse biaisée : l’outil ne fabrique rien à proprement parler, mais sélectionne disproportionnellement certaines sources, omet des perspectives contraires ou exagère la convergence. C’est l’hallucination la moins discutée et la plus structurelle.</li>
+        </ul>
+        <p>Les études empiriques mesurent essentiellement les deux premiers types — le troisième relève davantage de l’épistémologie des SLR que de la métrique. C’est important pour interpréter les chiffres : un outil avec un faible taux de fabrication peut encore biaiser fortement une revue.</p>
+        <h2 id="2-les-chiffres-ce-que-disent-les-tudes">2. Les chiffres : ce que disent les études</h2>
+        <p>Le tableau ci-dessous synthétise les taux d’hallucination de référence rapportés par plusieurs études récentes. Trois précautions de lecture : les méthodologies ne sont pas strictement comparables (nombre de prompts, domaines, type de vérification) ; les versions des modèles changent — un « ChatGPT 3.5 » de 2023 n’est pas le même qu’en 2024 ; et les outils académiques RAG (retrieval-augmented generation) ont structurellement moins de fabrications parce qu’ils citent depuis une base réelle, mais peuvent encore mal attribuer.</p>
+        <div class="article-table-wrap"><table class="article-table">
+          <thead><tr><th>Outil</th><th>Type</th><th>Taux d’hallucination</th><th>Source (méthodologie)</th></tr></thead>
+          <tbody>
+            <tr><td>ChatGPT 3.5</td><td>LLM généraliste</td><td>39,6 %</td><td>Chelli et al. 2024, JMIR (139 réf.)</td></tr>
+            <tr><td>ChatGPT 4</td><td>LLM généraliste</td><td>28,6 %</td><td>Chelli et al. 2024, JMIR (119 réf.)</td></tr>
+            <tr><td>Google Bard</td><td>LLM généraliste</td><td>91,4 %</td><td>Chelli et al. 2024, JMIR (104 réf.)</td></tr>
+            <tr><td>GPT-3.5 (Walters)</td><td>LLM généraliste</td><td>55 %</td><td>Walters &amp; Wilder 2023, Sci Reports (636 réf.)</td></tr>
+            <tr><td>GPT-4 (Walters)</td><td>LLM généraliste</td><td>18 %</td><td>Walters &amp; Wilder 2023, Sci Reports (636 réf.)</td></tr>
+            <tr><td>GPT-4o</td><td>LLM généraliste</td><td>19,9 % fabriquées</td><td>2025, 6 revues simulées</td></tr>
+            <tr><td>Bing/Copilot</td><td>LLM + recherche</td><td>Élevé (score 11/11)</td><td>Aljamaan et al. 2024, JMIR Med Inform</td></tr>
+            <tr><td>Perplexity</td><td>LLM + RAG</td><td>Modéré (score 7/11)</td><td>Aljamaan et al. 2024, JMIR Med Inform</td></tr>
+            <tr><td>Elicit</td><td>RAG académique</td><td>≈ 0 % (score 1/11)</td><td>Aljamaan et al. 2024 ; Tay 2025</td></tr>
+            <tr><td>SciSpace</td><td>RAG académique</td><td>≈ 0 % (score 1/11)</td><td>Aljamaan et al. 2024</td></tr>
+            <tr><td>Undermind</td><td>RAG académique</td><td>Quasi nul</td><td>Tay 2025 ; revue Katina 2025</td></tr>
+            <tr><td>Consensus</td><td>RAG académique</td><td>Faible</td><td>Tay 2025, deep dive</td></tr>
+            <tr><td>Claude (API Citations)</td><td>LLM + citations vérifiées</td><td>10 % → 0 %*</td><td>Anthropic, juin 2025</td></tr>
+          </tbody>
+        </table></div>
+        <p>* L’API Citations d’Anthropic vérifie chaque citation contre un document fourni ; le « zéro hallucination » s’applique aux citations, pas au texte généré.</p>
+        <p>Plusieurs constats émergent. Premièrement, l’écart entre LLM généralistes et outils académiques RAG est massif — typiquement un ordre de grandeur. Deuxièmement, les générations successives de LLM réduisent les fabrications (GPT-3.5 → GPT-4 → GPT-4o), mais le taux reste à deux chiffres pour des tâches non-RAG, ce qui demeure inacceptable pour une revue systématique. Troisièmement, des études extrêmes existent : une simulation de revue systématique entièrement déléguée à ChatGPT a relevé 91 % d’hallucinations sur l’ensemble du processus. Quatrièmement, dans le domaine clinique, le sujet est si sensible que des cadres formels d’évaluation des hallucinations ont été développés.</p>
+        <h2 id="3-pourquoi-certains-outils-hallucinent-beaucoup-d-autres-presque-pas">3. Pourquoi certains outils hallucinent beaucoup, d’autres presque pas</h2>
+        <p>La différence n’est pas dans l’intelligence du modèle — elle est dans son architecture d’interrogation. Trois designs cohabitent.</p>
+        <aside class="article-callout">
+          <p>LLM pur (ChatGPT, Claude sans outil, Bard, etc.)</p>
+          <p>Le modèle génère du texte en prédisant le mot suivant à partir de tout ce qu’il a appris. Pour une référence, il « se souvient » d’un mélange de centaines d’articles vus à l’entraînement et reconstruit une citation qui ressemble à ce qu’il a vu. Le résultat : auteurs plausibles, journal plausible, DOI plausible — mais souvent inexact.</p>
+        </aside>
+        <aside class="article-callout">
+          <p>LLM avec recherche web (Bing/Copilot, Perplexity, Gemini en mode recherche)</p>
+          <p>Le modèle fait une requête web, lit les résultats et synthétise. Les hallucinations diminuent parce qu’il y a une source réelle, mais : (1) le modèle peut citer une source qu’il n’a pas vraiment consultée ; (2) la qualité dépend de la requête web automatique, qui peut rater la littérature académique ; (3) les liens vers des PDFs payants tronquent l’information.</p>
+        </aside>
+        <aside class="article-callout">
+          <p>RAG académique (Elicit, SciSpace, Consensus, Undermind, SciSummary)</p>
+          <p>Le système cherche d’abord dans une base académique structurée (Semantic Scholar, OpenAlex, indexations propres), récupère les articles pertinents, puis demande au LLM de synthétiser uniquement à partir de ce contenu réel. Les fabrications deviennent quasi impossibles parce que chaque assertion est ancrée dans un document récupéré. Les limites restantes : couverture (certains corpus mieux indexés que d’autres) et qualité de l’extraction interne.</p>
+        </aside>
+        <p>Cette typologie explique pourquoi Elicit et SciSpace obtiennent des scores d’hallucination « négligeables » dans les benchmarks tandis que ChatGPT brut obtient des scores « critiques ». Ce n’est pas que ChatGPT est plus « bête » : c’est qu’on lui demande quelque chose pour lequel il n’est pas architecturé.</p>
+        <h2 id="4-un-protocole-pratique-pour-des-recherches-fiables">4. Un protocole pratique pour des recherches fiables</h2>
+        <p>La conclusion la plus utile est probablement la plus simple : pour la recherche documentaire, n’utilisez pas un LLM généraliste — utilisez un outil RAG académique. Pour les usages où le LLM généraliste reste pertinent (synthèse rapide, exploration d’angles, reformulation), voici un protocole en cinq étapes qui réduit drastiquement le risque d’hallucination.</p>
+        <ol>
+          <li>Étape 1 — Choisir l’architecture d’abord, l’outil ensuite : pour découvrir la littérature, RAG académique. Pour synthétiser des articles déjà collectés, LLM avec contexte fourni (PDF chargé). Pour explorer un angle exploratoire, LLM généraliste — mais sans citer ses « sources ».</li>
+          <li>Étape 2 — Vérifier 100 % des références issues d’un LLM généraliste avant toute insertion dans un texte. Outil le plus simple : copier-coller dans Google Scholar ou PubMed et vérifier la concordance auteurs/année/titre.</li>
+          <li>Étape 3 — Demander les DOI plutôt que les citations formatées : un DOI est soit vrai (et résolvable), soit faux (et révélé immédiatement). C’est une heuristique simple qui élimine la majorité des fabrications « plausibles ».</li>
+          <li>Étape 4 — Pour les revues critiques, croiser deux outils : Elicit + Consensus sur les mêmes prompts donnent souvent des angles différents. Les divergences signalent les zones à vérifier.</li>
+          <li>Étape 5 — Documenter selon PRISMA-trAIce si la recherche aboutit à une publication. Items clés : M2 (outil et version exacte), M4-M5 (entrées-sorties), M9 (évaluation de performance sur un échantillon).</li>
+        </ol>
+        <h2 id="5-trois-pi-ges-typiques-et-comment-les-viter">5. Trois pièges typiques et comment les éviter</h2>
+        <aside class="article-callout">
+          <p><strong>Piège 1</strong> — Le DOI plausible mais inexistant</p>
+          <p>ChatGPT cite : « Bandura, A. (2003). Self-efficacy in adolescent populations. Journal of Educational Psychology, 95(2), 219-232. doi:10.1037/0022-0663.95.2.219 ». L’auteur, le journal et le format sont vrais ; la combinaison est fabriquée. Détection : le DOI ne résout pas. Prévention : exiger systématiquement le DOI et le vérifier.</p>
+        </aside>
+        <aside class="article-callout">
+          <p><strong>Piège 2</strong> — La citation existante mais mal interprétée</p>
+          <p>L’outil cite correctement Tetlock (2005, Expert Political Judgment) mais lui attribue une conclusion qui appartient à un autre ouvrage. Détection : le DOI passe, la citation lue ne correspond pas. Prévention : pour toute citation pivot, lire personnellement la section référencée.</p>
+        </aside>
+        <aside class="article-callout">
+          <p><strong>Piège 3</strong> — La synthèse trop convergente</p>
+          <p>Un outil RAG produit une synthèse cohérente sur un sujet où la littérature est en fait fortement divisée. Aucune fabrication, mais une représentation trompeuse. Détection : vérifier que la synthèse mentionne des positions opposées identifiables. Prévention : ajouter explicitement au prompt « identifie les désaccords et controverses » ; lancer une seconde recherche orientée contradiction.</p>
+        </aside>
+        <h2 id="conclusion-pas-une-question-de-mod-le-une-question-d-usage">Conclusion : pas une question de modèle, une question d’usage</h2>
+        <p>Les hallucinations ne disparaîtront pas dans les versions futures des LLM — elles sont une conséquence structurelle du fonctionnement statistique des modèles. Ce qui change, c’est l’architecture d’usage. Les outils académiques RAG ont prouvé qu’en contraignant le modèle à citer uniquement depuis un corpus indexé, on ramène les fabrications près de zéro. Le mauvais réflexe pour un chercheur n’est donc pas « j’évite l’IA » ; c’est « j’utilise un LLM généraliste pour faire une recherche documentaire », ce qui n’est pas son rôle.</p>
+        <p>Pour les chercheurs en sciences sociales, l’implication pratique est claire : privilégier Elicit, SciSpace, Undermind ou Consensus pour la phase de recherche, et réserver les LLM généralistes à des tâches où l’hallucination est soit acceptable (brainstorming, reformulation) soit immédiatement détectable (programmation). Le tableau des taux d’hallucination publié par les benchmarks récents n’est pas une condamnation des LLM : c’est une boussole pour leur usage approprié.</p>
+
+        <section id="sources" class="article-sources">
+          <h2>Sources et références</h2>
+          <ol>
+          <li>Chelli M, et al. (2024). Hallucination rates and reference accuracy of ChatGPT and Bard for systematic reviews. JMIR 26:e53164</li>
+          <li>Walters WH, Wilder EI (2023). Fabrication and errors in the bibliographic citations generated by ChatGPT. Scientific Reports 13:14045</li>
+          <li>Aljamaan F, et al. (2024). Reference Hallucination Score for Medical AI Chatbots. JMIR Medical Informatics 12:e54345</li>
+          <li>Étude AI &amp; Society (Springer, 2025) sur la délégation complète à ChatGPT — Springer Nature</li>
+          <li>Tay A. (2025). Google Scholar vs other AI search tools — aarontay.substack.com</li>
+          <li>Holst et al. (2025). PRISMA-trAIce checklist. JMIR AI 4:e80247</li>
+          </ol>
+        </section>
+
+        <aside class="article-cta">
+          <p class="article-cta-eyebrow">Pour ne rien manquer</p>
+          <h3>Recevez la veille IA chaque semaine</h3>
+          <p>L'infolettre récapitule les nouveaux outils, méthodes et enjeux pour la recherche en sciences sociales. Une fois par semaine, sans spam.</p>
+          <a href="../infolettre.html" class="btn-primary">M'abonner à l'infolettre →</a>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Benoit Plante</div>
+        <p>Consultant en recherche sociale. Coordonnateur scientifique au GRIN et au CEIDEF. Ressources et outils pour la communauté de recherche.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Offre</h4>
+        <ul>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../ressources.html">Ressources</a></li>
+          <li><a href="../formations.html">Formations</a></li>
+          <li><a href="../outils.html">Outils</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="../a-propos.html">Parcours</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../infolettre.html">Infolettre</a></li>
+          <li><a href="index.html">Blogue</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal &amp; liens</h4>
+        <ul>
+          <li><a href="../confidentialite.html">Confidentialité</a></li>
+          <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Benoit Plante. Tous droits réservés.</p>
+      <span class="footer-mark">Recherche &amp; impact social</span>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

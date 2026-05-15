@@ -4,136 +4,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blogue — Benoit Plante</title>
-  <meta name="description" content="Veille hebdomadaire et articles approfondis sur l'IA en recherche : outils, controverses, bonnes pratiques. Pour étudiants gradués, chercheurs et praticiens." />
+  <meta name="description" content="Articles de fond sur la recherche en sciences sociales à l'ère de l'IA : méthodes, outils, enjeux critiques. Un nouveau billet chaque lundi." />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Blogue — IA en recherche · Benoit Plante" />
-  <meta property="og:description" content="Veille hebdomadaire et articles de fond sur l'IA en recherche." />
+  <meta property="og:title" content="Blogue — Benoit Plante" />
+  <meta property="og:description" content="Articles de fond sur la recherche en sciences sociales à l'ère de l'IA. Un nouveau billet chaque lundi." />
   <meta property="og:locale" content="fr_CA" />
 
+  <link rel="canonical" href="https://benoitplante.com/blogue/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="article.css" />
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav class="nav" aria-label="Navigation principale">
-    <a class="nav-logo" href="../">Benoit Plante</a>
+    <a class="nav-logo" href="../index.html">Benoit Plante</a>
     <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <ul class="nav-links">
-      <li><a href="../services/">Services</a></li>
-      <li><a href="../blogue/">Blogue</a></li>
-      <li><a href="../ressources/">Ressources</a></li>
-      <li><a href="../formations/">Formations</a></li>
-      <li><a href="../a-propos/">À propos</a></li>
-      <li><a href="../contact/" class="nav-cta">Me contacter</a></li>
+      <li><a href="../services.html">Services</a></li>
+      <li><a href="../ressources.html">Ressources</a></li>
+      <li><a href="index.html" class="active">Blogue</a></li>
+      <li><a href="../formations.html">Formations</a></li>
+      <li><a href="../a-propos.html">À propos</a></li>
+      <li><a href="../contact.html" class="nav-cta">Me contacter</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero hero-compact">
-    <div class="hero-content" style="max-width: 760px;">
-      <div class="hero-eyebrow">Blogue · IA en recherche</div>
-      <h1 class="hero-h1">Veille et <em>réflexions</em> sur l'IA en recherche.</h1>
-      <p class="hero-sub">Chaque semaine, une revue structurée des nouveautés IA pour la recherche. Chaque mois, un article de fond pour aller plus loin. Pour étudiants gradués, chercheurs établis et praticiens du milieu communautaire et institutionnel.</p>
+    <div class="hero-content" style="max-width: 780px; text-align: center;">
+      <div class="hero-eyebrow" style="margin-left:auto; margin-right:auto;">Le blogue</div>
+      <h1 class="hero-h1">Veille critique sur la <em>recherche</em> à l'ère de l'IA</h1>
+      <p class="hero-sub">Articles de fond sur les outils, méthodes et enjeux qui transforment la recherche en sciences sociales. Un nouveau billet chaque lundi.</p>
     </div>
   </section>
 
-  <!-- LISTE DES BILLETS -->
-  <section style="padding-top: 0;">
+  <section class="blog-list-section">
     <div class="inner">
-
-      <!-- Filtres masqués tant qu'il n'y a pas de contenu publié.
-           Décommenter quand des billets seront en ligne :
-      <div class="filters reveal" data-filter-container>
-        <div class="filter-group">
-          <span class="filter-label">Format</span>
-          <button class="filter-chip active" data-group="categorie" data-value="tous">Tous</button>
-          <button class="filter-chip" data-group="categorie" data-value="article">Articles de fond</button>
-          <button class="filter-chip" data-group="categorie" data-value="veille">Veille hebdo</button>
-        </div>
-      </div>
-      -->
-
-      <!-- État vide — première publication à venir -->
-      <div class="empty-blog reveal">
-        <div class="empty-blog-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        </div>
-        <h2>Première publication à venir</h2>
-        <p>Le blogue démarre bientôt avec une veille hebdomadaire (chaque mardi) et des articles de fond. Inscrivez-vous à l'infolettre pour ne rien manquer dès la première publication.</p>
-        <div style="margin-top: 1.6rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="../infolettre/" class="btn-primary">M'inscrire à l'infolettre →</a>
-          <a href="../ressources/" class="btn-ghost">Voir les ressources</a>
+      <div class="blog-list">
+        <div class="blog-empty">
+          <p>Le premier billet sera publié sous peu. Inscrivez-vous à l'infolettre pour être notifié.</p>
+          <a href="../infolettre.html" class="btn-primary">M'abonner →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BLOC INFOLETTRE -->
-  <section style="padding-top: 2rem; padding-bottom: 4rem;">
-    <div class="inner">
-      <div class="newsletter-block reveal">
-        <div class="newsletter-block-inner">
-          <div>
-            <span class="section-tag">L'infolettre</span>
-            <h2>Recevez la <em>veille hebdo</em> avant tout le monde.</h2>
-            <p>Chaque mardi matin, la synthèse des nouveautés IA pour la recherche directement dans votre boîte. Plus les articles de fond dès leur publication.</p>
-          </div>
-          <div id="mlb2-41268111" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41268111">
-            <form class="newsletter-form ml-block-form row-form" action="https://assets.mailerlite.com/jsonp/2346008/forms/187388314435716606/subscribe" method="post" target="_blank">
-              <input type="text" name="fields[name]" placeholder="Prénom" required aria-label="Prénom" autocomplete="given-name" />
-              <input type="email" name="fields[email]" placeholder="Votre courriel" required aria-label="Courriel" autocomplete="email" />
-              <input type="hidden" name="ml-submit" value="1" />
-              <input type="hidden" name="anticsrf" value="true" />
-              <button type="submit">S'abonner gratuitement</button>
-              <p class="newsletter-fineprint">Désinscription en un clic. <a href="../confidentialite/">Politique de confidentialité</a>.</p>
-            </form>
-            <div class="row-success" style="display: none;">
-              <strong>✓ Merci !</strong>
-              <p>Un courriel de confirmation vient d'être envoyé. Cliquez sur le lien à l'intérieur pour finaliser votre inscription.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <section style="background: var(--gris-50); border-top: 1px solid var(--gris-200);">
+    <div class="inner" style="text-align: center; max-width: 720px;">
+      <span class="section-tag" style="margin-left:auto; margin-right:auto;">Pour ne rien manquer</span>
+      <h2 class="section-h2">Recevez chaque lundi le nouvel article + le digest hebdo</h2>
+      <p class="section-lead" style="margin: 0 auto 2rem;">L'infolettre relaie chaque semaine le nouvel article du blogue et résume les annonces marquantes en IA pour la recherche en sciences sociales.</p>
+      <a href="../infolettre.html" class="btn-primary">M'abonner gratuitement →</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">Benoit Plante</div>
-        <p>Consultant en recherche à l'ère de l'IA. Veille, formations et accompagnement pour intégrer l'intelligence artificielle dans les pratiques de recherche, sans compromettre la rigueur.</p>
+        <p>Consultant en recherche sociale. Coordonnateur scientifique au GRIN et au CEIDEF. Ressources et outils pour la communauté de recherche.</p>
       </div>
       <div class="footer-col">
         <h4>Offre</h4>
         <ul>
-          <li><a href="../services/">Services</a></li>
-          <li><a href="../blogue/">Blogue</a></li>
-          <li><a href="../ressources/">Ressources</a></li>
-          <li><a href="../formations/">Formations</a></li>
-          <li><a href="../outils/">Outils</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../ressources.html">Ressources</a></li>
+          <li><a href="../formations.html">Formations</a></li>
+          <li><a href="../outils.html">Outils</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>À propos</h4>
         <ul>
-          <li><a href="../a-propos/">Parcours</a></li>
-          <li><a href="../contact/">Contact</a></li>
-          <li><a href="../infolettre/">Infolettre</a></li>
+          <li><a href="../a-propos.html">Parcours</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../infolettre.html">Infolettre</a></li>
+          <li><a href="index.html">Blogue</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Légal &amp; liens</h4>
         <ul>
-          <li><a href="../confidentialite/">Confidentialité</a></li>
+          <li><a href="../confidentialite.html">Confidentialité</a></li>
           <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
           <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
         </ul>
@@ -141,11 +100,10 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 Benoit Plante. Tous droits réservés.</p>
-      <span class="footer-mark">IA &amp; recherche</span>
+      <span class="footer-mark">Recherche &amp; impact social</span>
     </div>
   </footer>
 
   <script src="../script.js"></script>
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
 </body>
 </html>
