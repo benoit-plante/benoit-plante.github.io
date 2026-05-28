@@ -3,22 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — Benoit Plante, Consultant IA open-source et locale pour la recherche</title>
-  <meta name="description" content="Services de consultation IA pour chercheurs et équipes de recherche : audit de souveraineté, déploiement local d'Ollama et LLMs open-source, agents Python avec CrewAI, RAG avec ChromaDB, formation et accompagnement." />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Services — Benoit Plante, Consultant IA open-source et locale" />
-  <meta property="og:locale" content="fr_CA" />
+  <title>Services — Benoit Plante, consultant en méthodologie de recherche</title>
+  <meta name="description" content="Design d'études, analyse de données qualitatives et quantitatives, accompagnement scientifique et formation méthodologique." />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-
 
   <!-- NAVIGATION -->
   <nav class="nav" aria-label="Navigation principale">
@@ -28,8 +22,6 @@
     </button>
     <ul class="nav-links">
       <li><a href="../services/" class="active">Services</a></li>
-      <li><a href="../blogue/">Blogue</a></li>
-      <li><a href="../ressources/">Ressources</a></li>
       <li><a href="../a-propos/">À propos</a></li>
       <li><a href="../contact/" class="nav-cta">Me contacter</a></li>
     </ul>
@@ -38,166 +30,137 @@
   <!-- HERO -->
   <section class="hero hero-compact">
     <div class="hero-content" style="max-width: 760px;">
-      <div class="hero-eyebrow">Services pour chercheurs et équipes de recherche</div>
-      <h1 class="hero-h1">L'IA <em>open-source et locale</em><br>pour la recherche.</h1>
-      <p class="hero-sub">Quatre services conçus pour les chercheurs, les étudiants aux cycles supérieurs et les équipes de recherche qui veulent garder le contrôle de leurs données tout en exploitant la pleine puissance de l'IA.</p>
+      <div class="hero-eyebrow">Services</div>
+      <h1 class="hero-h1">Un accompagnement à <em>la mesure</em> de votre projet.</h1>
+      <p class="hero-sub">Du devis aux résultats, je m'adapte à la nature de votre mandat : avis méthodologique ponctuel, mandat d'analyse, coordination scientifique sur plusieurs mois, ou formation d'équipe.</p>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services-open-source" style="padding-top: 0;">
+  <!-- SERVICE 01 -->
+  <section style="padding-top: 0;">
     <div class="inner">
-      <div class="reveal" style="margin-bottom: 0;">
-        <span class="section-tag">Quatre façons de travailler ensemble</span>
-        <h2 class="section-h2" style="margin-bottom: 1rem;">Spécialisé en IA open-source et locale, ancré dans la recherche</h2>
-        <p class="section-lead" style="margin-bottom: 2rem;">Je combine une expertise des outils IA open-source (Ollama, LLMs locaux, CrewAI, n8n, ChromaDB) et une compréhension fine des pratiques de recherche pour concevoir des solutions souveraines, adaptées à votre laboratoire, à votre équipe et à vos exigences éthiques.</p>
-      </div>
-
-      <div class="service-detail reveal">
-        <div class="service-num-big">01</div>
-        <div>
-          <div class="service-tag">Diagnostic</div>
-          <h2>Audit IA et souveraineté des données</h2>
-          <p>Un diagnostic complet de vos pratiques actuelles, des risques liés à l'usage d'IA commerciales pour vos données de recherche, et de votre infrastructure existante. Je vous remets une feuille de route claire pour bâtir une pile IA open-source et locale adaptée à votre laboratoire.</p>
-          <ul class="service-includes">
-            <li>Cartographie de vos données sensibles, confidentielles et soumises à approbation éthique</li>
-            <li>Évaluation des risques liés aux services IA commerciaux (Loi 25, RGPD, comités d'éthique)</li>
-            <li>Inventaire de votre infrastructure existante (postes, serveurs, GPU, réseau)</li>
-            <li>Recommandation de modèles open-source et d'outils alignés avec votre matériel et vos besoins</li>
-            <li>Feuille de route priorisée avec estimations de valeur, d'effort et de coût d'opération</li>
-            <li>Politiques d'usage de l'IA à l'échelle du laboratoire, du département ou du programme</li>
-          </ul>
+      <div class="svc-detail reveal">
+        <div class="svc-side">
+          <div class="svc-num">01</div>
+          <div class="svc-side-tag">Conception</div>
         </div>
-      </div>
-
-      <div class="service-detail reveal">
-        <div class="service-num-big">02</div>
-        <div>
-          <div class="service-tag">Déploiement</div>
-          <h2>IA locale : Ollama et modèles open-source</h2>
-          <p>Installation, configuration et mise en production d'une infrastructure IA locale, sur poste de travail individuel ou sur serveur de laboratoire partagé. Aucune donnée ne quitte votre environnement, et vous gardez la maîtrise complète de la stack.</p>
-          <ul class="service-includes">
-            <li>Installation et configuration d'Ollama sur poste de travail ou serveur</li>
-            <li>Sélection et déploiement de modèles open-source (Llama, Mistral, Qwen, DeepSeek)</li>
-            <li>Optimisation selon votre matériel : CPU, GPU, mémoire, quantification</li>
-            <li>Mise en place d'interfaces conviviales pour les chercheurs et étudiants</li>
-            <li>Configuration multi-utilisateurs pour partager une instance entre membres d'un laboratoire</li>
-            <li>Documentation et procédures de mise à jour des modèles</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-detail reveal">
-        <div class="service-num-big">03</div>
-        <div>
-          <div class="service-tag">Développement et intégration</div>
-          <h2>Agents, RAG et automatisation</h2>
-          <p>Conception et déploiement d'agents et de workflows sur mesure pour la recherche : agents Python avec CrewAI, automatisations visuelles auto-hébergées avec n8n, recherche augmentée (RAG) sur vos corpus avec ChromaDB. Tout fonctionne sur votre infrastructure.</p>
-          <ul class="service-includes">
-            <li>Agents Python avec CrewAI : veille, synthèse, extraction, analyse de corpus</li>
-            <li>Workflows visuels auto-hébergés avec n8n pour orchestrer vos outils de recherche</li>
-            <li>RAG local avec ChromaDB sur vos articles, notes et données de terrain</li>
-            <li>Pipelines de traitement documentaire à grande échelle</li>
-            <li>Intégration avec Zotero, vos bases de données institutionnelles et vos dépôts</li>
-            <li>Tests, documentation et transfert de code ouvert vers votre équipe</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="service-detail reveal">
-        <div class="service-num-big">04</div>
-        <div>
-          <div class="service-tag">Formation et accompagnement</div>
-          <h2>Formation des équipes de recherche</h2>
-          <p>Une infrastructure IA n'a de valeur que si les chercheurs, étudiants et personnel de soutien savent l'utiliser de façon rigoureuse. Je conçois des formations adaptées à votre équipe et un accompagnement continu pour bâtir son autonomie sur les outils open-source.</p>
-          <ul class="service-includes">
-            <li>Initiation aux LLMs locaux pour chercheurs et étudiants aux cycles supérieurs</li>
-            <li>Prompting pour la recherche : revue de littérature, synthèse, analyse qualitative</li>
-            <li>Atelier RAG et corpus personnels : indexer et interroger ses propres documents</li>
-            <li>Construction d'agents et de workflows par les membres de l'équipe</li>
-            <li>Éthique et conformité : Loi 25, RGPD, comités d'éthique de la recherche</li>
-            <li>Accompagnement continu, veille et soutien aux décisions d'outillage</li>
+        <div class="svc-body">
+          <h2 class="section-h2">Design d'études et protocoles</h2>
+          <p class="section-lead">Bien construire un projet en amont évite la plupart des problèmes en aval. Cette étape déterminante mérite du temps et un regard externe.</p>
+          <ul class="svc-list">
+            <li>Formulation et raffinement des questions de recherche</li>
+            <li>Choix du devis (qualitatif, quantitatif, mixte, évaluatif)</li>
+            <li>Stratégies d'échantillonnage et de recrutement</li>
+            <li>Sélection ou conception d'instruments de mesure</li>
+            <li>Plan d'analyse aligné avec les questions</li>
+            <li>Soutien à la demande au comité d'éthique</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESSUS -->
-  <section style="background: var(--gris-50);">
+  <!-- SERVICE 02 -->
+  <section style="background: var(--gris-50); border-top: 1px solid var(--gris-200);">
     <div class="inner">
-      <div class="reveal" style="margin-bottom: 3rem; text-align: center;">
-        <span class="section-tag" style="margin-left: auto; margin-right: auto;">Comment ça se passe</span>
-        <h2 class="section-h2">Un mandat type en 4 étapes</h2>
-        <p class="section-lead" style="margin: 0 auto;">Chaque projet est unique, mais voici la structure générale d'une collaboration.</p>
-      </div>
-
-      <div class="process-grid reveal">
-        <div class="process-step">
-          <div class="process-num">1</div>
-          <h3>Première rencontre</h3>
-          <p>Discussion gratuite (30-45 min) pour comprendre vos besoins, vos objectifs et vos contraintes. Aucun engagement.</p>
+      <div class="svc-detail reveal">
+        <div class="svc-side">
+          <div class="svc-num">02</div>
+          <div class="svc-side-tag">Analyse</div>
         </div>
-        <div class="process-step">
-          <div class="process-num">2</div>
-          <h3>Proposition de mandat</h3>
-          <p>Proposition détaillée incluant objectifs, livrables, calendrier et tarification. Vous validez avant qu'on aille plus loin.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">3</div>
-          <h3>Réalisation</h3>
-          <p>Travail en collaboration avec votre équipe. Points de suivi réguliers, ajustements selon l'évolution des besoins.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">4</div>
-          <h3>Livraison et suivi</h3>
-          <p>Remise des livrables, présentation à vos équipes, soutien post-mandat pour assurer une adoption réussie.</p>
+        <div class="svc-body">
+          <h2 class="section-h2">Analyse de données</h2>
+          <p class="section-lead">Qualitative, quantitative ou mixte : l'analyse révèle ce que les données ont à dire, à condition de choisir les bonnes méthodes et de les appliquer rigoureusement.</p>
+          <ul class="svc-list">
+            <li>Analyse thématique et analyse de contenu</li>
+            <li>Statistiques descriptives et inférentielles (R)</li>
+            <li>Devis mixtes : intégration des volets quali et quanti</li>
+            <li>Rédaction des sections résultats</li>
+            <li>Présentation visuelle des résultats (figures, tableaux)</li>
+            <li>Interprétation et discussion des limites</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA CONTACT -->
+  <!-- SERVICE 03 -->
+  <section>
+    <div class="inner">
+      <div class="svc-detail reveal">
+        <div class="svc-side">
+          <div class="svc-num">03</div>
+          <div class="svc-side-tag">Coordination</div>
+        </div>
+        <div class="svc-body">
+          <h2 class="section-h2">Accompagnement scientifique</h2>
+          <p class="section-lead">Un appui continu pour les équipes qui mènent des projets de recherche d'envergure, ou qui n'ont pas de coordonnateur scientifique à l'interne.</p>
+          <ul class="svc-list">
+            <li>Coordination scientifique de projets de recherche</li>
+            <li>Appui méthodologique continu à une équipe</li>
+            <li>Soutien à la rédaction d'articles et de rapports</li>
+            <li>Préparation de demandes de subvention</li>
+            <li>Revues de littérature structurées</li>
+            <li>Liaison entre chercheurs, terrain et bailleurs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 04 -->
+  <section style="background: var(--gris-50); border-top: 1px solid var(--gris-200);">
+    <div class="inner">
+      <div class="svc-detail reveal">
+        <div class="svc-side">
+          <div class="svc-num">04</div>
+          <div class="svc-side-tag">Transfert</div>
+        </div>
+        <div class="svc-body">
+          <h2 class="section-h2">Formation méthodologique</h2>
+          <p class="section-lead">Bâtir l'autonomie de votre équipe sur des contenus adaptés à votre domaine, à votre niveau et à vos projets concrets.</p>
+          <ul class="svc-list">
+            <li>Ateliers sur mesure (demi-journée à plusieurs sessions)</li>
+            <li>Formations en méthodes qualitatives, quantitatives ou mixtes</li>
+            <li>Introduction à R pour l'analyse de données</li>
+            <li>Mentorat individuel pour chercheurs et étudiants gradués</li>
+            <li>Cliniques méthodologiques (séances de questions sur cas réels)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section style="background: var(--bleu-pale);">
-    <div class="inner" style="text-align: center;">
+    <div class="inner" style="text-align: center; max-width: 700px;">
       <div class="reveal">
-        <span class="section-tag" style="margin-left: auto; margin-right: auto;">Travaillons ensemble</span>
-        <h2 class="section-h2">Chercheur, équipe ou laboratoire de recherche ?</h2>
-        <p class="section-lead" style="margin: 0 auto 2rem;">Réservons une rencontre exploratoire gratuite pour voir comment une infrastructure IA open-source et locale peut s'intégrer à vos pratiques de recherche, sans compromettre la souveraineté de vos données.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="../contact/" class="btn-primary">Me contacter →</a>
-          <a href="../a-propos/" class="btn-ghost">En savoir plus sur mon parcours</a>
-        </div>
+        <span class="section-tag" style="margin-left: auto; margin-right: auto;">Et la suite ?</span>
+        <h2 class="section-h2">Discutons de votre projet.</h2>
+        <p class="section-lead" style="margin: 0 auto 2rem;">Un premier échange, sans engagement, pour clarifier vos besoins et voir comment je peux contribuer.</p>
+        <a href="../contact/" class="btn-primary">Me contacter →</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-grid">
+    <div class="footer-grid footer-grid-simple">
       <div class="footer-brand">
         <div class="footer-logo">Benoit Plante</div>
-        <p>Consultant en IA open-source et locale pour la recherche. Souveraineté des données, déploiement local, agents et automatisation — au service des chercheurs et des équipes de recherche.</p>
+        <p>Consultant en méthodologie de recherche. Design d'études, analyse de données et accompagnement d'équipes — pour des projets rigoureux et menés à terme.</p>
       </div>
       <div class="footer-col">
-        <h4>Offre</h4>
+        <h4>Site</h4>
         <ul>
           <li><a href="../services/">Services</a></li>
-          <li><a href="../blogue/">Blogue</a></li>
-          <li><a href="../ressources/">Ressources</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>À propos</h4>
-        <ul>
-          <li><a href="../a-propos/">Parcours</a></li>
+          <li><a href="../a-propos/">À propos</a></li>
           <li><a href="../contact/">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Légal &amp; liens</h4>
+        <h4>Liens</h4>
         <ul>
-          <li><a href="../confidentialite/">Confidentialité</a></li>
           <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
           <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
         </ul>
@@ -205,110 +168,72 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 Benoit Plante. Tous droits réservés.</p>
-      <span class="footer-mark">IA open-source &amp; locale</span>
+      <span class="footer-mark">Méthodologie de recherche</span>
     </div>
   </footer>
 
   <script src="../script.js"></script>
 
   <style>
-    .service-detail {
+    .svc-detail {
       display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 2rem;
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--gris-200);
+      grid-template-columns: 1fr 3fr;
+      gap: 4rem;
       align-items: start;
+      max-width: 980px;
+      margin: 0 auto;
     }
-    .service-detail:first-child { padding-top: 4rem; }
-    .service-detail:last-child { border-bottom: none; }
-    .service-num-big {
+    .svc-side {
+      position: sticky;
+      top: 100px;
+    }
+    .svc-num {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 4.5rem;
       font-weight: 700;
-      color: var(--or);
+      color: rgba(30, 58, 95, 0.12);
       line-height: 1;
-      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
     }
-    .service-detail .service-tag {
-      font-size: 0.72rem;
+    .svc-side-tag {
+      font-size: 0.75rem;
       font-weight: 500;
       color: var(--accent);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
     }
-    .service-detail h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.6vw, 2rem);
-      font-weight: 700;
-      color: var(--bleu);
-      letter-spacing: -0.01em;
-      margin-bottom: 1rem;
+    .svc-body .section-lead {
+      margin-bottom: 1.5rem;
     }
-    .service-detail > div:last-child > p {
-      font-size: 1rem;
-      color: var(--ardoise);
-      line-height: 1.75;
-      margin-bottom: 1.2rem;
-    }
-    .service-includes {
+    .svc-list {
       list-style: none;
       padding: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 0.5rem 1.5rem;
     }
-    .service-includes li {
+    .svc-list li {
       position: relative;
-      padding-left: 1.4rem;
-      font-size: 0.9rem;
+      padding-left: 1.6rem;
+      font-size: 0.95rem;
       color: var(--gris-700);
-      line-height: 1.55;
+      line-height: 1.75;
+      margin-bottom: 0.7rem;
     }
-    .service-includes li::before {
+    .svc-list li::before {
       content: '';
       position: absolute;
-      left: 0; top: 0.55rem;
-      width: 8px; height: 8px;
+      left: 0; top: 0.65rem;
+      width: 7px; height: 7px;
       background: var(--or);
       border-radius: 50%;
     }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.4rem;
+    .footer-grid-simple {
+      grid-template-columns: 2fr 1fr 1fr;
     }
-    .process-step {
-      background: white;
-      border: 1px solid var(--gris-200);
-      border-radius: 12px;
-      padding: 1.8rem 1.6rem;
-      position: relative;
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    @media (max-width: 860px) {
+      .svc-detail { grid-template-columns: 1fr; gap: 1.5rem; }
+      .svc-side { position: static; }
+      .svc-num { font-size: 3rem; }
+      .footer-grid-simple { grid-template-columns: 1fr; }
     }
-    .process-step:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(37, 99, 235, 0.2);
-    }
-    .process-num {
-      width: 36px; height: 36px;
-      background: var(--bleu);
-      color: white;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .process-step h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--bleu);
-      margin-bottom: 0.5rem;
-    }
-    .process-step p {
-      font-size: 0.8
+  </style>
+</body>
+</html>
