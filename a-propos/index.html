@@ -36,6 +36,16 @@
     </div>
   </section>
 
+  <!-- SOUS-NAVIGATION À PROPOS -->
+  <div class="subnav-wrap">
+    <div class="inner subnav-inner">
+      <nav class="subnav" aria-label="Sections de la page À propos">
+        <a href="./" class="subnav-link active">Bio &amp; parcours</a>
+        <a href="./publications/" class="subnav-link">Publications scientifiques</a>
+      </nav>
+    </div>
+  </div>
+
   <!-- BIO -->
   <section style="padding-top: 0;">
     <div class="inner">
@@ -243,7 +253,46 @@
       grid-template-columns: 2fr 1fr 1fr;
     }
 
+    /* SOUS-NAVIGATION À PROPOS */
+    .subnav-wrap {
+      border-bottom: 1px solid var(--gris-200);
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .subnav-inner {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .subnav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .subnav-link {
+      position: relative;
+      display: inline-block;
+      padding: 1.1rem 0;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--gris-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .subnav-link:hover { color: var(--bleu); }
+    .subnav-link.active { color: var(--bleu); }
+    .subnav-link.active::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -1px;
+      height: 2px;
+      background: var(--or);
+    }
+
     @media (max-width: 960px) {
+      .subnav { gap: 1.2rem; overflow-x: auto; }
+      .subnav-link { white-space: nowrap; font-size: 0.85rem; }
       .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-grid-simple { grid-template-columns: 1fr; }
     }
