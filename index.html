@@ -3,596 +3,371 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benoit Plante · Créateur de communautés pour les sports d'endurance hors route</title>
-  <meta name="description" content="Je bâtis des communautés pour la course en sentier et le bikepacking au Québec. Rassembler les gens, créer les outils du terrain, et faire durer des communautés indépendantes autour des sports d'endurance hors route." />
+  <title>Benoit Plante — Consultant en méthodologie de recherche</title>
+  <meta name="description" content="Consultant en méthodologie de recherche : design d'études, analyse de données qualitatives, quantitatives et mixtes, accompagnement d'équipes et d'organismes." />
 
-  <link rel="canonical" href="https://benoitplante.com/" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="Benoit Plante — Consultant en méthodologie de recherche" />
+  <meta property="og:description" content="Accompagnement méthodologique pour chercheurs, équipes de recherche, organismes publics et OBNL." />
   <meta property="og:locale" content="fr_CA" />
-  <meta property="og:site_name" content="Benoit Plante" />
-  <meta property="og:title" content="Benoit Plante · Créateur de communautés pour les sports d'endurance hors route" />
-  <meta property="og:description" content="Course en sentier et bikepacking : je rassemble les gens, je bâtis les outils du terrain, et je fais durer des communautés indépendantes." />
-  <meta property="og:url" content="https://benoitplante.com/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicon : repère topographique -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23163a2e'/%3E%3Cpath d='M16 70 L40 34 L56 56 L68 40 L84 70 Z' fill='none' stroke='%23d98a3d' stroke-width='6' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e3a5f'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%23b8975a'%3EB%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 
-  <style>
-    :root{
-      --pine:#163a2e;        /* vert forêt profond  */
-      --pine-2:#1f4d3a;
-      --moss:#4a7a5c;        /* mousse              */
-      --clay:#c2542f;        /* terre / terracotta  */
-      --amber:#d98a3d;       /* ambre / sentier     */
-      --sand:#efe7d7;        /* sable               */
-      --cream:#faf6ec;       /* crème (fond)        */
-      --bark:#211f1a;        /* écorce (texte)      */
-      --stone:#6d6557;       /* pierre (texte doux) */
-      --line:#e2d8c4;
-      --pine-soft:rgba(22,58,46,.06);
-      --clay-soft:rgba(194,84,47,.10);
-      --max:1120px;
-      --pad:7%;
-      --shadow:0 18px 44px rgba(22,58,46,.12);
-      --shadow-sm:0 6px 18px rgba(22,58,46,.08);
-    }
-
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-    body{
-      font-family:'Inter',sans-serif;
-      background:var(--cream);
-      color:var(--bark);
-      line-height:1.7;
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-    }
-    a{color:inherit;text-decoration:none;}
-    img{max-width:100%;display:block;}
-    section{padding:6rem var(--pad);}
-    .inner{max-width:var(--max);margin:0 auto;}
-    h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;line-height:1.08;}
-
-    .eyebrow{
-      font-family:'Space Mono',monospace;
-      font-size:.74rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--clay);
-      display:inline-block;
-    }
-    .eyebrow::before{content:'// ';opacity:.55;}
-
-    /* ---------- NAV ---------- */
-    .nav{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:1rem var(--pad);
-      background:rgba(250,246,236,.86);
-      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--pine);font-size:1.05rem;}
-    .nav-logo svg{width:28px;height:28px;flex:none;}
-    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
-    .nav-links a{color:var(--stone);font-size:.88rem;font-weight:500;transition:color .2s;}
-    .nav-links a:hover{color:var(--pine);}
-    .nav-cta{
-      background:var(--pine);color:var(--cream)!important;
-      padding:.55rem 1.2rem;border-radius:8px;font-weight:600!important;
-      transition:background .2s,transform .2s;
-    }
-    .nav-cta:hover{background:var(--pine-2);transform:translateY(-1px);}
-    .nav-toggle{display:none;background:none;border:none;color:var(--pine);cursor:pointer;}
-    .nav-toggle svg{width:26px;height:26px;}
-
-    /* ---------- HERO ---------- */
-    .hero{
-      position:relative;
-      padding-top:9.5rem;padding-bottom:6rem;
-      background:
-        radial-gradient(120% 90% at 80% -10%, rgba(217,138,61,.16), transparent 55%),
-        var(--cream);
-      overflow:hidden;
-    }
-    .topo{position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none;}
-    .hero .inner{position:relative;z-index:1;max-width:880px;}
-    .hero h1{
-      font-size:clamp(2.5rem,6vw,4.4rem);
-      font-weight:700;color:var(--pine);
-      margin:1.3rem 0 1.5rem;
-    }
-    .hero h1 .u{color:var(--clay);}
-    .hero-sub{font-size:1.18rem;color:var(--stone);max-width:640px;font-weight:300;}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.4rem;}
-    .btn{
-      display:inline-flex;align-items:center;gap:.5rem;
-      padding:.9rem 1.6rem;border-radius:10px;font-weight:600;font-size:.95rem;
-      transition:transform .2s,box-shadow .2s,background .2s;
-      font-family:'Space Grotesk',sans-serif;
-    }
-    .btn-primary{background:var(--clay);color:var(--cream);box-shadow:var(--shadow-sm);}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow);background:#ad491f;}
-    .btn-ghost{background:transparent;color:var(--pine);border:1.5px solid var(--pine);}
-    .btn-ghost:hover{background:var(--pine);color:var(--cream);transform:translateY(-2px);}
-
-    .hero-meta{
-      display:flex;flex-wrap:wrap;gap:2.2rem;margin-top:3.4rem;
-      padding-top:2rem;border-top:1px solid var(--line);
-    }
-    .hero-meta div{min-width:120px;}
-    .hero-meta .n{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:var(--pine);}
-    .hero-meta .l{font-size:.82rem;color:var(--stone);}
-
-    /* ---------- MANIFESTE ---------- */
-    .manifeste{background:var(--pine);color:var(--cream);}
-    .manifeste .inner{max-width:840px;text-align:center;}
-    .manifeste .eyebrow{color:var(--amber);}
-    .manifeste p{
-      font-family:'Space Grotesk',sans-serif;font-weight:500;
-      font-size:clamp(1.4rem,3.2vw,2rem);line-height:1.35;
-      margin-top:1.2rem;letter-spacing:-.01em;
-    }
-    .manifeste p em{font-style:normal;color:var(--amber);}
-
-    /* ---------- SECTION HEAD ---------- */
-    .shead{max-width:680px;margin-bottom:3rem;}
-    .shead h2{font-size:clamp(1.9rem,4vw,2.7rem);color:var(--pine);margin:.8rem 0 1rem;}
-    .shead p{color:var(--stone);font-size:1.05rem;}
-
-    /* ---------- COMMUNAUTÉS ---------- */
-    .comm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;}
-    .comm-card{
-      position:relative;border-radius:18px;overflow:hidden;
-      padding:2.4rem;color:var(--cream);
-      display:flex;flex-direction:column;min-height:340px;
-      box-shadow:var(--shadow);transition:transform .25s;
-    }
-    .comm-card:hover{transform:translateY(-4px);}
-    .comm-card.sd{background:linear-gradient(150deg,#1f4d3a 0%,#2f6b4a 100%);}
-    .comm-card.bv{background:linear-gradient(150deg,#7a3b1f 0%,#c2542f 100%);}
-    .comm-tag{font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85;}
-    .comm-card h3{font-size:1.9rem;margin:.6rem 0 .2rem;}
-    .comm-sport{font-family:'Space Mono',monospace;font-size:.8rem;opacity:.85;margin-bottom:1.1rem;}
-    .comm-card p{font-size:.98rem;opacity:.95;font-weight:300;line-height:1.65;}
-    .comm-features{list-style:none;margin:1.3rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem;}
-    .comm-features li{
-      font-size:.78rem;font-weight:500;background:rgba(255,255,255,.14);
-      padding:.32rem .7rem;border-radius:20px;backdrop-filter:blur(4px);
-    }
-    .comm-link{margin-top:auto;padding-top:1.6rem;font-family:'Space Grotesk',sans-serif;font-weight:600;display:inline-flex;align-items:center;gap:.4rem;}
-    .comm-link span{transition:transform .2s;}
-    .comm-card:hover .comm-link span{transform:translateX(4px);}
-
-    /* ---------- APPROCHE ---------- */
-    .approche{background:var(--sand);}
-    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:.5rem;}
-    .pillar{
-      background:var(--cream);border:1px solid var(--line);border-radius:16px;
-      padding:2rem 1.8rem;transition:transform .25s,box-shadow .25s;
-    }
-    .pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);}
-    .pillar .ic{
-      width:52px;height:52px;border-radius:13px;display:grid;place-items:center;
-      background:var(--clay-soft);margin-bottom:1.1rem;
-    }
-    .pillar .ic svg{width:26px;height:26px;stroke:var(--clay);fill:none;stroke-width:1.7;}
-    .pillar h3{font-size:1.25rem;color:var(--pine);margin-bottom:.5rem;}
-    .pillar p{font-size:.95rem;color:var(--stone);font-weight:300;}
-
-    .principes{
-      display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.6rem;justify-content:center;
-    }
-    .principes span{
-      font-family:'Space Mono',monospace;font-size:.78rem;color:var(--pine);
-      background:var(--cream);border:1px solid var(--line);
-      padding:.5rem 1rem;border-radius:24px;
-    }
-
-    /* ---------- À PROPOS ---------- */
-    .apropos-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:3.5rem;align-items:center;}
-    .apropos-card{
-      background:var(--pine);color:var(--cream);border-radius:20px;padding:2.6rem;
-      box-shadow:var(--shadow);
-    }
-    .apropos-card .mark{width:64px;height:64px;margin-bottom:1.4rem;}
-    .apropos-card h3{font-size:1.5rem;margin-bottom:.4rem;}
-    .apropos-card .role{font-family:'Space Mono',monospace;font-size:.8rem;color:var(--amber);margin-bottom:1.4rem;}
-    .apropos-card ul{list-style:none;}
-    .apropos-card li{display:flex;gap:.7rem;padding:.5rem 0;font-size:.92rem;font-weight:300;border-top:1px solid rgba(255,255,255,.12);}
-    .apropos-card li:first-child{border-top:none;}
-    .apropos-card li b{color:var(--amber);}
-    .apropos-body h2{font-size:clamp(1.9rem,4vw,2.6rem);color:var(--pine);margin:.8rem 0 1.2rem;}
-    .apropos-body p{color:var(--stone);margin-bottom:1.1rem;}
-    .apropos-body p strong{color:var(--bark);font-weight:600;}
-
-    /* ---------- TRAVAILLER + CONTACT ---------- */
-    .travailler{background:var(--pine);color:var(--cream);}
-    .travailler .shead h2{color:var(--cream);}
-    .travailler .shead p{color:rgba(250,246,236,.78);}
-    .travailler .eyebrow{color:var(--amber);}
-    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-bottom:3.5rem;}
-    .work{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:1.7rem;}
-    .work h3{font-size:1.15rem;margin-bottom:.5rem;color:var(--cream);}
-    .work p{font-size:.92rem;color:rgba(250,246,236,.72);font-weight:300;}
-
-    .contact-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:start;
-      background:var(--cream);color:var(--bark);border-radius:20px;padding:2.6rem;box-shadow:var(--shadow);}
-    .contact-intro h3{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;color:var(--pine);margin-bottom:.8rem;}
-    .contact-intro p{color:var(--stone);font-size:.95rem;margin-bottom:1.6rem;}
-    .contact-links a{display:flex;align-items:center;gap:.8rem;padding:.8rem 0;border-top:1px solid var(--line);font-weight:500;color:var(--pine);}
-    .contact-links a:first-of-type{border-top:none;}
-    .contact-links svg{width:22px;height:22px;fill:var(--clay);flex:none;}
-
-    form .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-    .fg{margin-bottom:1rem;display:flex;flex-direction:column;}
-    .fg label{font-size:.8rem;font-weight:600;color:var(--pine);margin-bottom:.35rem;}
-    .fg input,.fg textarea{
-      font-family:'Inter',sans-serif;font-size:.95rem;color:var(--bark);
-      padding:.7rem .85rem;border:1.5px solid var(--line);border-radius:9px;background:#fff;
-      transition:border-color .2s;width:100%;
-    }
-    .fg input:focus,.fg textarea:focus{outline:none;border-color:var(--clay);}
-    .fg textarea{resize:vertical;min-height:120px;}
-    form .btn-primary{width:100%;justify-content:center;border:none;cursor:pointer;margin-top:.4rem;}
-    .form-note{font-size:.78rem;color:var(--stone);margin-top:.8rem;text-align:center;}
-    .form-status{margin-top:1rem;font-size:.9rem;font-weight:500;display:none;padding:.8rem 1rem;border-radius:9px;}
-    .form-status.ok{display:block;background:rgba(74,122,92,.15);color:var(--pine-2);}
-    .form-status.err{display:block;background:var(--clay-soft);color:var(--clay);}
-
-    /* ---------- FOOTER ---------- */
-    footer{background:var(--bark);color:rgba(250,246,236,.7);padding:3rem var(--pad);}
-    footer .inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:center;}
-    footer .f-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--cream);font-size:1.05rem;}
-    footer .f-links{display:flex;gap:1.4rem;flex-wrap:wrap;}
-    footer a:hover{color:var(--amber);}
-    footer small{display:block;width:100%;font-size:.78rem;opacity:.6;margin-top:1rem;}
-
-    /* ---------- REVEAL ---------- */
-    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
-    .reveal.visible{opacity:1;transform:none;}
-
-    /* ---------- RESPONSIVE ---------- */
-    @media(max-width:860px){
-      .nav-links{
-        position:fixed;top:62px;right:0;left:0;flex-direction:column;gap:0;
-        background:var(--cream);border-bottom:1px solid var(--line);
-        padding:1rem var(--pad);transform:translateY(-130%);transition:transform .3s;
-      }
-      .nav-links.open{transform:none;}
-      .nav-links li{width:100%;padding:.5rem 0;}
-      .nav-toggle{display:block;}
-      .comm-grid,.pillars,.work-grid,.apropos-grid,.contact-wrap{grid-template-columns:1fr;}
-      .apropos-grid{gap:2rem;}
-      .contact-wrap{padding:1.8rem;}
-      form .row{grid-template-columns:1fr;}
-      section{padding:4rem var(--pad);}
-      .hero{padding-top:8rem;}
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Benoit Plante",
+    "jobTitle": "Consultant en méthodologie de recherche",
+    "url": "https://benoitplante.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/benoitplante/",
+      "https://orcid.org/0009-0003-5449-427X"
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- NAVIGATION -->
   <nav class="nav" aria-label="Navigation principale">
-    <a class="nav-logo" href="#top">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#163a2e"/><path d="M16 70 L40 34 L56 56 L68 40 L84 70 Z" fill="none" stroke="#d98a3d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg>
-      Benoit Plante
-    </a>
+    <a class="nav-logo" href="./">Benoit Plante</a>
     <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <ul class="nav-links">
-      <li><a href="#communautes">Communautés</a></li>
-      <li><a href="#approche">Approche</a></li>
-      <li><a href="#a-propos">À propos</a></li>
-      <li><a href="#contact" class="nav-cta">Me joindre</a></li>
+      <li><a href="services/">Services</a></li>
+      <li><a href="a-propos/">À propos</a></li>
+      <li><a href="contact/" class="nav-cta">Me contacter</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <header class="hero" id="top">
-    <svg class="topo" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="none" stroke="#163a2e" stroke-width="1.4" opacity="0.16">
-        <path d="M-50 480 C 200 420 360 520 600 470 S 1000 400 1260 460"/>
-        <path d="M-50 430 C 220 360 380 470 600 410 S 1010 330 1260 400"/>
-        <path d="M-50 380 C 240 300 400 420 600 350 S 1020 260 1260 340"/>
-        <path d="M-50 330 C 260 250 420 370 600 290 S 1030 200 1260 280"/>
-        <path d="M-50 280 C 280 200 440 320 600 230 S 1040 150 1260 220"/>
-        <path d="M-50 230 C 300 160 460 270 600 180 S 1050 110 1260 170"/>
-      </g>
-    </svg>
-    <div class="inner">
-      <span class="eyebrow">Créateur de communautés · sports d'endurance hors route</span>
-      <h1>Je bâtis des communautés pour <span class="u">courir</span> et <span class="u">rouler</span> hors des sentiers battus.</h1>
-      <p class="hero-sub">Course en sentier et bikepacking. Je rassemble les gens, je conçois les outils pensés pour le terrain d'ici, et je fais durer des communautés indépendantes autour de l'aventure en autonomie.</p>
+  <section class="hero" id="accueil">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Consultant en méthodologie de recherche</div>
+      <h1 class="hero-h1">La <em>rigueur méthodologique</em><br>au service de vos projets.</h1>
+      <p class="hero-sub">J'accompagne chercheurs, équipes de recherche, organismes publics et OBNL dans la conception, la conduite et l'analyse de leurs projets de recherche — du devis aux résultats.</p>
       <div class="hero-actions">
-        <a href="#communautes" class="btn btn-primary">Découvrir mes communautés</a>
-        <a href="#contact" class="btn btn-ghost">Travailler ensemble</a>
-      </div>
-      <div class="hero-meta">
-        <div><div class="n">2</div><div class="l">communautés actives</div></div>
-        <div><div class="n">Course · vélo</div><div class="l">endurance hors route</div></div>
-        <div><div class="n">Québec</div><div class="l">indépendant, sans pub</div></div>
-      </div>
-    </div>
-  </header>
-
-  <!-- MANIFESTE -->
-  <section class="manifeste">
-    <div class="inner reveal">
-      <span class="eyebrow">Ce que je fais</span>
-      <p>Une communauté ne naît pas d'une application. Elle naît d'un <em>point de ralliement</em>, d'<em>outils qui servent vraiment</em>, et de gens qui finissent par <em>partir ensemble</em>. C'est ce que je bâtis.</p>
-    </div>
-  </section>
-
-  <!-- COMMUNAUTÉS -->
-  <section id="communautes">
-    <div class="inner">
-      <div class="shead reveal">
-        <span class="eyebrow">Les communautés</span>
-        <h2>Deux camps de base pour l'aventure en autonomie.</h2>
-        <p>Des plateformes que je conçois, développe et anime, chacune taillée pour une pratique et pour les réalités du terrain québécois.</p>
-      </div>
-      <div class="comm-grid">
-
-        <a href="https://www.sansdossard.com" target="_blank" rel="noopener" class="comm-card sd reveal">
-          <span class="comm-tag">Aventures d'endurance libre</span>
-          <h3>Sans Dossard</h3>
-          <div class="comm-sport">↳ course en sentier &amp; endurance hors route</div>
-          <p>Le carnet vivant des aventures d'endurance libre : des sorties en sentier racontées et tracées avec distance, dénivelé et récit du terrain. Le plaisir de l'effort et du décor, sans dossard, sans chrono, sans compétition.</p>
-          <ul class="comm-features">
-            <li>Course en sentier</li>
-            <li>Carnets &amp; traces GPS</li>
-            <li>Sans compétition</li>
-          </ul>
-          <span class="comm-link">Visiter Sans Dossard <span>→</span></span>
-        </a>
-
-        <a href="https://bikepacking-quebec.netlify.app" target="_blank" rel="noopener" class="comm-card bv reveal">
-          <span class="comm-tag">Bikepacking</span>
-          <h3>Bivouac</h3>
-          <div class="comm-sport">↳ le camp de base du bikepacking québécois</div>
-          <p>Un studio de planification taillé pour l'autonomie (étapes, ravitaillement, bivouacs) et la communauté pour trouver les bonnes personnes avec qui réaliser ses projets. Planifie, trouve ta gang, roule loin.</p>
-          <ul class="comm-features">
-            <li>Planification de parcours</li>
-            <li>Recherche de partenaires</li>
-            <li>Carnets &amp; itinéraires</li>
-          </ul>
-          <span class="comm-link">Visiter Bivouac <span>→</span></span>
-        </a>
-
+        <a href="services/" class="btn-primary">Voir les services →</a>
+        <a href="a-propos/" class="btn-ghost">Mon parcours</a>
       </div>
     </div>
   </section>
 
-  <!-- APPROCHE -->
-  <section class="approche" id="approche">
+  <!-- POSITIONNEMENT -->
+  <section id="positionnement" style="background: var(--gris-50);">
     <div class="inner">
-      <div class="shead reveal" style="max-width:720px;">
-        <span class="eyebrow">Comment je bâtis une communauté</span>
-        <h2>Rassembler, outiller, faire durer.</h2>
-        <p>Bâtir une communauté sportive, ce n'est pas lancer un groupe et espérer. C'est une démarche : créer le lieu, donner les bons outils, et installer ce qui fait qu'on revient.</p>
-      </div>
-      <div class="pillars">
-
-        <div class="pillar reveal">
-          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></div>
-          <h3>Rassembler</h3>
-          <p>Créer un point de ralliement clair, un lieu où les passionnés se trouvent, se reconnaissent et arrêtent de chercher dans dix outils éparpillés.</p>
+      <div class="apropos-grid reveal">
+        <div>
+          <span class="section-tag">Approche</span>
+          <h2 class="section-h2">Un accompagnement méthodologique adapté à vos enjeux.</h2>
+          <p class="section-lead" style="margin-bottom: 1.2rem;">Concevoir une étude solide, choisir un devis adapté, analyser des données qualitatives, quantitatives ou mixtes, interpréter les résultats avec nuance : la méthodologie de recherche est exigeante, et les choix faits en amont déterminent la qualité de ce qui en sort.</p>
+          <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.8; margin-bottom: 1.5rem;">Mon rôle est d'apporter cette rigueur à vos projets, que vous soyez chercheur en début de carrière, équipe en train de monter une grande étude, ou organisation qui doit produire des données probantes pour soutenir ses décisions.</p>
+          <a href="a-propos/" class="btn-ghost">En savoir plus →</a>
         </div>
 
-        <div class="pillar reveal" style="transition-delay:.1s;">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 4l6 6-9 9-6 0 0-6z"/><path d="M11 7l6 6"/></svg></div>
-          <h3>Outiller</h3>
-          <p>Concevoir et développer les outils concrets qui manquent : planifier un parcours, trouver des partenaires, partager ses traces, le tout pensé pour le terrain d'ici.</p>
+        <div class="apropos-cards reveal" style="transition-delay: 0.15s;">
+          <div class="apropos-card">
+            <div class="apropos-card-num">01 — Rigueur</div>
+            <h3>Des choix méthodologiques défendables</h3>
+            <p>Devis, échantillonnage, instruments, plan d'analyse : chaque décision est justifiée et alignée avec votre question de recherche.</p>
+          </div>
+          <div class="apropos-card">
+            <div class="apropos-card-num">02 — Pragmatisme</div>
+            <h3>Adapté à vos contraintes réelles</h3>
+            <p>Budget, calendrier, accès au terrain, ressources de l'équipe : la meilleure méthode est celle que vous pouvez vraiment mener à terme.</p>
+          </div>
+          <div class="apropos-card">
+            <div class="apropos-card-num">03 — Transfert</div>
+            <h3>Vous outiller, pas vous remplacer</h3>
+            <p>Mon objectif est de renforcer l'autonomie méthodologique de votre équipe, pas de créer une dépendance à long terme.</p>
+          </div>
         </div>
-
-        <div class="pillar reveal" style="transition-delay:.2s;">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
-          <h3>Faire durer</h3>
-          <p>Installer ce qui fait vivre une communauté dans le temps : entraide, récits, rituels de sortie, et une indépendance qui la protège des logiques publicitaires.</p>
-        </div>
-
-      </div>
-      <div class="principes reveal">
-        <span>indépendant</span>
-        <span>sans publicité</span>
-        <span>données jamais vendues</span>
-        <span>hébergé au Canada</span>
-        <span>pensé pour le terrain d'ici</span>
       </div>
     </div>
   </section>
 
-  <!-- À PROPOS -->
-  <section id="a-propos">
+  <!-- SERVICES -->
+  <section id="services">
     <div class="inner">
-      <div class="apropos-grid">
-
-        <div class="apropos-card reveal">
-          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#1f4d3a"/><path d="M16 70 L40 34 L56 56 L68 40 L84 70 Z" fill="none" stroke="#d98a3d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg>
-          <h3>Benoit Plante</h3>
-          <div class="role">Créateur de communautés · Québec</div>
-          <ul>
-            <li><b>Conçoit</b>&nbsp;: l'idée, l'expérience et la raison d'être de chaque communauté</li>
-            <li><b>Développe</b>&nbsp;: les plateformes et les outils, de A à Z</li>
-            <li><b>Anime</b>&nbsp;: fait grandir la communauté au quotidien</li>
-            <li><b>Pratique</b>&nbsp;: course en sentier et bikepacking, sur le terrain</li>
-          </ul>
+      <div class="services-intro reveal">
+        <div>
+          <span class="section-tag">Services</span>
+          <h2 class="section-h2">Quatre façons de travailler ensemble</h2>
         </div>
-
-        <div class="apropos-body reveal" style="transition-delay:.12s;">
-          <span class="eyebrow">À propos</span>
-          <h2>Un pratiquant qui bâtit les outils qui lui manquaient.</h2>
-          <p>Je cours en sentier et je pars en bikepacking. En cherchant à organiser mes propres aventures, j'ai constaté la même chose à chaque fois : <strong>les passionnés sont là, mais dispersés</strong>, et les outils pour les réunir n'existent pas, ou ne sont pas pensés pour les réalités d'ici.</p>
-          <p>Alors je les construis. Je conçois, je développe et j'anime des communautés indépendantes pour les sports d'endurance hors route. Du concept au code jusqu'à l'animation, je porte chaque projet bout en bout, avec une obsession : <strong>servir les gens avant de les monétiser</strong>.</p>
-          <p>L'objectif n'est pas de faire grossir un chiffre. C'est de faire en sorte que plus de gens partent rouler et courir, mieux préparés et mieux accompagnés.</p>
+        <div>
+          <p>Du design d'étude à l'analyse de données, de l'accompagnement ponctuel au mandat de coordination scientifique, j'interviens à la profondeur dont votre projet a besoin.</p>
         </div>
+      </div>
 
+      <div class="services-grid">
+        <div class="service-card reveal" style="transition-delay: 0.05s;">
+          <div class="service-num">01</div>
+          <div class="service-name">Design d'études et protocoles</div>
+          <div class="service-tag">Conception</div>
+          <p class="service-desc">Formulation de la question de recherche, choix du devis, stratégie d'échantillonnage, sélection ou conception d'instruments, plan d'analyse, demandes au comité d'éthique.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay: 0.1s;">
+          <div class="service-num">02</div>
+          <div class="service-name">Analyse de données</div>
+          <div class="service-tag">Quali, quanti, mixte</div>
+          <p class="service-desc">Analyse thématique, analyse de contenu, statistiques descriptives et inférentielles (R), devis mixtes. Interprétation et présentation des résultats.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay: 0.15s;">
+          <div class="service-num">03</div>
+          <div class="service-name">Accompagnement scientifique</div>
+          <div class="service-tag">Coordination</div>
+          <p class="service-desc">Appui méthodologique continu à une équipe, coordination scientifique de projets, soutien à la rédaction d'articles, de rapports de recherche et de demandes de financement.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay: 0.2s;">
+          <div class="service-num">04</div>
+          <div class="service-name">Formation méthodologique</div>
+          <div class="service-tag">Transfert</div>
+          <p class="service-desc">Ateliers sur mesure pour chercheurs, étudiants aux cycles supérieurs et personnel de soutien à la recherche. Contenu adapté à votre domaine et à votre niveau.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
+        <a href="services/" class="btn-ghost">Voir les services en détail →</a>
       </div>
     </div>
   </section>
 
-  <!-- TRAVAILLER + CONTACT -->
-  <section class="travailler" id="contact">
+  <!-- AUDIENCES -->
+  <section style="background: var(--gris-50); border-top: 1px solid var(--gris-200);">
     <div class="inner">
-      <div class="shead reveal">
-        <span class="eyebrow">Travailler ensemble</span>
-        <h2>Vous bâtissez une communauté&nbsp;? Parlons-en.</h2>
-        <p>Club, événement, OBNL sportif, fédération ou plateforme : si vous voulez rassembler et faire durer une communauté autour du sport, je peux aider.</p>
+      <div class="reveal" style="text-align: center; max-width: 720px; margin: 0 auto 3rem;">
+        <span class="section-tag" style="margin-left: auto; margin-right: auto;">Avec qui je travaille</span>
+        <h2 class="section-h2">Une méthodologie au service de différents milieux.</h2>
+        <p class="section-lead" style="margin: 0 auto;">La rigueur méthodologique est utile partout où l'on produit ou utilise des données pour décider, comprendre, ou rendre des comptes.</p>
       </div>
-
-      <div class="work-grid">
-        <div class="work reveal">
-          <h3>Conférences &amp; partages</h3>
-          <p>Retours d'expérience sur la création de communautés sportives indépendantes, le bénévolat numérique et l'aventure en autonomie.</p>
+      <div class="audiences-grid reveal" style="transition-delay: 0.1s;">
+        <div class="audience-item">
+          <div class="audience-label">Chercheurs et étudiants aux cycles supérieurs</div>
+          <div class="audience-desc">Accompagnement à la conception de thèse, à l'analyse de données ou à la rédaction d'articles.</div>
         </div>
-        <div class="work reveal" style="transition-delay:.1s;">
-          <h3>Accompagnement de projets</h3>
-          <p>Aide à concevoir, structurer et lancer une communauté ou une plateforme : positionnement, outils, animation.</p>
+        <div class="audience-item">
+          <div class="audience-label">Équipes et centres de recherche</div>
+          <div class="audience-desc">Appui méthodologique sur des projets en cours, coordination scientifique, soutien aux demandes de subvention.</div>
         </div>
-        <div class="work reveal" style="transition-delay:.2s;">
-          <h3>Partenariats</h3>
-          <p>Collaborations avec clubs, événements et organismes qui partagent l'esprit hors route et l'autonomie.</p>
+        <div class="audience-item">
+          <div class="audience-label">Organismes publics et ministères</div>
+          <div class="audience-desc">Évaluation de programmes, recherches appliquées, données probantes pour l'élaboration des politiques publiques.</div>
+        </div>
+        <div class="audience-item">
+          <div class="audience-label">OBNL, fondations et consultants privés</div>
+          <div class="audience-desc">Recherche évaluative, mesure d'impact, conception d'études adaptées à des contextes appliqués.</div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="contact-wrap reveal">
-        <div class="contact-intro">
-          <h3>Me joindre</h3>
-          <p>Une idée, un projet, une invitation&nbsp;? Écrivez-moi via le formulaire, je réponds généralement sous quelques jours.</p>
-          <div class="contact-links">
-            <a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              <span>LinkedIn · benoitplante</span>
-            </a>
-            <a href="https://www.sansdossard.com" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
-              <span>Sans Dossard · course en sentier</span>
-            </a>
-            <a href="https://bikepacking-quebec.netlify.app" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm14 0a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM9 14l3-7h3l2 7"/></svg>
-              <span>Bivouac · bikepacking québécois</span>
-            </a>
-          </div>
-        </div>
-
-        <form id="contact-form" method="POST" action="https://api.web3forms.com/submit">
-          <input type="hidden" name="access_key" value="611b3f1a-6503-483a-918d-75c53d391b8a" />
-          <input type="hidden" name="subject" value="Nouveau message via benoitplante.com" />
-          <input type="hidden" name="from_name" value="benoitplante.com · Créateur de communautés" />
-          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
-          <div class="row">
-            <div class="fg">
-              <label for="prenom">Prénom</label>
-              <input type="text" id="prenom" name="prenom" autocomplete="given-name" />
-            </div>
-            <div class="fg">
-              <label for="email">Courriel *</label>
-              <input type="email" id="email" name="email" required autocomplete="email" />
-            </div>
-          </div>
-          <div class="fg">
-            <label for="sujet">Votre projet en un mot</label>
-            <input type="text" id="sujet" name="sujet" placeholder="Conférence, partenariat, accompagnement…" />
-          </div>
-          <div class="fg">
-            <label for="message">Message *</label>
-            <textarea id="message" name="message" required placeholder="Parlez-moi de votre communauté ou de votre idée."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Envoyer le message</button>
-          <p class="form-note">Aucune liste d'envoi, aucun partage de vos données.</p>
-          <div class="form-status" id="form-status" role="status"></div>
-        </form>
+  <!-- CONTACT TEASER -->
+  <section id="contact-teaser" style="background: var(--bleu-pale);">
+    <div class="inner" style="text-align: center;">
+      <div class="reveal">
+        <span class="section-tag" style="margin-left: auto; margin-right: auto;">Travaillons ensemble</span>
+        <h2 class="section-h2">Un projet de recherche en tête ?</h2>
+        <p class="section-lead" style="margin: 0 auto 2rem;">Qu'il s'agisse d'un mandat précis, d'un accompagnement continu ou simplement d'un appel exploratoire pour valider une approche, je suis disponible pour en discuter.</p>
+        <a href="contact/" class="btn-primary">Me contacter →</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="inner">
-      <div class="f-logo">Benoit Plante</div>
-      <div class="f-links">
-        <a href="#communautes">Communautés</a>
-        <a href="#approche">Approche</a>
-        <a href="#a-propos">À propos</a>
-        <a href="https://www.sansdossard.com" target="_blank" rel="noopener">Sans Dossard ↗</a>
-        <a href="https://bikepacking-quebec.netlify.app" target="_blank" rel="noopener">Bivouac ↗</a>
+    <div class="footer-grid footer-grid-simple">
+      <div class="footer-brand">
+        <div class="footer-logo">Benoit Plante</div>
+        <p>Consultant en méthodologie de recherche. Design d'études, analyse de données et accompagnement d'équipes — pour des projets rigoureux et menés à terme.</p>
       </div>
-      <small>© <span id="year"></span> Benoit Plante · Créateur de communautés pour les sports d'endurance hors route. Indépendant, sans publicité. 🇨🇦</small>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="services/">Services</a></li>
+          <li><a href="a-propos/">À propos</a></li>
+          <li><a href="contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liens</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/benoitplante/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://orcid.org/0009-0003-5449-427X" target="_blank" rel="noopener">ORCID ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Benoit Plante. Tous droits réservés.</p>
+      <span class="footer-mark">Méthodologie de recherche</span>
     </div>
   </footer>
 
-  <script>
-    // Menu mobile
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        const open = navLinks.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', open);
-      });
-      navLinks.querySelectorAll('a').forEach(a =>
-        a.addEventListener('click', () => {
-          navLinks.classList.remove('open');
-          navToggle.setAttribute('aria-expanded', 'false');
-        })
-      );
+  <script src="script.js"></script>
+
+  <style>
+    .apropos-grid {
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .apropos-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+    }
+    .apropos-card {
+      padding: 1.6rem 1.8rem;
+      border-bottom: 1px solid var(--gris-200);
+      transition: background 0.2s;
+      position: relative;
+    }
+    .apropos-card:last-child { border-bottom: none; }
+    .apropos-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .apropos-card:hover { background: var(--accent-s); }
+    .apropos-card:hover::before { opacity: 1; }
+    .apropos-card-num {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .apropos-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--bleu);
+      margin-bottom: 0.4rem;
+    }
+    .apropos-card p { font-size: 0.87rem; color: var(--gris-500); line-height: 1.7; }
+
+    .services-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 3.5rem;
+    }
+    .services-intro p { font-size: 0.95rem; color: var(--gris-500); line-height: 1.8; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 2rem 1.8rem;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s, background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--or));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      border-color: rgba(37, 99, 235, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(30, 58, 95, 0.08);
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: rgba(30, 58, 95, 0.1);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--bleu);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.2rem;
+    }
+    .service-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .service-desc { font-size: 0.88rem; color: var(--gris-500); line-height: 1.75; }
+
+    .audiences-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+    .audience-item {
+      background: white;
+      border: 1px solid var(--gris-200);
+      border-radius: 12px;
+      padding: 1.6rem 1.8rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .audience-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(37, 99, 235, 0.2);
+    }
+    .audience-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--bleu);
+      margin-bottom: 0.5rem;
+    }
+    .audience-desc {
+      font-size: 0.9rem;
+      color: var(--gris-500);
+      line-height: 1.7;
     }
 
-    // Reveal au scroll
-    const reveals = document.querySelectorAll('.reveal');
-    if (reveals.length && 'IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.12 });
-      reveals.forEach(r => io.observe(r));
-    } else {
-      reveals.forEach(r => r.classList.add('visible'));
+    .footer-grid-simple {
+      grid-template-columns: 2fr 1fr 1fr;
     }
 
-    // Année
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Soumission du formulaire (web3forms, AJAX)
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        status.className = 'form-status';
-        const btn = form.querySelector('button[type="submit"]');
-        const original = btn.textContent;
-        btn.textContent = 'Envoi…'; btn.disabled = true;
-        try {
-          const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-          if (res.ok) {
-            form.reset();
-            status.className = 'form-status ok';
-            status.textContent = 'Merci ! Votre message est parti. Je vous reviens bientôt.';
-          } else {
-            status.className = 'form-status err';
-            status.textContent = 'Oups, l’envoi a échoué. Écrivez-moi plutôt via LinkedIn.';
-          }
-        } catch (err) {
-          status.className = 'form-status err';
-          status.textContent = 'Oups, l’envoi a échoué. Écrivez-moi plutôt via LinkedIn.';
-        } finally {
-          btn.textContent = original; btn.disabled = false;
-        }
-      });
+    @media (max-width: 960px) {
+      .apropos-grid, .services-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid, .audiences-grid { grid-template-columns: 1fr; }
+      .footer-grid-simple { grid-template-columns: 1fr; }
     }
-  </script>
-
+  </style>
 </body>
 </html>
